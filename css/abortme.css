@@ -1,0 +1,37 @@
+body{padding-top: 80px;padding-bottom:20px; }
+
+.navbar{
+	background-color:rgba(0,102,255,0.9); 
+	color: black;
+}
+.abort_title{
+	color:#0066FF;
+	font-weight: bold;
+	border-bottom: 1px solid #0066FF;
+}
+#myphoto{
+	width:60%;
+	border-radius: 6px;
+}
+.abortmefoot{
+	text-align: center;
+	color: gray;
+}
+.navbar-inverse .navbar-brand{
+	color: black;
+}
+.carousel-inner .item{
+	
+}
+.carousel-inner .item .slideimg{
+	/*width: 600px;
+	margin: 0 auto;*/
+}
+
+@media screen and(max-width: 768px) { 
+	#myphoto{
+		width:90%;
+		border-radius: 6px;
+	}
+}
+
