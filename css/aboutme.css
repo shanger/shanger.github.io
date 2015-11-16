@@ -28,7 +28,7 @@ body{padding-top: 80px;padding-bottom:20px; }
 	margin: 0 auto;*/
 }
 
-@media screen and(max-width: 768px) { 
+@media screen and (max-width: 768px) { 
 	#myphoto{
 		width:90%;
 		border-radius: 6px;
