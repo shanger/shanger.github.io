@@ -7,10 +7,13 @@ body{padding-top: 80px;padding-bottom:20px; }
 .navbar-inverse{
 	border-color:white; 
 }
-
+p{
+	text-indent:2em;
+}
 .about_title{
 	color:#0066FF;
 	font-weight: bold;
+
 	border-bottom: 1px solid #0066FF;
 }
 #myphoto{
