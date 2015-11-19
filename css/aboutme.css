@@ -27,12 +27,10 @@ p{
 .navbar-inverse .navbar-brand{
 	color: black;
 }
-.carousel-inner .item{
-	
-}
-.carousel-inner .item .slideimg{
-	/*width: 600px;
-	margin: 0 auto;*/
+
+#answer{
+	color: rgba(75,104,148,0.9);
+	font-weight: bold;
 }
 
 @media screen and (max-width: 768px) { 
