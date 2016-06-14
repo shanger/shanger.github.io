@@ -1,0 +1,34 @@
+#st-panel-1 .inner{
+	width: 60%;overflow: hidden;
+	margin: 150px auto;
+}
+#st-panel-1 .inner >div{
+	display: inline-block;vertical-align: top;	
+}
+#st-panel-1 div.Ileft{
+	width: 200px;
+	height: 200px;
+	margin-left: 5%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+#st-panel-1 div.Ileft img{
+	width: 100%;height: 200px;
+}
+#st-panel-1 div.Iright{
+	width: 50%;margin-left: 15%;
+}
+#st-panel-1 div.Iright > ul li{
+	height: 30px;line-height: 30px;color: white;
+}
+#st-panel-1 div.Iright > ul li >span a{
+	color: white;
+}
+
+/*技能*/
+#st-panel-2 .inner{
+	width: 100%;
+}
+#st-panel-2 .inner ul li{
+	
+}

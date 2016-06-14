@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<title>单国力个人简介</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+	</head>
+	<body>
+		<div class="container" id = 'container'>
+			<div class="st-container">
+				<!--nav begin-->
+				<input type="radio" name="radio-set" checked="checked" id="st-control-1">
+				<a href="#st-panel-1">简介</a>
+				<input type="radio" name="radio-set"  id="st-control-2">
+				<a href="#st-panel-2">技能</a>
+				<input type="radio" name="radio-set"  id="st-control-3">
+				<a href="#st-panel-3">期望</a>
+				<input type="radio" name="radio-set"  id="st-control-4">
+				<a href="#st-panel-4">联系方式</a>
+				<input type="radio" name="radio-set"  id="st-control-5">
+				<a href="#st-panel-5">more</a>
+				<!--nav end content begin-->
+				<div class="st-scroll">
+					<section class="st-panel" id="st-panel-1">
+						<div class="st-desc">
+							<h2>简介</h2>
+						</div>
+						<div class="inner">
+							<div class="Ileft">
+								<img src="img/shanerH.jpg"/>
+							</div><div class='Iright'>
+								<ul>
+									<li v-for="item in abortme">
+										<span>{{item.key}}</span>
+										<span>
+											{{{item.value}}}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section class="st-panel st-color" id="st-panel-2">
+						<div class="st-desc" ><h2>技能</h2></div>
+						<div class="inner">
+							<ul>
+								<li v-for='item in skill'>
+									<canvas height="" width=""></canvas>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section class="st-panel" id="st-panel-3">
+						<div class="st-desc" ><h2>期望</h2></div>
+					</section>
+					<section class="st-panel st-color" id="st-panel-4">
+						<div class="st-desc" ><h2>联系方式</h2></div>
+					</section>
+					<section class="st-panel" id="st-panel-5">
+						<div class="st-desc" ><h2>more</h2></div>
+					</section>
+				</div>
+			</div>
+		</div>
+		<script src='bower_components/requirejs/require.js' data-main='js/new_index.js'></script>
+	</body>
+</html>
