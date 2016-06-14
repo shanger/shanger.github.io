@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>单国力</title>   
         <!-- Bootstrap -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!--你自己的样式文件 -->
         <link rel="stylesheet" type="text/css" href="css/aboutme.css">       
         <link rel="shortcut  icon" type="image/x-icon" href="favicon.ico" media="screen"/>
     </head>
-    <body>
+    <body id='body'>
       <nav class="navbar  navbar-inverse navbar-fixed-top" role="navigation" >
           <div class="container">
             <div class="navbar-header">
@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>-->
-              <a class="navbar-brand" href="#">单国力--shanger</a>                         
+              <a class="navbar-brand" href="#">{{title}}</a>                         
             </div>
           </div><!-- /.container-fluid -->
         </nav>
@@ -108,9 +108,6 @@
             <p class="aboutmefoot">单国力的求职简历</p>
           </footer>
         </div>
-
-
-
         <div class="modal fade" id="Caidan" tabindex="-1" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -141,11 +138,12 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        <script src="bootstrap/js/jquery-2.0.3.js"></script>
+        <script src='bower_components/requirejs/require.js' data-main='js/index.js'></script>
+        <!--<script src="bootstrap/js/jquery-2.0.3.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>-->
         <script type="text/javascript">
-          $(function(){
+          /*$(function(){
             $("#carousel").swipe(
                 {
                     swipe:function(event, direction, distance, duration, fingerCount) {
@@ -192,6 +190,6 @@
               }            
             })
           });
-        </script>
+*/        </script>
     </body>
 </html>
