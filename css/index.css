@@ -27,8 +27,34 @@
 
 /*技能*/
 #st-panel-2 .inner{
-	width: 100%;
+	width: 100%;margin-top: 200px;
+	height: 230px;z-index: 50000;
+}
+#st-panel-2 .inner ul{
+	padding: 0;height: 230px;
 }
 #st-panel-2 .inner ul li{
-	
+	width: 25%;min-width: 200px;
+	height: 230px;display: inline-block;
+	text-align: center;
+}
+#st-panel-2 .inner ul li canvas{
+	margin: 0 auto;
+}
+#st-panel-2 .inner ul li p{
+	text-align: center;font-size: 16px;
+	color: #f60;
+	height: 30px;line-height: 30px; 
+	margin:0;padding: 0;
+}
+
+@media screen and (max-width: 800px){
+	#st-panel-2 .inner ul li{
+		width: 50%;
+		margin-top: 10px;
+	}
+	#st-panel-2 .inner{
+		margin-top: 150px;
+	}
+
 }

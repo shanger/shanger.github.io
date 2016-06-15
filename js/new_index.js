@@ -19,13 +19,42 @@ requirejs(['vue'],function(Vue){
     		],
     		skill:[
     			{name:'html',degree:'80'},
-    			{name:'js/jq',degree:'60'},
-    			{name:'css',degree:'80'},
-    			{name:'vue',degree:'40'},
+    			/*{name:'js/jq',degree:'60'},
+    			{name:'html',degree:'80'},
+    			{name:'html',degree:'40'},*/
     		],
+            canvasWidth:''
     	},
     	created:function(){
     		this.abortme[1].value = this.date.getFullYear()-1995;//计算年龄
-    	}
+            this.draw(.7,'canvas1');
+            this.draw(.85,'canvas2');
+            this.draw(.88,'canvas3');
+            this.draw(.55,'canvas4');
+    	},
+        methods:{
+            draw:function(deg,id){
+                var canvas = document.getElementById(id);
+                console.log(document.getElementById(id))
+                var context = canvas.getContext("2d");
+                context.clearRect(0, 0, 200, 200); 
+                context.beginPath();  
+                context.moveTo(100, 100);  
+                context.arc(100, 100, 100, 0, Math.PI * 2, true);  
+                context.closePath();  
+                context.fillStyle = '#f60';  
+                context.fill();
+                context.beginPath();  
+                context.moveTo(100, 100);  
+                context.arc(100, 100, 100, 0, Math.PI * 2*deg, true);  
+                context.closePath();  
+                context.fillStyle = '#d1df71';  
+                context.fill();
+            },
+            resize:function(){
+                //this.canvasWidth = 
+            }
+
+        }
     });
 })
