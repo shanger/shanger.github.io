@@ -5,7 +5,7 @@ require.config({
 });
 requirejs(['vue'],function(Vue){
 	new Vue({
-    	el:'#container',
+    	el:'#body',
     	data:{
     		date:new Date(),
     		abortme:[
@@ -18,41 +18,56 @@ requirejs(['vue'],function(Vue){
     			{key:'',value:'2016.03-- 上海游达网络科技'},
     		],
     		skill:[
-    			{name:'html',degree:'80'},
-    			/*{name:'js/jq',degree:'60'},
-    			{name:'html',degree:'80'},
-    			{name:'html',degree:'40'},*/
+    			{name:'html',degree:'.7',id:'canvas1',height:'200px',text:'js/jq'},
+    			{name:'js/jq',degree:'.85',id:'canvas2',height:'200px',text:'html'},
+    			{name:'html',degree:'.88',id:'canvas3',height:'200px',text:'css'},
+    			{name:'html',degree:'.55',id:'canvas4',height:'200px',text:'vue'},
     		],
-            canvasWidth:''
+            img:{
+                zhaojiling:'img/zhaojiling.png'
+            }
     	},
     	created:function(){
-    		this.abortme[1].value = this.date.getFullYear()-1995;//计算年龄
-            this.draw(.7,'canvas1');
-            this.draw(.85,'canvas2');
-            this.draw(.88,'canvas3');
-            this.draw(.55,'canvas4');
+            var This = this;
+            this.abortme[1].value = this.date.getFullYear()-1995;//计算年龄
+            if(document.documentElement.clientWidth <= 640){
+                this.resize();
+            }else{
+                var width = 200,R = 100,X = 100;            
+                this.skill.forEach(function(ele,index){
+                    This.draw(ele.degree,ele.id,width,R,X);
+                });
+            }           
     	},
         methods:{
-            draw:function(deg,id){
+            draw:function(deg,id,width,R,X){
                 var canvas = document.getElementById(id);
-                console.log(document.getElementById(id))
                 var context = canvas.getContext("2d");
-                context.clearRect(0, 0, 200, 200); 
+                context.clearRect(0, 0, width, width); 
                 context.beginPath();  
-                context.moveTo(100, 100);  
-                context.arc(100, 100, 100, 0, Math.PI * 2, true);  
+                context.moveTo(X, X);  
+                context.arc(X, X, R, 0, Math.PI * 2, true);  
                 context.closePath();  
-                context.fillStyle = '#f60';  
+                context.fillStyle = '#f60';
                 context.fill();
                 context.beginPath();  
-                context.moveTo(100, 100);  
-                context.arc(100, 100, 100, 0, Math.PI * 2*deg, true);  
+                context.moveTo(X, X);  
+                context.arc(X, X, R, 0, Math.PI * 2*deg, true);  
                 context.closePath();  
                 context.fillStyle = '#d1df71';  
                 context.fill();
             },
             resize:function(){
-                //this.canvasWidth = 
+                console.log('gg');
+                var This = this;
+                var canvas = document.getElementsByTagName('canvas');
+                for(var i = 0,len = canvas.length;i < len;i++){
+                    canvas[i].width = 100;
+                    canvas[i].height = 100;
+                }
+                this.skill.forEach(function(ele,index){
+                    This.draw(ele.degree,ele.id,100,50,50);
+                });
             }
 
         }

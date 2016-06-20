@@ -9,8 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		
 	</head>
-	<body>
-		<div class="container" id = 'container' v-on:resize='resize()'>
+	<body id='body' v-on:resize='resize()'>
+		<div class="container" id = 'container'>
 			<div class="st-container">
 				<!--nav begin-->
 				<input type="radio" name="radio-set" checked="checked" id="st-control-1">
@@ -64,20 +64,29 @@
 					</section>
 					<section class="st-panel" id="st-panel-3">
 						<div class="st-desc" ><h2>期望</h2></div>
-						<div>
-							<!--<img src="img/huangjng.jpg"/>-->
-
-						</div>
 						<ul>
-							<li>希望公司氛围好，毕竟</li>
+							<li>希望公司氛围好。和同事们一起工作生活和谐的办公环境一方面提高凝聚力也能提高工作效率。</li>
+							<li>注重员工的成长。让每个员工在工作中成长对公司和员工个人都是件有意义有价值的事。</li>
+							<li>加班。给个有说服力的理由就好。</li>
 						</ul>
 
 					</section>
 					<section class="st-panel st-color" id="st-panel-4">
 						<div class="st-desc" ><h2>联系方式</h2></div>
+						<ul>
+							<li>邮箱：2569202365@qq.com</li>
+							<li>电话：15800389618</li>
+							<li>QQ：2569202365</li>
+						</ul>
 					</section>
 					<section class="st-panel" id="st-panel-5">
 						<div class="st-desc" ><h2>more</h2></div>
+						<ul>
+							<li><a href="http://qmop.app.95dao.com/pc/" target='_blank'>全民偶拍</a></li>
+							<li><a href="javascript:void(0)" target='_blank'>炎裔教育</a></li>
+							<li><a href="http://www.youda.online/recruit/index.html" v-on:click.stop='showImg()'>地推活动召集令</a></li>
+						</ul>
+						<div id='img'><img v-bind:src=""></div>
 					</section>
 				</div>
 			</div>

@@ -1,3 +1,6 @@
+.st-panel{
+	overflow: hidden;
+}
 #st-panel-1 .inner{
 	width: 60%;overflow: hidden;
 	margin: 150px auto;
@@ -31,10 +34,11 @@
 	height: 230px;z-index: 50000;
 }
 #st-panel-2 .inner ul{
-	padding: 0;height: 230px;
+	padding: 0;margin: 0;
+	overflow: hidden;
 }
 #st-panel-2 .inner ul li{
-	width: 25%;min-width: 200px;
+	width: 25%;
 	height: 230px;display: inline-block;
 	text-align: center;
 }
@@ -42,10 +46,29 @@
 	margin: 0 auto;
 }
 #st-panel-2 .inner ul li p{
-	text-align: center;font-size: 16px;
-	color: #f60;
+	text-align: center;font-size: 24px;
+	color: #f60;width: 100%;
 	height: 30px;line-height: 30px; 
 	margin:0;padding: 0;
+}
+#st-panel-3 > ul,#st-panel-4 > ul,#st-panel-5 > ul{
+	margin-top: 200px;color: white;
+	padding: 0;
+}
+#st-panel-3 > ul > li,#st-panel-4 > ul > li,#st-panel-5 > ul > li{
+	width: 50%;margin: 0 auto;
+	line-height: 3;
+}
+#st-panel-4 > ul > li{color: black;}
+#st-panel-5 > ul > li > a{color: white;font-size: 16px;}
+#st-panel-5{
+	position: relative;
+}
+#st-panel-5 #img{
+	box-sizing: border-box;
+	width: 300px;height: 300px;padding: 20px;
+	position: absolute;top: 200px;
+	left: 50%;margin-left: -150px;
 }
 
 @media screen and (max-width: 800px){
@@ -57,4 +80,47 @@
 		margin-top: 150px;
 	}
 
+}
+@media screen and (max-width: 640px){
+	#st-panel-1 .inner{
+		margin-top: 200px !important;
+	}
+	#st-panel-2 .inner ul li{
+		display: inline-block;width: 50%;height: 130px;
+		margin: 0;
+	}
+	#st-panel-2 .inner{
+		margin-top: 200px;
+	}
+	#st-panel-2 .inner ul li p{
+		height: 20px;line-height: 20px;
+		text-align: center;font-size: 16px;
+	}
+	#st-panel-3 ul{
+		margin-top: 200px;overflow: hidden;
+	}
+	#st-panel-3 ul > li{
+		font-size: 14px;line-height: 20px;
+		width: 70%;
+		margin-top: 10px;
+	}
+}
+@media screen and (max-width: 320px){
+	#st-panel-1 .inner{
+		margin-top: 100px !important;
+	}
+	#st-panel-2 .inner ul li{
+		display: inline-block;width: 50%;height: 130px;
+		margin: 0;
+	}
+	#st-panel-2 .inner{
+		margin-top: 150px;
+	}
+	#st-panel-2 .inner ul li p{
+		height: 20px;line-height: 20px;
+		text-align: center;font-size: 16px;
+	}
+	#st-panel-3 > ul,#st-panel-4 > ul,#st-panel-5 > ul{
+		margin-top: 100px;
+	}
 }
