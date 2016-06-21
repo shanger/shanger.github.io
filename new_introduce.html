@@ -75,9 +75,6 @@
 						<div class="st-desc" ><h2>联系方式</h2></div>
 						<ul>
 							<li v-on:click.stop='copy()' v-for='item in contact'><label>{{{item.way}}}：</label><label>{{item.data}}</label></li>
-							<!--<li v-on:click.stop='copy()'>邮箱：<label>2569202365@qq.com</label></li>
-							<li>电话：<label>15800389618</label></li>
-							<li>QQ：<label>2569202365</label></li>-->
 						</ul>
 					</section>
 					<section class="st-panel" id="st-panel-5">
@@ -96,6 +93,10 @@
 				</div>
 			</div>
 		</div>
+		<input type="button" value='music' id='control' v-bind:class='{play:music.play}' v-on:click='control()'/>
+		<audio controls="controls" v-bind:src="music.src" v-on:canplay="play()">
+			<source v-bind:src="music.src" type="audio/mp3">
+		</audio>
 		<script src='bower_components/requirejs/require.js' data-main='js/new_index.js'></script>
 	</body>
 </html>

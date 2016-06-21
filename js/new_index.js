@@ -32,6 +32,11 @@ requirejs(['vue'],function(Vue){
                 imgSrc:'',
                 zhaojiling:'img/zhaojiling.png'
             },
+            audio:document.querySelector('audio'),
+            music:{
+                src:'audio/Roar.mp3',
+                play:false
+            },
             imgShow:false,
     	},
     	created:function(){
@@ -44,9 +49,11 @@ requirejs(['vue'],function(Vue){
                 this.skill.forEach(function(ele,index){
                     This.draw(ele.degree,ele.id,width,R,X);
                 });
-            }           
+            }
+            /*音频加载完成显示小图标*/         
     	},
         methods:{
+            //画图
             draw:function(deg,id,width,R,X){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -58,6 +65,7 @@ requirejs(['vue'],function(Vue){
                 context.fillStyle = '#f60';
                 context.fill();
             },
+            //窗口宽度改变时重绘
             resize:function(){
                 var This = this;
                 var canvas = document.getElementsByTagName('canvas');
@@ -69,6 +77,7 @@ requirejs(['vue'],function(Vue){
                     This.draw(ele.degree,ele.id,100,50,50);
                 });
             },
+            //二维码展示
             showImg:function(index){
                 console.log(index);
                 this.imgShow = true;
@@ -78,6 +87,20 @@ requirejs(['vue'],function(Vue){
             },
             closeImg:function(){
                 this.imgShow = false;
+            },
+            //播放音乐
+            play:function(){
+                this.music.play = true;
+                this.audio.play();
+            },
+            control:function(){
+                if(this.music.play){
+                    this.music.play = false;
+                    this.audio.pause();
+                }else{
+                    this.music.play = true;
+                    this.audio.play();
+                }
             }
 
         }
