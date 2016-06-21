@@ -62,7 +62,11 @@ a,a:link,a:visited,a:hover,a:active{
 	width: 50%;margin: 200px auto 0;
 	line-height: 3;
 }
-#st-panel-3 > ul > li,#st-panel-4 > ul > li,#st-panel-5 > ul > li{
+#st-panel-4 > ul > li{
+	width: 40%;margin: 0 auto;
+	line-height: 3;
+}
+#st-panel-3 > ul > li,#st-panel-5 > ul > li{
 	width: 50%;margin: 0 auto;
 	line-height: 3;
 }
@@ -233,10 +237,23 @@ body > audio{
 		width: 70%;
 		margin-top: 10px;
 	}
+	#st-panel-4 > ul > li{
+		width: 60%;margin: 0 auto;
+		line-height: 3;
+	}
 
 	#control{
 		top: 50px;right: 50px;
 		width: 25px;height: 25px;
+	}
+}
+@media only screen and (min-width: 340px) and (max-height: 560px){
+	#st-panel-1 .inner,#st-panel-2 .inner,#st-panel-3 .inner,#st-panel-4 .inner,#st-panel-5 h5{
+		margin-top: 150px !important;
+	}
+	#st-panel-4 > ul > li{
+		width: 70%;margin: 0 auto;
+		line-height: 3;
 	}
 }
 @media screen and (max-width: 320px){
@@ -256,5 +273,9 @@ body > audio{
 	}
 	#st-panel-3 > ul,#st-panel-4 > ul,#st-panel-5 > h5{
 		margin-top: 100px;
+	}
+	#st-panel-4 > ul > li{
+		width: 70%;margin: 0 auto;
+		line-height: 3;
 	}
 }

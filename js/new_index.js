@@ -79,9 +79,9 @@ requirejs(['vue'],function(Vue){
                 });
             },
             //二维码展示
-            showImg:function(index){
+            showImg:function(text){
                 this.imgShow = true;
-                if(index == '1'){
+                if(text == 'zhaojiling'){
                     this.img.imgSrc = this.img.zhaojiling;
                 }
             },
