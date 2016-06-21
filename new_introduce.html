@@ -74,9 +74,10 @@
 					<section class="st-panel st-color" id="st-panel-4">
 						<div class="st-desc" ><h2>联系方式</h2></div>
 						<ul>
-							<li>邮箱：2569202365@qq.com</li>
-							<li>电话：15800389618</li>
-							<li>QQ：2569202365</li>
+							<li v-on:click.stop='copy()' v-for='item in contact'><label>{{{item.way}}}：</label><label>{{item.data}}</label></li>
+							<!--<li v-on:click.stop='copy()'>邮箱：<label>2569202365@qq.com</label></li>
+							<li>电话：<label>15800389618</label></li>
+							<li>QQ：<label>2569202365</label></li>-->
 						</ul>
 					</section>
 					<section class="st-panel" id="st-panel-5">

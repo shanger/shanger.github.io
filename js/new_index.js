@@ -23,6 +23,11 @@ requirejs(['vue'],function(Vue){
     			{name:'html',degree:'.88',id:'canvas3',height:'200px',text:'css'},
     			{name:'html',degree:'.55',id:'canvas4',height:'200px',text:'vue'},
     		],
+            contact:[
+                {way:'邮箱',data:'2569202365@qq.com'},
+                {way:'电话',data:'15800389618'},
+                {way:'QQ',data:'2569202365'},
+            ],
             img:{
                 imgSrc:'',
                 zhaojiling:'img/zhaojiling.png'
@@ -48,15 +53,9 @@ requirejs(['vue'],function(Vue){
                 context.clearRect(0, 0, width, width); 
                 context.beginPath();  
                 context.moveTo(X, X);  
-                context.arc(X, X, R, 0, Math.PI * 2, true);  
+                context.arc(X, X, R, 0, Math.PI * 2*deg, false);  
                 context.closePath();  
                 context.fillStyle = '#f60';
-                context.fill();
-                context.beginPath();  
-                context.moveTo(X, X);  
-                context.arc(X, X, R, 0, Math.PI * 2*deg, true);  
-                context.closePath();  
-                context.fillStyle = '#d1df71';  
                 context.fill();
             },
             resize:function(){
