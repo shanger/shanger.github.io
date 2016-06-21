@@ -1,3 +1,6 @@
+a,a:link,a:visited,a:hover,a:active{
+	outline: none;
+}
 .st-panel{
 	overflow: hidden;
 }

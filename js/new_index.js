@@ -80,7 +80,6 @@ requirejs(['vue'],function(Vue){
             },
             //二维码展示
             showImg:function(index){
-                console.log(index);
                 this.imgShow = true;
                 if(index == '1'){
                     this.img.imgSrc = this.img.zhaojiling;
