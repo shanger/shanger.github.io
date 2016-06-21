@@ -24,8 +24,10 @@ requirejs(['vue'],function(Vue){
     			{name:'html',degree:'.55',id:'canvas4',height:'200px',text:'vue'},
     		],
             img:{
+                imgSrc:'',
                 zhaojiling:'img/zhaojiling.png'
-            }
+            },
+            imgShow:false,
     	},
     	created:function(){
             var This = this;
@@ -58,7 +60,6 @@ requirejs(['vue'],function(Vue){
                 context.fill();
             },
             resize:function(){
-                console.log('gg');
                 var This = this;
                 var canvas = document.getElementsByTagName('canvas');
                 for(var i = 0,len = canvas.length;i < len;i++){
@@ -68,6 +69,16 @@ requirejs(['vue'],function(Vue){
                 this.skill.forEach(function(ele,index){
                     This.draw(ele.degree,ele.id,100,50,50);
                 });
+            },
+            showImg:function(index){
+                console.log(index);
+                this.imgShow = true;
+                if(index == '1'){
+                    this.img.imgSrc = this.img.zhaojiling;
+                }
+            },
+            closeImg:function(){
+                this.imgShow = false;
             }
 
         }
