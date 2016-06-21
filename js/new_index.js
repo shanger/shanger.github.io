@@ -37,6 +37,7 @@ requirejs(['vue'],function(Vue){
                 src:'audio/Roar.mp3',
                 play:false
             },
+            controlShow:false,
             imgShow:false,
     	},
     	created:function(){
@@ -91,6 +92,7 @@ requirejs(['vue'],function(Vue){
             //播放音乐
             play:function(){
                 this.music.play = true;
+                this.controlShow = true;
                 this.audio.play();
             },
             control:function(){

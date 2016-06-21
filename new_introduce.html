@@ -93,7 +93,7 @@
 				</div>
 			</div>
 		</div>
-		<input type="button" value='music' id='control' v-bind:class='{play:music.play}' v-on:click='control()'/>
+		<input type="button" value='music' id='control' v-bind:class='{play:music.play,show:controlShow}' v-on:click='control()'/>
 		<audio controls="controls" v-bind:src="music.src" v-on:canplay="play()">
 			<source v-bind:src="music.src" type="audio/mp3">
 		</audio>
