@@ -1,9 +1,10 @@
 require.config({
 	paths:{
 		vue:'../bower_components/vue/dist/vue.min',
+        ajax:'ajax'
 	},
 });
-requirejs(['vue'],function(Vue){
+requirejs(['vue','ajax'],function(Vue){
 	new Vue({
     	el:'#body',
     	data:{
