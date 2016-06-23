@@ -39,6 +39,10 @@ requirejs(['vue'],function(Vue){
             },
             controlShow:false,
             imgShow:false,
+            info:'这是个逗笔的机器人……',
+            answer:'',
+            answershow:false
+
     	},
     	created:function(){
             var This = this;
@@ -102,6 +106,26 @@ requirejs(['vue'],function(Vue){
                     this.music.play = true;
                     this.audio.play();
                 }
+            },
+            chat:function(){
+                var This = this;
+                ajax({
+                    method : 'post',
+                    url:'http://www.tuling123.com/openapi/api',
+                    data:{
+                        info : This.info,  
+                        key : '1f70b96b94f8f4a58b146fa750ba7249' 
+                    },
+                    success:function(data){
+                        var data = JSON.parse(data);
+                        data == null ? This.answer = '断电了……':This.answer = data.text;
+                        This.answershow = true;
+                        setTimeout(function(){
+                            This.answershow = false;
+                        },3000)                       
+                    },
+                    async : true
+                });
             }
 
         }
