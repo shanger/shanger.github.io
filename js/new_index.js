@@ -5,6 +5,12 @@ require.config({
 	},
 });
 requirejs(['vue','ajax'],function(Vue){
+    Vue.directive('getDom',{ 
+        isFn : true,
+        bind : function() { }, 
+        update : function(fn) { },
+        unbind : function() {},
+    });
 	new Vue({
     	el:'#body',
     	data:{
@@ -33,7 +39,7 @@ requirejs(['vue','ajax'],function(Vue){
                 imgSrc:'',
                 zhaojiling:'img/zhaojiling.png'
             },
-            audio:document.querySelector('audio'),
+            audio:'',//audio元素
             music:{
                 src:'audio/Roar.mp3',
                 play:false
@@ -42,7 +48,7 @@ requirejs(['vue','ajax'],function(Vue){
             imgShow:false,
             info:'这是个逗笔的机器人……',
             answer:'',
-            answershow:false
+            answershow:false,
 
     	},
     	created:function(){
@@ -56,9 +62,18 @@ requirejs(['vue','ajax'],function(Vue){
                     This.draw(ele.degree,ele.id,width,R,X);
                 });
             }
+            this.getAudio();
             /*音频加载完成显示小图标*/         
     	},
         methods:{
+            getAudio:function(){
+                var This = this;
+                this.$nextTick(function () {
+                    This.audio = This.$els.audio;
+                    console.log(This.audio);
+                })
+                
+            },
             //画图
             draw:function(deg,id,width,R,X){
                 var canvas = document.getElementById(id);
