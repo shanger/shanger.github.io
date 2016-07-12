@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>动画</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<style type="text/css">
+			div{
+				margin: 0;padding: 0;
+			}
+			.container{
+				position: relative;
+				width: 400px; height: 400px;margin:50px auto;
+			}
+			.inner{
+				position: absolute;
+				width: 150px;
+				height: 30px;
+				border-radius: 10px;
+				transform-origin:top left;
+				top: 200px;
+				left: 200px;
+			}
+			.child1{
+				transform: rotate(0deg);
+				background-color:red;
+			}
+			.child2{
+				transform: rotate(45deg);
+				background-color: orange;
+			}
+			.child3{
+				transform: rotate(90deg);
+				background-color: yellow;
+			}
+			.child4{
+				transform: rotate(135deg);
+				background-color: green;
+			}
+			.child5{
+				transform: rotate(180deg);
+				background-color: lime;
+			}
+			.child6{
+				transform: rotate(-135deg);
+				background-color: blue;
+			}
+			.child7{
+				transform: rotate(-90deg);
+				background-color: purple;
+			}
+			.child8{
+				transform: rotate(-45deg);
+				background-color: cyan;
+			}
+			.container{
+				-webkit-animation:turnRound 2s infinite linear;
+				-ms-animation:turnRound 2s infinite linear;
+				-o-animation:turnRound 2s infinite linear;
+				-moz-animation:turnRound 2s infinite linear;
+				animation:turnRound 2s infinite linear;
+			}
+			@-webkit-keyframes turnRound{
+				0%{
+					-webkit-transform:rotate(0deg);
+					-ms-transform:rotate(0deg);
+					-o-transform:rotate(0deg);
+					-moz-transform:rotate(0deg);
+					transform:rotate(0deg);
+				}
+				25%{
+					-webkit-transform:rotate(90deg);
+					-ms-transform:rotate(90deg);
+					-o-transform:rotate(90deg);
+					-moz-transform:rotate(90deg);
+					transform:rotate(90deg);
+				}
+				50%{
+					-webkit-transform:rotate(180deg);
+					-ms-transform:rotate(180deg);
+					-o-transform:rotate(180deg);
+					-moz-transform:rotate(180deg);
+					transform:rotate(180deg);
+				}
+				75%{
+					-webkit-transform:rotate(270deg);
+					-ms-transform:rotate(270deg);
+					-o-transform:rotate(270deg);
+					-moz-transform:rotate(270deg);
+					transform:rotate(270deg);
+				}
+				100%{
+					-webkit-transform:rotate(360deg);
+					-ms-transform:rotate(360deg);
+					-o-transform:rotate(360deg);
+					-moz-transform:rotate(360deg);
+					transform:rotate(360deg);
+				}
+			}
+			#iphone8s{
+				position: relative;
+				margin: 0 auto;
+				width: 400px;
+				height: 200px;
+			}
+			.iphone{
+				position: absolute;
+				top: 0;left: 0;
+				
+			}
+			#down{
+				line-height: 200px;text-align: center;
+				font-size: 16px;
+				width: 400px;height: 200px;
+				color: rgba(255,125,0,0.9);
+			}
+			#cover{
+				background: linear-gradient(to right,rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5));
+				width: 400px;height: 16px;
+				top:92px;
+				-webkit-animation:highlight 1s infinite linear;
+				-ms-animation:highlight 1s infinite linear;
+				-o-animation:highlight 1s infinite linear;
+				-moz-animation:highlight 1s infinite linear;
+				animation:highlight 1s infinite linear;
+				z-index: -1;
+			}
+			@-webkit-keyframes highlight{
+				0%{
+					background: linear-gradient( to right,rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0) );
+				}
+				50%{
+					background: linear-gradient( to right,rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0) );
+				}
+				100%{
+					background: linear-gradient( to right,rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0),rgba(255,215,0,0.5),rgba(0,0,0,0) );
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" draggable="true"><!--这个draggable 是我做拖放玩儿的，不过拖动起来还挺好看-->
+			<div class="inner child1"></div>
+			<div class="inner child2"></div>
+			<div class="inner child3"></div>
+			<div class="inner child4"></div>
+			<div class="inner child5"></div>
+			<div class="inner child6"></div>
+			<div class="inner child7"></div>
+			<div class="inner child8"></div>
+		</div>
+		<div id="iphone8s">
+			<div id="down" class="iphone">本消息来自iphone8s土豪金客户端</div>
+			<div id="cover" class="iphone"></div>
+		</div>
+	</body>
+</html>

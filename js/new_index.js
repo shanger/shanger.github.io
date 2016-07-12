@@ -5,13 +5,8 @@ require.config({
 	},
 });
 requirejs(['vue','ajax'],function(Vue){
-    Vue.directive('getDom',{ 
-        isFn : true,
-        bind : function() { }, 
-        update : function(fn) { },
-        unbind : function() {},
-    });
-	new Vue({
+
+	var body = new Vue({
     	el:'#body',
     	data:{
     		date:new Date(),
@@ -70,9 +65,7 @@ requirejs(['vue','ajax'],function(Vue){
                 var This = this;
                 this.$nextTick(function () {
                     This.audio = This.$els.audio;
-                    console.log(This.audio);
-                })
-                
+                })                
             },
             //画图
             draw:function(deg,id,width,R,X){
