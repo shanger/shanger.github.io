@@ -36,10 +36,12 @@
 		<ul id="Told"></ul>
 		<input type="button" name="start" value="开始演示">
 		<input type="button" name="reset" value="重置">
+		<input type="button" name="stop" value="停止">
 		<script type="text/javascript">
 			var Told = document.querySelector('#Told');
 			var start = document.querySelector('input:nth-of-type(1)');
 			var reset = document.querySelector('input:nth-of-type(2)');
+			var stop = document.querySelector('input:nth-of-type(3)');
 			var str = '';
 			for(var i = 0;i < 400;i++){
 				str += "<li></li>"
@@ -47,35 +49,50 @@
 			Told.innerHTML = str;
 			var li = document.querySelectorAll('#Told > li');
 			var len = li.length;
-			start.addEventListener('click',function(){
-				start.disabled = true;
-				reset.disabled = true;
-				var x = 0;
-				var timer1 = setInterval(function(){
+			var timer1 = null,timer2 = null;
+			var x = 0;
+			start.addEventListener('click',function(){				
+				if(timer1){
+					return false;
+				}
+				if(timer2){
+					clearInterval(timer2);timer2 = null
+				}		
+				timer1 = setInterval(function(){
 					li[x].setAttribute('class','move');
 					if(x < len-1){
 						x++
 					}else{
 						clearInterval(timer1);
-						start.disabled = false;
-						reset.disabled = false;
 					}
 				},200);
 			},false);
 			reset.addEventListener('click',function(){
-				var x = len-1;
-				start.disabled = true;
-				reset.disabled = true;
-				var timer2 = setInterval(function(){
+				if(timer1){
+					clearInterval(timer1);timer1= null
+				}
+				if(timer2){
+					return false;
+				}
+				timer2 = setInterval(function(){
 					li[x].setAttribute('class','');
 					if(x > 0){
 						x--
 					}else{
-						start.disabled = false;
-						reset.disabled = false;
 						clearInterval(timer2);
 					}
 				},200);
+			},false)
+			//stop
+			stop.addEventListener('click',function(){
+				if(timer1){
+					clearInterval(timer1);timer1= null
+				}
+				if(timer2){
+					clearInterval(timer2);timer2= null
+				}
+				start.disabled = false;
+				reset.disabled = false;
 			},false)
 		</script>
 	</body>
