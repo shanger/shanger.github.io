@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>matrix矩阵变化</title>
+		<style type="text/css">
+			*{
+				margin:0;padding: 0;text-align: center;
+			}
+			ul{
+				width: 200px;height: 200px;
+				margin:50px auto;line-height: 0px;
+			}
+			li{
+				list-style: none;
+				display: inline-block;
+				width: 10px;height: 10px;
+				transition:  transform .5s ease-in-out;
+				-webkit-transition:  transform .5s ease-in-out;
+				-moz-transition:  transform .5s ease-in-out;
+				-ms-transition:  transform .5s ease-in-out;
+				-o-transition:  transform .5s ease-in-out;				
+			}
+			#Told > li.move{
+				transform: matrix(1, 0, 0, 1, 30, 30);
+				background-color:rgb(99, 111, 221);
+			}
+			#Told > li{
+				background-color:rgb(222, 98, 98);
+			}
+		</style>
+	</head>
+	<body id="address">
+		<ul id="Told"></ul>
+		<input type="button" name="start" value="开始演示">
+		<input type="button" name="reset" value="重置">
+		<script type="text/javascript">
+			var Told = document.querySelector('#Told');
+			var start = document.querySelector('input:nth-of-type(1)');
+			var reset = document.querySelector('input:nth-of-type(2)');
+			var str = '';
+			for(var i = 0;i < 400;i++){
+				str += "<li></li>"
+			}
+			Told.innerHTML = str;
+			var li = document.querySelectorAll('#Told > li');
+			var len = li.length;
+			start.addEventListener('click',function(){
+				start.disabled = true;
+				reset.disabled = true;
+				var x = 0;
+				var timer1 = setInterval(function(){
+					li[x].setAttribute('class','move');
+					if(x < len-1){
+						x++
+					}else{
+						clearInterval(timer1);
+						start.disabled = false;
+						reset.disabled = false;
+					}
+				},200);
+			},false);
+			reset.addEventListener('click',function(){
+				var x = len-1;
+				start.disabled = true;
+				reset.disabled = true;
+				var timer2 = setInterval(function(){
+					li[x].setAttribute('class','');
+					if(x > 0){
+						x--
+					}else{
+						start.disabled = false;
+						reset.disabled = false;
+						clearInterval(timer2);
+					}
+				},200);
+			},false)
+		</script>
+	</body>
+</html>
