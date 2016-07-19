@@ -7,7 +7,12 @@
 		<title>matrix矩阵变化</title>
 		<style type="text/css">
 			*{
-				margin:0;padding: 0;text-align: center;
+				margin:0;padding: 0;
+				font-family: "Microsoft Yahei";
+			}
+			body{
+				background-color: black;
+				text-align: center;
 			}
 			ul{
 				width: 200px;height: 200px;
@@ -17,11 +22,11 @@
 				list-style: none;
 				display: inline-block;
 				width: 10px;height: 10px;
-				transition:  transform .5s ease-in-out;
-				-webkit-transition:  transform .5s ease-in-out;
-				-moz-transition:  transform .5s ease-in-out;
-				-ms-transition:  transform .5s ease-in-out;
-				-o-transition:  transform .5s ease-in-out;				
+				transition:  all .5s ease-in-out;
+				-webkit-transition:  all .5s ease-in-out;
+				-moz-transition:  all .5s ease-in-out;
+				-ms-transition:  all .5s ease-in-out;
+				-o-transition:  all .5s ease-in-out;				
 			}
 			#Told > li.move{
 				transform: matrix(1, 0, 0, 1, 30, 30);
@@ -30,6 +35,53 @@
 			#Told > li{
 				background-color:rgb(222, 98, 98);
 			}
+			/*scale*/
+			#scale{
+				width: 100px;height: 100px;
+				background-color: #f60;
+				margin: 20px auto 320px;
+				transform-origin:  top left;
+				-webkit-transform-origin:  top left;
+				-moz-transform-origin:  top left;
+				-ms-transform-origin:  top left;
+				-o-transform-origin:  top left;
+				transition:  all .5s ease-in-out;
+				-webkit-transition:  all .5s ease-in-out;
+				-moz-transition:  all .5s ease-in-out;
+				-ms-transition:  all .5s ease-in-out;
+				-o-transition:  all .5s ease-in-out;
+			}
+			input{
+				display: inline-block;height: 30px;
+				vertical-align: bottom;
+				color: white;
+			}
+			input[type="button"]{
+				outline: none;border:none;
+				height: 30px;width: 60px;
+				background-color: #26B0F3;
+			}
+			label{
+				display: inline-block;height: 30px;
+				color: white;
+				line-height: 30px;vertical-align: bottom;
+			}
+			#rotate{
+				width: 100px;
+				height: 100px;
+				background-color: #f60;
+				margin: 10px auto;
+				transition:  all .5s ease-in-out;
+				-webkit-transition:  all .5s ease-in-out;
+				-moz-transition:  all .5s ease-in-out;
+				-ms-transition:  all .5s ease-in-out;
+				-o-transition:  all .5s ease-in-out;
+			}
+			input[type="text"]{
+				outline: none;border:none;
+				background-color: rgba(255,255,255,.9);
+				font-size: 16px;color: black;padding-left: 4px;
+			}
 		</style>
 	</head>
 	<body id="address">
@@ -37,63 +89,11 @@
 		<input type="button" name="start" value="开始演示">
 		<input type="button" name="reset" value="重置">
 		<input type="button" name="stop" value="停止">
-		<script type="text/javascript">
-			var Told = document.querySelector('#Told');
-			var start = document.querySelector('input:nth-of-type(1)');
-			var reset = document.querySelector('input:nth-of-type(2)');
-			var stop = document.querySelector('input:nth-of-type(3)');
-			var str = '';
-			for(var i = 0;i < 400;i++){
-				str += "<li></li>"
-			}
-			Told.innerHTML = str;
-			var li = document.querySelectorAll('#Told > li');
-			var len = li.length;
-			var timer1 = null,timer2 = null;
-			var x = 0;
-			start.addEventListener('click',function(){				
-				if(timer1){
-					return false;
-				}
-				if(timer2){
-					clearInterval(timer2);timer2 = null
-				}		
-				timer1 = setInterval(function(){
-					li[x].setAttribute('class','move');
-					if(x < len-1){
-						x++
-					}else{
-						clearInterval(timer1);
-					}
-				},200);
-			},false);
-			reset.addEventListener('click',function(){
-				if(timer1){
-					clearInterval(timer1);timer1= null
-				}
-				if(timer2){
-					return false;
-				}
-				timer2 = setInterval(function(){
-					li[x].setAttribute('class','');
-					if(x > 0){
-						x--
-					}else{
-						clearInterval(timer2);
-					}
-				},200);
-			},false)
-			//stop
-			stop.addEventListener('click',function(){
-				if(timer1){
-					clearInterval(timer1);timer1= null
-				}
-				if(timer2){
-					clearInterval(timer2);timer2= null
-				}
-				start.disabled = false;
-				reset.disabled = false;
-			},false)
-		</script>
+		<div id="scale"></div>
+		<label>x轴比例1-4：</label><input type="range" name="scaleX" value="1" min="1" max="4"/>
+		<label>y轴比例1-4：</label><input type="range" name="scaleY" value="1" min="1" max="4"/>
+		<div id='rotate'></div>
+		<input type="text" placeholder="0-360" />
+		<script type="text/javascript" src="js/matrix.js"></script>
 	</body>
 </html>
