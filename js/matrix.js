@@ -86,7 +86,7 @@ function changeStyle(xValue,yValue){
 	scale.setAttribute('style',Mstyle);
 }
 //deg旋转
-deg.addEventListener('blur',function(){
+deg.addEventListener('change',function(){
 	var degStyle = '';		
 	var cosval = Math.cos(deg.value * Math.PI / 180), sinval = Math.sin(deg.value * Math.PI / 180);
 	for(var i = 0, len = kernel.length;i < len;i++){
