@@ -1,6 +1,7 @@
 var Told = document.querySelector('#Told');
 var scale = document.querySelector('#scale');
 var RT = document.querySelector('#rotate');
+var Skew = document.querySelector('#skew');
 
 var start = document.querySelector('input:nth-of-type(1)');
 var reset = document.querySelector('input:nth-of-type(2)');
@@ -8,9 +9,11 @@ var stop = document.querySelector('input:nth-of-type(3)');
 var scaleX = document.querySelector('input:nth-of-type(4)');
 var scaleY = document.querySelector('input:nth-of-type(5)');
 var deg = document.querySelector('input:nth-of-type(6)');
+var skewX = document.querySelector('input:nth-of-type(7)');
+var skewY = document.querySelector('input:nth-of-type(8)');
 
 var scalexValue = 1,scaleyValue = 1;	//初始值
-
+var skewXval = 0,skewYval = 0;
 
 var str = '';
 var kernel = ['-ms-','-moz-','-webkit-','-o-',''];
@@ -90,4 +93,23 @@ deg.addEventListener('blur',function(){
 		degStyle += kernel[i]+'transform:matrix('+ cosval.toFixed(6) +','+ sinval.toFixed(6) +','+ (-1 * sinval).toFixed(6) +','+ cosval.toFixed(6) +',0,0);';
 	}
 	RT.setAttribute('style',degStyle);
+},false);
+
+//skewx X方向拉伸
+skewX.addEventListener('change',function(){
+	var skewStyle = '';		
+	skewXval = Math.tan(skewX.value * Math.PI / 180);
+	for(var i = 0, len = kernel.length;i < len;i++){
+		skewStyle += kernel[i]+'transform:matrix(1,'+ skewYval.toFixed(6) +','+ skewXval.toFixed(6) +',1,0,0);';
+	}
+	Skew.setAttribute('style',skewStyle);
+},false);
+//skewx X方向拉伸
+skewY.addEventListener('change',function(){
+	var skewStyle = '';		
+	skewYval = Math.tan(skewY.value * Math.PI / 180);
+	for(var i = 0, len = kernel.length;i < len;i++){
+		skewStyle += kernel[i]+'transform:matrix(1,'+ skewYval.toFixed(6) +','+ skewXval.toFixed(6) +',1,0,0);';
+	}
+	Skew.setAttribute('style',skewStyle);
 },false);
