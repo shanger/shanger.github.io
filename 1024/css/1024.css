@@ -1,0 +1,99 @@
+*{
+	margin: 0;padding: 0;
+	box-sizing: border-box;
+}
+html{
+	font-family: "Microsoft Yahei";
+	height: 100%;
+}
+body{
+	background-color: #faf8ef;
+	height: 100%;
+}
+body > div{
+	background-color: #faf8ef;
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 20px 2% 0;
+}
+section:nth-of-type(1){
+	padding: 0 15%;
+}
+section:nth-of-type(1) > div{
+	display: inline-block;
+	width: 48%;
+	background-color: #bbada0;
+	border-radius: 5px;overflow: hidden;
+	padding: 5px;
+}
+section:nth-of-type(1) > div:nth-of-type(2){
+	margin-left: 4%;
+}
+section:nth-of-type(1) > div > p{	
+	background-color: #bbada0;text-align: center;color: white;
+}
+section:nth-of-type(1) > div > p:nth-of-type(1){	
+	color: #ebe1d2;
+}
+section:nth-of-type(2){
+	background-color: #bbada0;
+	overflow: hidden;
+	border-radius: 5px;
+	padding-right: 1%;
+	padding-bottom: 1%;
+	margin-top: 20px;
+}
+section:nth-of-type(2) ul > li{
+	vertical-align: top;
+	display: inline-block;
+	text-align: center;
+	width: 24%;margin-left: 1%;border-radius: 5px;
+	background-color: #ccc0b4;
+	color: white;font-weight: 600;
+}
+
+
+
+/**/
+section:nth-of-type(2) ul > li.class0{
+	background-color: #ccc0b4;
+}
+section:nth-of-type(2) ul > li.class2{
+	background-color: #eee4da;
+	color: #776e65;
+}
+section:nth-of-type(2) ul > li.class4{
+	background-color: #ede0c8;
+	color: #776e65;
+}
+section:nth-of-type(2) ul > li.class8{
+	background-color: #f2b179;
+	color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class16{
+	background-color: #ec8d54;
+	color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class32{
+	background-color: #e2745a;
+}
+
+section:nth-of-type(2) ul > li.class64{
+	background-color: #ea5937;
+	color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class128{
+	background-color: #e0c765;color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class256{
+	background-color: #dec048;color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class512{
+	background-color: #d2b22a;color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class1024{
+	background-color: #d0ac16;color: #ffffff;
+}
+section:nth-of-type(2) ul > li.class2048{
+	background-color: #ecc400;color: #ffffff;
+}

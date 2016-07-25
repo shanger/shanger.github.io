@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>1024</title>
+		<link rel="stylesheet" type="text/css" href="css/1024.css">
+	</head>
+	<body id="panel" >
+		<div>
+			<section>
+				<div><p>得分：</p><p>{{score}}</p></div><div><p>历史记录：</p><p>{{record}}</p></div>
+			</section>
+			<section v-on:touchstart="touchstart($event)" v-on:touchmove="touchmove($event)" v-on:touchend="touchend($event)">
+				<ul>
+					<li v-for="item in panel" v-bind:style="{height:li.height,marginTop:li.marginTop,lineHeight:li.height}" v-bind:class="item.class">{{item.value}}</li>
+				</ul>
+			</section>
+		</div>
+		
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript" src="js/options.js"></script>
+	</body>
+</html>
