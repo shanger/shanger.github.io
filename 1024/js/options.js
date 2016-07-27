@@ -36,6 +36,7 @@ var pannel = new Vue({
             this.touch.sPos.y = point.screenY;
         },
         touchmove:function($event){
+            $event.preventDefault();
             var point = $event.touches ? $event.touches[0] : $event;
             this.touch.control = true;
             this.touch.mPos.x = point.screenX;
