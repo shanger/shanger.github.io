@@ -4,10 +4,10 @@ var pannel = new Vue({
         score:0,
         record:localStorage.getItem('record')?localStorage.getItem('record'):0,
         panel:[
-            {value:2,class:'class2'},{value:'',class:'class'},{value:2,class:'class2'},{value:2,class:'class2'},            
+            {value:2,class:'class2'},{value:'2',class:'class2'},{value:4,class:'class4'},{value:2,class:'class2'},            
             {value:2,class:'class2'},{value:'',class:'class'},{value:'',class:'class'},{value:'',class:'class0'},                        
-            {value:'',class:'class0'},{value:'',class:'class'},{value:'',class:'class'},{value:'',class:'class'},            
-            {value:'',class:'class'},{value:'',class:'class0'},{value:'',class:'class'},{value:'',class:'class'},            
+            {value:'4',class:'class4'},{value:'',class:'class'},{value:'',class:'class'},{value:'',class:'class'},            
+            {value:'2',class:'class2'},{value:'',class:'class0'},{value:'',class:'class'},{value:'',class:'class'},            
             
             
         ],
@@ -20,22 +20,25 @@ var pannel = new Vue({
             sPos : {},
             mPos : {},
             dire:'',
-            switch:false,
+            switch:false,//有相加加的计算,有计算则添加新数字
         },
-        tipsShow:false
+        tipsShow:false,
+        keybord:[1,1,1,1,1,1,1,1,1]
     },
     created:function(){
-        this.li.height = document.querySelector('li').offsetWidth +'px';
-        this.li.marginTop = Math.floor(document.querySelector('li').offsetWidth/24) + 'px';
-        this.reset();
+        this.li.height = document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth +'px';
+        this.li.marginTop = Math.floor(document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth/24) + 'px';
+        //this.reset();
     },
     methods:{
+        //touch时间监听
         touchstart:function($event){
             var point = $event.touches ? $event.touches[0] : $event;
             this.touch.sPos.x = point.screenX;
             this.touch.sPos.y = point.screenY;
         },
         touchmove:function($event){
+            $event.preventDefault();
             var point = $event.touches ? $event.touches[0] : $event;
             this.touch.control = true;
             this.touch.mPos.x = point.screenX;
@@ -75,11 +78,8 @@ var pannel = new Vue({
                                     }else if(x == 1){
                                         This.add(i,i-4*x); //相邻的元素计算后推出
                                         break;
-                                    }
-                                    
-                                   
-                                }
-                                
+                                    }                                     
+                                }                                
                             }                  
                         }
                     }
@@ -169,9 +169,12 @@ var pannel = new Vue({
                 case 'R':
                     //计算
                     for(var r = 0;r < 3;r++){   //前三列
+                        var count = 0;
                         for(var i = r;i <= r+12;i = i+4){   //四行
+                            
                             if( Number(this.panel[i].value) != 0){
                                 for(var x = i;x < i + (3-r) ;x++){  //每一行的比较相同则 计算，是不同列 所以比较后都要退出换i值
+                                    console.log(count);
                                     if(Number(this.panel[i].value) ==  Number(this.panel[x+1].value)){
                                         if(x-i+1 > 2 && Number(this.panel[i+1].value) == 0 && Number(this.panel[i+2].value) == 0){    //跨非空元素不能相加
                                             This.add(i,x+1); //相邻的元素计算后推出
@@ -183,6 +186,7 @@ var pannel = new Vue({
                                             This.add(i,x+1); //相邻的元素计算后推出
                                             break;
                                         }
+                                        
                                         
                                     }
                                 }                   
@@ -231,6 +235,7 @@ var pannel = new Vue({
             this.touch.switch = true;
             this.score += This.panel[newindex].value;
         },
+        //移动位置
         move:function(index1,index2){   //index1目标位置 index2被移动的位置
             this.panel[index1].value = this.panel[index2].value;
             this.panel[index1].class = this.panel[index2].class;
@@ -264,6 +269,14 @@ var pannel = new Vue({
                 this.panel[set[i]].class ='class2';
             }
         
+        },
+        pcmove:function($index){    //pc事件监听
+            switch($index){
+                case 1:this.compute('U');break;
+                case 3:this.compute('L');break;
+                case 5:this.compute('R');break;
+                case 7:this.compute('D');break;
+            }
         }
     }
 })
