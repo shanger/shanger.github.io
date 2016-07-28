@@ -28,7 +28,7 @@ var pannel = new Vue({
     created:function(){
         this.li.height = document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth +'px';
         this.li.marginTop = Math.floor(document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth/24) + 'px';
-        //this.reset();
+        this.reset();
     },
     methods:{
         //touch时间监听

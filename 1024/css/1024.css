@@ -11,24 +11,9 @@ body{
 	height: 100%;
 	position: relative;
 }
-/*小键盘*/
-body > ul{
-	position: absolute;top: 100px;
-	right: 100px;
-	width: 150px;height: 150px;line-height: 0;
-}
-body > ul > li{
-	display: inline-block; width: 50px;height: 50px;
-	background-color: #f60;
-}
-body > ul > li:nth-child(odd){
-	background-color: white;
-}
-@media screen and (max-width: 630px){
-	body > ul{
-		display: none;
-	}
-}
+
+
+
 /*内容区*/
 body > div{
 	background-color: #faf8ef;
