@@ -1,26 +1,28 @@
 var sidebar = document.querySelector('.sidebar');
 var dot = document.querySelector('.dot');
+var img = document.querySelector('.sidebar > img');
 var By = dot.offsetTop;
 var Bx = dot.offsetLeft;
+var Ay = img.offsetTop;
+var Ax = document.querySelector('.sidebar').offsetLeft;	
 changesize();
 document.querySelector('body').onresize = changesize;
 
-
 function changesize(){
 	sidebar.style.height = window.document.body.clientHeight;
-	By = dot.offsetTop;
-	Bx = dot.offsetLeft;
 }
 var Switch = true;	//点击开关
 document.querySelector('input').addEventListener('click',function(){
 	//A购物车的位置坐标（以按钮中心作为坐标原点)
 	if(Switch){
 		Switch = false;
-		var a = '',b = '';	
-		var img = document.querySelector('.sidebar > img');
-		var Ay = img.offsetTop;
-		var Ax = document.querySelector('.sidebar').offsetLeft;	
-		var Cy = By - Ay;
+		var a = '',b = '';		
+		Ay = img.offsetTop;
+		Ax = document.querySelector('.sidebar').offsetLeft;	
+		By = dot.offsetTop;
+		Bx = dot.offsetLeft;
+		console.log(Bx);
+		var Cy = By - Ay;	//第一个点
 		var Cx = Ax - Bx - document.querySelector('.dot').offsetWidth/2;
 		var Dy = Cy + 40;	//第二个点
 		var Dx = Cx/2;
@@ -29,7 +31,8 @@ document.querySelector('input').addEventListener('click',function(){
 		dot.setAttribute('class','dot')
 		var x = 0;
 		clearInterval(timer);
-		dot.style.left =  Bx + 'px';	
+		dot.style.left =  '50%';
+		dot.style.MarginLeft = "25px";	
 		dot.style.top =  By + 'px';
 		var timer = setInterval(function(){
 			if(x <  Cx){
@@ -42,7 +45,8 @@ document.querySelector('input').addEventListener('click',function(){
 				dot.setAttribute('class','dot hidden');
 				img.setAttribute('class','dance');
 				//回到原来的位置
-				dot.style.left =  Bx + 'px';	
+				dot.style.left =  '50%';
+				dot.style.MarginLeft = "25px";	
 				dot.style.top =  By + 'px';
 				//购物车的小动画
 				setTimeout(function(){
@@ -51,6 +55,5 @@ document.querySelector('input').addEventListener('click',function(){
 			}		
 		},8);
 	}
-	
 
 },false)
