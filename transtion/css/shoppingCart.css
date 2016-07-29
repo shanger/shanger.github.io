@@ -1,0 +1,49 @@
+*{
+	margin: 0;padding: 0;
+	box-sizing: border-box;
+}
+html{
+	font-family: "Microsoft Yahei";
+}
+body{
+	position: relative;
+	text-align: center;
+}
+.sidebar{
+	position: fixed;
+	top: 0;width: 35px;
+	bottom: 0;right: 0;
+	background-color: black;
+}
+.sidebar > img{
+	width: 100%;
+	margin-top: 100px;
+	transition:  all .3s ease-in;
+	-webkit-transition:  all .3s ease-in;
+	-moz-transition:  all .3s ease-in;
+	-ms-transition:  all .3s ease-in;
+	-o-transition:  all .3s ease-in;
+}
+.sidebar > img.dance{
+	margin-top: 80px;
+}
+
+body > input{
+	display: inline-block;
+	margin-top: 400px;
+	width: 200px;height: 30px;
+	outline: none;border:none;
+	line-height: 30px;
+	font-family: "Microsoft Yahei";
+	background-color: #f60;color: white;
+}
+.dot{
+	width: 50px;height: 50px;border-radius: 50%;
+	position: absolute;top: 350px;left: 50%;margin-left: -25px;
+	background: url('../img/dot.jpg') no-repeat;
+	background-size: 100% 100%;
+	opacity: 1;
+}
+.dot.hidden{
+	opacity: 0;
+}
