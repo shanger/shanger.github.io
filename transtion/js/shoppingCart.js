@@ -10,7 +10,6 @@ changesize();
 document.querySelector('body').onresize = changesize;
 
 function changesize(){
-	console.log('gg');
 	sidebar.style.height = window.document.body.clientHeight;
 }
 var Switch = true;	//点击开关

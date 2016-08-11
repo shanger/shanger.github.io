@@ -55,6 +55,11 @@ body > div section:nth-of-type(2) ul > li{
 	width: 24%;margin-left: 1%;border-radius: 5px;
 	background-color: #ccc0b4;
 	color: white;font-weight: 600;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
 }
 
 

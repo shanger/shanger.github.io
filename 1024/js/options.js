@@ -174,7 +174,6 @@ var pannel = new Vue({
                             
                             if( Number(this.panel[i].value) != 0){
                                 for(var x = i;x < i + (3-r) ;x++){  //每一行的比较相同则 计算，是不同列 所以比较后都要退出换i值
-                                    console.log(count);
                                     if(Number(this.panel[i].value) ==  Number(this.panel[x+1].value)){
                                         if(x-i+1 > 2 && Number(this.panel[i+1].value) == 0 && Number(this.panel[i+2].value) == 0){    //跨非空元素不能相加
                                             This.add(i,x+1); //相邻的元素计算后推出
@@ -276,6 +275,15 @@ var pannel = new Vue({
                 case 3:this.compute('L');break;
                 case 5:this.compute('R');break;
                 case 7:this.compute('D');break;
+            }
+        },
+        keyup:function($event){
+            //console.log($event.keyCode)
+            switch($event.keyCode){
+                case 38:this.compute('U');break;
+                case 37:this.compute('L');break;
+                case 39:this.compute('R');break;
+                case 40:this.compute('D');break;
             }
         }
     }
