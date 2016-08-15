@@ -6,9 +6,9 @@ body.addEventListener('mousemove',function(ev){
 	var D = 0;var move = '';
 	if(y < 600){
 		if(x > (div.offsetLeft + div.offsetWidth/2)){
-			D = Math.floor(3*y/10);
+			D = Math.floor(3*y/10);	//180deg
 		}else{
-			D = -Math.floor(3*y/10);
+			D = Math.floor(3*(600-y)/10) + 180;
 		}		
 		move = "transform: rotate("+D+"deg);-webkit-transform: rotate("+D+"deg);-ms-transform: rotate("+D+"deg);"
   			+"-moz-transform: rotate("+D+"deg);-o-transform: rotate("+D+"deg);";
