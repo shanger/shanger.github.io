@@ -87,13 +87,29 @@ a,a:link,a:visited,a:hover,a:active{
 #st-panel-5 #img.show{
 	display: block;
 }
+#st-panel-5 > ul{
+	max-height:180px;overflow-y: scroll; 
+	max-width: 360px;
+	margin:0 auto;
+}
+#st-panel-5 >ul >li{
+	max-width: 360px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;	
+}
+#st-panel-5 >ul >li > a{
+	color:#CCFF33;
+}
 #st-panel-5 >ul >li >input,#st-panel-5 >ul >li >input:focus{
 	border:none;outline: none;display: inline-block;
-	height: 30px;line-height: 30px;padding-left: 10px;
+	height: 30px;line-height: 30px;padding-left: 10%;
 	border-radius: 5px;
 	background-color:rgba(255,255,255,.3); color: white;
 }
-
+#st-panel-5 >ul >li >input{
+	width: 90%;
+}
 #st-panel-5 #img > input{
 	border:none;outline: none;
 	text-indent: -1000px;display: inline-block;
