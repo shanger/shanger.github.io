@@ -26,6 +26,8 @@ var pannel = new Vue({
         keybord:[1,1,1,1,1,1,1,1,1]
     },
     created:function(){
+
+        /*this.score = localStorage.getItem('record')?localStorage.getItem('record'):0;*/
         this.li.height = document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth +'px';
         this.li.marginTop = Math.floor(document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth/24) + 'px';
         this.reset();
@@ -223,7 +225,13 @@ var pannel = new Vue({
                 newIndex = arr[newIndex];   //新元素的位置 
                 this.panel[newIndex].value = 2;
                 this.panel[newIndex].class = 'class2';
-            }            
+            }
+            /*如果成绩大于记录写入记录*/
+            if(this.score > this.record){
+                this.record = this.score;
+                localStorage.setItem('record',this.score)   
+            }
+                    
         },
         add:function(oldindex,newindex){
             var This = this;
