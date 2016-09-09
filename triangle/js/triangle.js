@@ -14,6 +14,5 @@ body.addEventListener('mousemove',function(ev){
 		move = "transform: rotate("+D+"deg);-webkit-transform: rotate("+D+"deg);-ms-transform: rotate("+D+"deg);"
   			+"-moz-transform: rotate("+D+"deg);-o-transform: rotate("+D+"deg);";
   		div.setAttribute('style',style + move);
-	}
-	
+	}	
 },false)
