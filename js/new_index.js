@@ -32,7 +32,7 @@ requirejs(['vue','ajax'],function(Vue){
             ],
             img:{
                 imgSrc:'',
-                zhaojiling:'img/zhaojiling.png'
+                zhaojiling:'http://odqxl7d3r.bkt.clouddn.com/zhaojiling.png'
             },
             audio:'',//audio元素
             music:{
