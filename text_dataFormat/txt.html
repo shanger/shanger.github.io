@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>txt数据处理</title>
+	</head>
+	<body id="buy">
+
+		
+		<script type="text/javascript" src="../ajax.js"></script>
+		<script type="text/javascript">
+			ajax({
+                method : 'get',
+                url:'rs.txt',
+                data:{},
+                success:function(data){
+                	var data = data.replace(/\n/g,'\t').split('	');
+                	data.splice(data.length-1);
+                	console.log(data.length/3)
+                    var newArr = [];
+                    for(var i = 0;i< data.length /3; i++){
+                    	newArr[i] = {
+                    		source:'',
+							target:'',
+							weight:''
+                    	}
+                    }
+                    data.forEach(function(ele,index){
+                    	switch(index % 3){
+                    		case 0:
+                    			newArr[Math.floor(index/3)].source = ele;
+                    			break;                    			
+                    		case 1:
+                    			newArr[Math.floor(index/3)].target = ele;
+                    			break;
+                    		case 2:
+                    			newArr[Math.floor(index/3)].weight = ele;
+                    			break;
+                    	}
+                    });
+                    newArr = newArr.splice(1,newArr.length)
+                    document.querySelector('body').innerHTML = JSON.stringify(newArr)
+                },
+                error:function(){
+                    This.order = true;
+                },
+                async : true
+            });
+		</script>
+	</body>
+</html>
