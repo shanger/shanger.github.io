@@ -47,14 +47,14 @@ IScroll({
 
 var input1 = document.querySelector('#test1');
 var input = document.querySelector('#test');
-/*input1.addEventListener('focus',function(event){
-	input.focus();
+input1.addEventListener('focus',function(event){
+	document.querySelector('ul.list > li >div>#test >span').setAttribute('class','focus');
 });
 input1.addEventListener('blur',function(event){
-	input.blur();
-});*/
+	document.querySelector('ul.list > li >div>#test >span').setAttribute('class','');
+});
 input1.addEventListener('keyup',function(event){
-	input.value = replace(input1.value);
+	input.innerHTML = replace(input1.value) +'<span class="focus"></span>';
 });
 function replace(str){
 	var newstr = '';

@@ -34,13 +34,52 @@ ul.list > li{
 ul.list > li >div{
 	display: table-cell;text-align: center;height: 100%;
 	width: 100%;vertical-align: middle;position: relative;
+
 }
-ul.list > li >div>input#test{
-	display: inline-block;
+ul.list > li >div>#test{
+	text-align: left;
+	display: inline-block;font-size: 16px;
 	width: 200px;height: 30px;padding: 0 5px;outline: none;line-height: 30px;
 	border:none;border-radius: 5px;
 	background-color: rgba(170,204,238,.8);color: white;
 }
+ul.list > li >div>#test >span{
+	display: none;width: 1px;height: 16px;background-color: white;
+	vertical-align: middle;margin-top: -2px;
+}
+
+ul.list > li >div>#test >span.focus{
+	display: inline-block;
+	animation: heihei 1s linear infinite;
+	-moz-animation: heihei 1s linear infinite;
+	-ms-animation: heihei 1s linear infinite;
+	-o-animation: heihei 1s linear infinite;
+	-webkit-animation: heihei 1s linear infinite;
+	margin-left: 1px;
+}
+@keyframes heihei{
+	0%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@-webkit-keyframes heihei{
+	0%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
 ul.list > li >div>input#test1{
 	position: absolute;top:50%;margin-top: -15px;left: 50%;margin-left: -100px;
 	width: 200px;height: 30px;padding: 0 5px;outline: none;line-height: 30px;
