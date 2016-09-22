@@ -12,7 +12,7 @@ html,body{
 	width: 100%;height: 100%;overflow: hidden;
 }
 body{
-	background: url('../../img/mousewhell.jpg') no-repeat;
+	background: url('http://odqxl7d3r.bkt.clouddn.com/mousewhell.jpg') no-repeat;
 	background-position:center center;
 	position: relative;min-height: 400px;
 }
