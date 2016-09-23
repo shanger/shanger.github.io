@@ -2,11 +2,11 @@
 function IScroll(data){
 	var This = this;
 	this.List = data.list;	//列表
+	this.Dot = data.dot;
 	this.DotLi = data.dotLi;	//小点点
 	this.startIndex = 0;	//起始位置
 	this.open = true;		//连续滚动的开关
 	this.handle = function(Current){
-		This.startIndex;
 		var ul = This.List;
 		var dotLi = This.DotLi;
 		ul.style.top = - Current*100 + '%';
@@ -14,7 +14,12 @@ function IScroll(data){
 			dotLi[index].setAttribute('class','');
 		}
 		dotLi[Current].setAttribute('class','active');
-	}
+	};
+	this.Dot.addEventListener('click',function(event){
+		if(event.target.nodeName.toUpperCase() == 'LI'){
+			This.handle(parseInt(event.target.getAttribute('dataIndex')) );
+		}
+	},false)
 	document.body.addEventListener('mousewheel',scroll,false);
 	document.body.addEventListener('DOMMouseScroll',scroll,false);
 	function scroll(event){
@@ -41,6 +46,7 @@ function IScroll(data){
 
 IScroll({
 	list:document.querySelector('ul.list'),
+	dot:document.querySelector('ul.dot'),
 	dotLi:document.querySelectorAll('ul.dot > li')
 })
 
@@ -64,3 +70,38 @@ function replace(str){
 	newstr += str.charAt(str.length-1);
 	return newstr;
 }
+
+/*polymerAnimate*/
+
+function polymerAnimate(data){
+	var This = this;
+	this.parent = data.parent;	
+	this.parent.addEventListener('click',function(event){
+		var speed = 20;
+		var top = 0,left = 0;
+		var child = document.createElement('div');
+		child.setAttribute('class','circle');
+		left = event.clientX - This.parent.offsetLeft - child.offsetWidth/2;
+		top = event.clientY - This.parent.offsetTop - child.offsetWidth/2;
+		This.parent.appendChild(child);
+		child.setAttribute('class','circle grident');		
+		child.style.top = top + 'px';
+		child.style.left = left + 'px';
+		var Timer = setInterval(function(){
+			child.style.width = child.offsetWidth + speed + 'px';
+			child.style.height = child.offsetHeight + speed + 'px';
+			child.style.top  = child.offsetTop - speed/2 + 'px';
+			child.style.left  = child.offsetLeft - speed/2 + 'px';
+			if(child.offsetWidth > 400){
+				clearInterval(Timer);
+				This.parent.removeChild(child);
+			}
+		},30)
+	},false)
+
+}
+polymerAnimate(
+	{
+		parent:document.querySelector('#polymerAnimate'),
+	}
+);

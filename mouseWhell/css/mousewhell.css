@@ -14,7 +14,7 @@ html,body{
 body{
 	background: url('http://odqxl7d3r.bkt.clouddn.com/mousewhell.jpg') no-repeat;
 	background-position:center center;
-	position: relative;min-height: 400px;
+	position: relative;min-height: 400px;min-width: 640px;
 }
 ul.list{
 	position: absolute;left: 0;top: 0;
@@ -110,4 +110,35 @@ ul.dot > li:nth-of-type(1){
 }
 ul.dot > li:nth-of-type(1):before{
 	display: none;
+}
+.polymer{
+
+}
+#polymerAnimate{
+	width: 200px;height: 30px;border-bottom: 2px solid #172C50;
+	margin:0 auto;
+	background-color: rgba(255,255,255,.6);
+	position: relative;overflow: hidden;
+}
+#polymerAnimate >.circle{
+	position: absolute;left: 0;top: 0;
+	width: 20px;height: 20px;
+	border-radius: 50%;
+	background-color: #202020;
+}
+#polymerAnimate >.circle.grident{
+	background-color: #6F6D6D;
+	transition: background 2s linear;
+	-webkit-transition: background 2s linear;
+	-ms-transition: background 2s linear;
+	-moz-transition: background 2s linear;
+	-o-transition: background 2s linear;
+}
+
+
+.boxShowAndBackground{
+	width: 200px;height: 30px;margin:0 auto;
+	line-height: 30px;border-radius: 5px;
+	background-color: black;
+    -webkit-box-shadow: 0 0 0px 1000px #2390cc inset;
 }
