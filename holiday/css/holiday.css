@@ -1,0 +1,93 @@
+*{margin:0;padding: 0;box-sizing: border-box;}
+a,a:link,a:visited,a:hover,a:active{
+	outline: none;
+}
+body,html{
+	width: 100%;height: 100%;overflow: hidden;
+	font-family: "Microsoft Yahei";
+	background-color: #ffffff;
+}
+
+li{
+	list-style: none;
+}
+.body{
+	margin:0 auto;	position: relative;
+	height: 100%;
+}
+body{
+	background: url('http://odqxl7d3r.bkt.clouddn.com/shanghaiPC.jpg') no-repeat;
+	background-size: 100% ;
+	background-position:center center;
+	
+}
+
+
+header{
+	position: fixed;top:0;left: 0;width: 100%;
+	line-height: 1.6rem;font-size: 1.2rem;
+	color:black;text-align: center;background-color: #ffffff;z-index: 100;
+}
+ul.list{
+	position: absolute;left: 0;top: 0;
+	width: 100%;height: 400%;
+	color: white;overflow: hidden;
+	transition: top 1s ease-in;
+	-webkit-transition: top 1s ease-in;
+	-moz-transition: top 1s ease-in;
+	-ms-transition: top 1s ease-in;
+	-o-transition: top 1s ease-in;
+	background-color: rgba(255,255,255,.6);
+
+}
+ul.list > li{
+	width: 100%;height: 25%;
+	text-align: center;display: table;
+	padding: 0 10%;
+
+}
+
+ul.list > li >div{
+	display: table-cell;text-align: center;height: 100%;
+	width: 100%;vertical-align: middle;position: relative;
+	font-size: 0.8rem;
+	color: black;
+
+}
+ul.list > li >div > p{
+	text-align: left;
+	text-indent: 2rem;
+}
+ul.list > li >div > p.time{
+	text-indent: 0rem;
+}
+
+@media screen and (min-width: 641px){
+	ul.list{	
+		padding: 0 20%;
+	}
+}
+ul.dot{
+	position: absolute;
+	height: 250px;width: 20px;
+	top: 50%;margin-top: -125px;right: 4%;
+}
+ul.dot > li{
+	width: 10px;height: 10px;background-color: transparent;border-radius: 50%;
+	margin-top: 70px;position: relative;
+	border: 1px solid rgba(0,0,0,.8);
+}
+ul.dot > li.active{
+	background-color: rgba(0,0,0,.8);
+}
+ul.dot > li:before{
+	content: "";position: absolute;top: -70px;left: 4px;
+	display: inline-block;width: 0px;height: 70px;
+	border-left: 1px dashed rgba(0,0,0,.4);
+}
+ul.dot > li:nth-of-type(1){
+	margin-top: 0;
+}
+ul.dot > li:nth-of-type(1):before{
+	display: none;
+}
