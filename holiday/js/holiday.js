@@ -8,7 +8,7 @@ for(var i=0;i<os.length;i++)
 if(thisOS.match(os[i]))
 {   
     document.querySelector('.body').style.width = document.documentElement.clientWidth + 'px';
-    document.querySelector('.body').style.backgroundImage = "http://odqxl7d3r.bkt.clouddn.com/shanghai.jpg";
+    document.querySelector('.body').style.backgroundImage = "url(http://odqxl7d3r.bkt.clouddn.com/shanghai.jpg)";
 }
 }
 /*mobile*/
