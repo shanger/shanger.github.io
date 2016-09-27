@@ -70,7 +70,7 @@ if(thisOS.match(os[i]))
     window.LSwiperMaker = LSwiperMaker;
     document.querySelector('.list').addEventListener('touchmove', function (e) { 
         //看需求是否要阻止默认事件
-        // e.preventDefault();
+        e.preventDefault();
     }, false);// 禁止微信touchmove冲突 
 }())
 var OList = new LSwiperMaker({
