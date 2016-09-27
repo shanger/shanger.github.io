@@ -1,0 +1,80 @@
+*{
+	margin:0;padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+html{
+	font-family: "Microsoft Yahei";
+}
+header{
+	position: fixed;top: 0;left: 0;width: 100%;
+	height: 50px;line-height: 50px;
+	box-shadow: 0 1px 2px 0px rgba(0,181,138,.3);
+	text-align: center;
+	background-color: white;z-index: 4;
+}
+header >ul{
+	display: inline-block;vertical-align: middle;
+}
+header >ul >li{
+	display: inline-block;
+	width: 120px;line-height: 30px;
+	font-size: 16px;text-align: center;
+}
+
+section{
+	width: 100%;
+}
+.section1{
+	margin-top: 50px;
+}
+.sectionAfter{
+	background-size: cover;
+}
+.section1After{
+	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg1.jpg');
+	
+}
+.section2After{
+	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg2.jpg');
+}
+.section3After{
+	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg3.jpg');
+}
+.section4After{
+	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg4.jpg');
+}
+.section5After{
+	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg5.jpg');
+}
+.section6After{
+	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg6.jpg');
+}
+.section{
+	position: relative;
+}
+.section >div{
+	position: absolute;bottom: -25px;
+	left: 50%;margin-left: -25px;
+	width: 50px;height: 50px;border-radius: 50%;
+	background-color: #00B58A;
+}
+.section >div:after{
+	position: absolute;
+	top: 20px;left: 50%;margin-left: -15px;
+	content: '';display: inline-block;width: 0;height: 0;
+	border:15px solid;
+	border-color: white transparent transparent transparent;z-index: 1;
+}
+.section >div:before{
+	position: absolute;
+	top: 17px;left: 50%;margin-left: -15px;
+	content: '';display: inline-block;width: 0;height: 0;
+	border:15px solid;z-index: 2;
+	border-color: #00B58A transparent transparent transparent;
+}
