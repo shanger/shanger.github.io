@@ -16,10 +16,12 @@ window.addEventListener('scroll',function(){
 	for(i = 0;i < sectionAfterList.length;i++){
 		(function(i){
 			sectionAfterList[i].style.backgroundPosition = '100% '+
-			(document.body.scrollTop > (div*i+img*i)? document.body.scrollTop -(div*i+img*i):0)
+			(document.body.scrollTop > (div*i+img*i)?  (document.body.scrollTop -(div*i+img*i))*1/100:0)
 			+'px';
 		})(i)
 		
 	}
 
 },false)
+
+
