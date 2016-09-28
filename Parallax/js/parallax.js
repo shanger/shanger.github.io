@@ -15,8 +15,9 @@ window.addEventListener('scroll',function(){
 	var sectionAfterList = document.querySelectorAll('.sectionAfter');
 	for(i = 0;i < sectionAfterList.length;i++){
 		(function(i){
+			var top = document.documentElement.scrollTop||document.body.scrollTop;
 			sectionAfterList[i].style.backgroundPosition = '100% '+
-			(document.body.scrollTop > (div*i+img*i)?  (document.body.scrollTop -(div*i+img*i))*1/100:0)
+			(top > (div*i+img*i)?  (top -(div*i+img*i))*1/100:0)
 			+'px';
 		})(i)
 		
