@@ -39,6 +39,7 @@ section{
     background-repeat: no-repeat;
     background-attachment: fixed;
     z-index: 1;
+    background-position: 50% 0;
 }
 .section1After{
 	background-image: url('http://odqxl7d3r.bkt.clouddn.com/bg1.jpg');

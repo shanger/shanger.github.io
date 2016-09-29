@@ -10,7 +10,7 @@ function changeSize(){
 changeSize();
 window.addEventListener('resize',changeSize,false);
 window.addEventListener('scroll',function(){
-	var img = document.querySelector('.section1After').offsetHeight;
+	/*var img = document.querySelector('.section1After').offsetHeight;
 	var div = document.querySelector('.section1').offsetHeight;
 	var sectionAfterList = document.querySelectorAll('.sectionAfter');
 	for(i = 0;i < sectionAfterList.length;i++){
@@ -21,7 +21,7 @@ window.addEventListener('scroll',function(){
 			+'px';
 		})(i)
 		
-	}
+	}*/
 
 },false)
 
