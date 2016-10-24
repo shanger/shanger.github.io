@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>parent</title>
+		<style type="text/css">
+			*{padding: 0;margin:0;}
+			#img{
+				background: url('img/bg.jpg') no-repeat;
+				height: 207px;width: 228px;
+				background-position: -315px 0;
+				margin:50px auto;
+			}
+		</style>
+	</head>
+	<body id="test">
+		<div id="img">
+		</div>
+		<script type="text/javascript">
+			(function(){ 
+			    var LSwiperMaker = function(o){ 
+			 
+			        var that = this;
+			        this.config = o;    //传入的参数
+			        this.startX = 0;		//初始位置
+			        this.endX = 0;
+			        this.config.bind.addEventListener('mouseenter', function(e){ return that.start(e); } ,false);
+			        this.config.bind.addEventListener('mousemove', function(e){ return that.move(e); } ,false);
+			 
+			    }
+			 
+			    LSwiperMaker.prototype.start = function(e){
+			         
+			         var point = e.touches ? e.touches[0] : e;
+			         this.startX = point.screenX - this.config.bind.offsetLeft;
+			 
+			    }
+			    LSwiperMaker.prototype.move = function(e){  
+			 
+			        var point = e.touches ? e.touches[0] : e;
+			        this.endX = point.screenX - this.config.bind.offsetLeft;
+			        if(this.endX - this.startX > 0){
+			        	this.config.bind.style.backgroundPosition = "-603px 0"
+			        }else{
+			        	this.config.bind.style.backgroundPosition ="-42px 0";
+			        }
+			        this.startX = point.screenX - this.config.bind.offsetLeft;
+			 
+			    }
+			    window.LSwiperMaker = LSwiperMaker;
+			    document.querySelector('#img').addEventListener('mousemove', function (e) { 
+			        //看需求是否要阻止默认事件
+			        // e.preventDefault();
+			    }, false);// 禁止微信touchmove冲突 
+			}())
+			var OList = new LSwiperMaker({
+			        bind:document.querySelector('#img'),  // 绑定的DOM对象
+			});
+		</script>
+	</body>
+</html>
