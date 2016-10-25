@@ -1,0 +1,16 @@
+*{
+	margin:0;padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a,a:link,a:hover,a:visted,a:active{
+	text-decoration: none;
+}
+img{
+	border:none;outline: none;
+}
+input{
+	outline: none;
+}

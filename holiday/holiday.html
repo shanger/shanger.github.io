@@ -6,68 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>国庆上海--嗨呀！大兄弟</title>
 		
-		<script type="text/javascript">
-			
-	        (function (doc, win) {
-	          var docEl = doc.documentElement,
-	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-	            recalc = function () {
-	              var clientWidth = docEl.clientWidth > 640?640:docEl.clientWidth;
-	              if (!clientWidth) return;
-	              docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-	            };
-
-	          if (!doc.addEventListener) return;
-	          win.addEventListener(resizeEvt, recalc, false);
-	          doc.addEventListener('DOMContentLoaded', recalc, false);
-	        })(document, window);
-    
-		</script>
+		<script type="text/javascript" src="js/REM.js">	</script>
 		<link rel="stylesheet" type="text/css" href="css/holiday.css">
-		<style>
-			
-		</style>
 	</head>
-	<body id="holiday">
-		<div class="body">
-			<header>This is ShangHai</header>
-			<ul class="list" id="list">
-				<li class="active">
-					<div>
-						<p class="time">下午：</p>
-						<p>城隍庙（逛吃逛吃）</p>
-						<p>豫园（园林 ￥40）</p>
-						<p>外滩（挤挤更健康）</p>
-						<p>陆家嘴（东方明珠三球联票 ￥150）</p>
-					</div>
-				</li>
-				<li>
-					<div>
-						<p class="time">上午：</p>
-						<p>田子坊（小资气息浓厚）</p>
-						<p class="time">下午：</p>
-						<p>新天地（老上海 中共一大会址）</p>
-					</div>
-				</li>
-				<li>
-					<div>
-						<p class="time">上午：</p>
-						<p>南京中路步行街/中国馆</p>
-						<p class="time">下午：</p>
-						<p>上海人广</p>
-					</div>
-				</li>
-				<li>
-					<div>
-						next stop 苏州
-					</div>
-				</li>
-			</ul>
-			<ul class="dot">
-				<li class="active" title="day1" dataIndex="0"></li><li title="day2" dataIndex="1"></li><li dataIndex="2" title="day3"></li><li dataIndex="3" title="苏州"></li>
-			</ul>
-			<script type="text/javascript" src="js/holiday.js"></script>
-		</div>
+	<body>
 		
 	</body>
 </html>

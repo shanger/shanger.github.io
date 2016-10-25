@@ -1,0 +1,77 @@
+var shoppingCart =  new Vue({
+	el:'#shoppingCart',
+	data:{
+		//已保存的地址
+		addressList:[
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:true
+			},
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:false
+			},
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:false
+			},
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:false
+			},
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:false
+			},
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:false
+			},
+			{
+				name:'单国力',
+				number:'13243188551',
+				address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+				checked:false
+			},
+
+		],
+		//编辑地址
+		editAddress:{
+			show:false,
+			name:'单国力',
+			number:'13243188551',
+			street:'',
+			address:'上海上海市松江区泗泾镇德宁苑3号楼1604',
+		},
+	},
+	created:function(){
+
+	},
+	methods:{
+		//添加新地址
+		add:function(){
+			this.editAddress.show = true;
+		},
+		//保存修改
+		save:function(){
+			this.editAddress.show = false;
+			/*保存处理*/
+		},
+		//撤销修改
+		undoEdit:function(){
+			this.editAddress.show = false;
+		},
+	},
+});

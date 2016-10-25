@@ -1,0 +1,107 @@
+html,body{
+	font-family: "Microsoft Yahei";
+	height: 100%;
+}
+.body{
+	max-width: 640px;
+	width: 100%;
+	margin: 0 auto;
+	overflow-y: auto;
+	position: relative;
+}
+.body > section.address{
+	margin-bottom: 0.6rem;
+	padding: 0 0.6rem;
+}
+.body > section.address >div{
+	font-size: 0.6rem;
+	line-height: 1.4rem;height: 1.4rem;
+}
+.body > section.address >div > span{
+	line-height: 0.8rem;
+	display: inline-block;
+	vertical-align: middle;
+	height: 0.8rem;
+}
+.body > section.address >div > span >label{
+	display: inline-block;height: 0.8rem;line-height: 0.8rem;
+	vertical-align: middle;
+}
+.body > section.address >div > span.number{
+	float: right;margin-top: 0.3rem;
+}
+.body > section.address >div > span.EditDel{
+	float: right;margin-top: 0.3rem;
+}
+.body > section.address >div > span input[type="radio"]{
+	display: inline-block;vertical-align: middle;
+	height: 0.6rem;
+}
+.body > section.address >div > span input[type="radio"]:checked + label{
+	color: #f60;
+}
+.body > section.address >div > span input[type="button"]{
+	border:none;height: 0.8rem;line-height: 0.8rem;
+	display: inline-block;vertical-align: middle;
+	background-color: transparent;
+	font-family: "Microsoft Yahei";
+	font-size: 0.6rem;
+	padding:0 0.1rem;
+}
+.body > .add{
+	position: fixed;bottom: 0;left: 0;
+	width: 100%;height: 2rem;
+	font-size: 0.68rem;line-height: 2rem;
+	text-align: center;
+	background-color: #f60;
+	color: white;
+	z-index: 1;
+}
+
+
+/*编辑地址*/
+#edit{
+	position: fixed;top: 0;left: 0;
+	width: 100%;height: 100%;
+	font-size: 0.68rem;
+	padding: 0 0.4rem;
+	background-color: white;
+	z-index: 2;
+}
+#edit div.header{
+	height: 1.4rem;
+}
+#edit div.header >span{
+	display: inline-block;height: 1.4rem;line-height: 1.4rem;
+}
+#edit div.header >span:nth-of-type(2){
+	float: right;color: #f60;
+}
+#edit ul > li{	
+	line-height: 1.4rem;
+	
+}
+#edit ul > li >label{
+  display: inline-block;height: 1.4rem;
+  width: 4rem;
+}
+#edit ul > li > input{
+	border:none;outline: none;
+	background-color:transparent;
+	width: 10rem;font-size: 0.68rem;
+	display: inline-block;height: 1.2rem;vertical-align: middle;
+	font-family: "Microsoft Yahei";
+	font-weight: 600;
+}
+::-webkit-input-placeholder { 
+	font-weight: 500;
+} 
+:-moz-placeholder { 
+	font-weight: 500;
+} 
+::-moz-placeholder { 
+	font-weight: 500;
+} 
+:-ms-input-placeholder { 
+	font-weight: 500;
+} 
