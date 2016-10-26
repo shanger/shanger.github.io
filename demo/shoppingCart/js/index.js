@@ -6,6 +6,32 @@ var index =  new Vue({
 			{img:'img/Img2.jpg',Li1:false,Li2:true,Li3:false,transition:false,showImg:'img/Img2.jpg',normalImg:'img/Img2.jpg'},
 			{img:'img/Img3.jpg',Li1:false,Li2:false,Li3:true,transition:false,showImg:'img/Img3.jpg',normalImg:'img/Img3.jpg'},
 		],
+		goodList:[
+			{
+				title:'title',
+				note:'note',
+				count:555,
+				origin:'33',
+				current:'22',
+				id:'66'
+			},
+			{
+				title:'title',
+				note:'note',
+				count:555,
+				origin:'33',
+				current:'22',
+				id:'66'
+			},
+			{
+				title:'title',
+				note:'note',
+				count:555,
+				origin:'33',
+				current:'22',
+				id:'66'
+			},
+		],
 	},
 	created:function(){
 		this.prepare();
@@ -13,6 +39,7 @@ var index =  new Vue({
 	methods:{
 		prepare:function(){ 
             //上下滑动事件的监听
+            var timer = null;
             var This = this;
             (function(){ 
                 var LSwiperMaker = function(o){ 
@@ -27,10 +54,12 @@ var index =  new Vue({
                     this.config.bind.addEventListener('touchmove', function(e){ return that.move(e); } ,false);
                     this.config.bind.addEventListener('touchend', function(e){ return that.end(e); } ,false);             
                 }             
-                LSwiperMaker.prototype.start = function(e){                     
+                LSwiperMaker.prototype.start = function(e){
+
                      var point = e.touches ? e.touches[0] : e;
                      this.sPos.x = point.screenX;
-                     this.sPos.y = point.screenY;          
+                     this.sPos.y = point.screenY;
+                     clearInterval(timer);       
                 }
                 LSwiperMaker.prototype.move = function(e){  
              
@@ -59,6 +88,9 @@ var index =  new Vue({
                             }
                         }
                     }
+                    timer = setInterval(function(){            	
+		                This.goright()
+		            },5000)
              
                     this.control = false;
                     this.config.backfn(this);
@@ -83,10 +115,9 @@ var index =  new Vue({
 
                     }
             });
-            setInterval(function(){            	
+            timer = setInterval(function(){            	
                 This.goright()
-            },5000)
-            
+            },5000);            
         },
         goleft:function(){
         	var This = this;

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+	  	<meta charset="utf-8" />
+	  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	  	<script type="text/javascript" src="js/REM.js"></script>
+	  	<title>pay</title>
+	    <link rel="stylesheet" type="text/css" href="css/commion.css">
+	    <link rel="stylesheet" type="text/css" href="css/pay.css">	  
+	</head>
+	<body id="pay">
+		<div class="body">
+			<section class="good">
+				<span class="img"></span><span class="info">
+					<p class="title">{{good.title}}</p><p class="note">
+						{{good.note}}
+					</p>
+					<p>
+						<span>数量：</span><span class="compute">
+								<span v-on:click="reduce()">-</span><span>{{postData.ApplyCount}}</span><span v-on:click="add()">+</span>
+							</span>
+					</p>
+					<p>
+						<span>原价:<label class="origin">￥{{good.origin}}</label></span><span>折后价:<label>￥{{good.current}}</label></span>
+					</p>					
+				</span>
+			</section>
+			<section class="address" v-on:click="EditAddress()">
+	          <div>
+	            <span>{{address.name}}</span><span class="number">{{address.number}}</span>
+	          </div>
+	          <div>{{address.address}}</div>
+	        </section>
+			<section class="payWays">
+				<span>
+					<img src="img/alipay.jpg"/>
+					<span class="radio" v-on:click="raidoChick()">
+						<input type="radio" checked="true" name="payType1" v-el:radio>
+						<span></span>
+					</span>						
+				</span><span>
+					<label>货到付款：</label>
+					<span class="radio" v-on:click="raidoChick()">
+						<input type="radio" name="payType1">
+						<span></span>
+					</span>								
+				</span>
+			</section>
+			<section class="submit">
+				<div class="goPay">
+					还需支付：<span class="money">
+						<label>￥{{}}元</label>
+					</span><span class="payLink">
+						<a href="javascript:void(0)" v-on:click="postTaohe()">
+							<img src="img/pay.png">
+						</a>
+					</span>
+				</div>
+				<div class="cancle">
+					<a href="javascript:void(0)">取消订单</a>
+				</div>
+			</section>
+		</div>
+		<a href="shoppingCart.html" v-el:edit></a>
+		<script type="text/javascript" src="../../bower_components/vue/dist/vue.min.js"></script>
+		<script type="text/javascript" src="js/pay.js"></script>
+	</body>
+</html>

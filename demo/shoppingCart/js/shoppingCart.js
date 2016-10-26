@@ -146,7 +146,7 @@ var shoppingCart =  new Vue({
 			this.addressList.push({
 				name:this.addAddress.name,
 				number:this.addAddress.number,
-				address:this.addAddress.Province + this.addAddress.City + this.addAddress.area  + this.addAddress.street;
+				address:this.addAddress.Province + this.addAddress.City + this.addAddress.area  + this.addAddress.street,
 				checked:this.addAddress.checked,
 			});
 		},

@@ -1,0 +1,208 @@
+html,body{
+	font-family: "Microsoft Yahei";
+}
+.body{
+	max-width: 640px;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+}
+body >a{
+	display: none;
+}
+
+/*商品信息*/
+.good{
+	margin-top: 0.4rem;
+	padding: 0 0.4rem;	
+	height: 4rem;line-height: 0;
+}
+
+.good >span{
+	display: inline-block;height: 4rem;
+	vertical-align: top;
+	width: 6rem;
+}
+.good >span > p >span{
+	display: inline-block;
+}
+.good >span.img{
+	width: 6rem;
+	background-color: lime;
+}
+.good >span.info{
+	padding: 0 0.2rem;
+	width: 8.8rem;
+}
+.good >span.info p{
+	height: 1rem;line-height: 1rem;font-size: 0.68rem;
+}
+.good >span.info p.note{
+	color: red;
+}
+.good >span.info > p >span >label{
+	margin:0 0.2rem;font-size: 0.68rem;
+}
+.good >span.info > p >span >label.origin{
+	text-decoration: line-through;
+	color: #c5c5c5;
+}
+
+
+/*计算*/
+.good >span.info >p > span.compute{
+	line-height: 1rem;line-height: 1rem;
+}
+.good >span.info >p > span.compute > span{
+	display: inline-block;text-align: center;vertical-align: top;
+	height: 1rem;width: 1rem;border-radius: 5px;line-height: 1rem;
+}
+.good >span.info >p > span.compute > span:nth-of-type(1){
+	color: white;background-color: #cfcfcf;
+}
+.good >span.info >p > span.compute > span:nth-of-type(2){
+	width: 2rem;color: #666666;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+	border:1px solid #959595;margin-left: 0.15rem;
+}
+.good >span.info >p > span.compute > span:nth-of-type(3){
+	color: white;background-color: #ff621f;margin-left: 0.15rem;
+}
+
+/*地址*/
+.body > section.address{
+	margin: 0.6rem 0;
+	padding: 0 0.6rem;
+}
+.body > section.address >div{
+	font-size: 0.6rem;
+	line-height: 1.4rem;height: 1.4rem;
+}
+.body > section.address >div > span{
+	line-height: 0.8rem;
+	display: inline-block;
+	vertical-align: middle;
+	height: 0.8rem;
+}
+.body > section.address >div > span >label{
+	display: inline-block;height: 0.8rem;line-height: 0.8rem;
+	vertical-align: middle;
+}
+.body > section.address >div > span.number{
+	float: right;margin-top: 0.3rem;
+}
+.body > section.address >div > span.aboutEditDel{
+	float: right;margin-top: 0.3rem;
+}
+
+.payWays{
+	padding: 0;
+	height: 2rem;
+}
+.payWays > span{
+	display: inline-block;
+	height: 100%;width: 50%;line-height: 1.5rem;
+	text-align: left;
+}
+.payWays > span:nth-of-type(1) >span.radio{
+	margin-left: 0.1rem;
+}
+
+.payWays >span >img{
+	display: inline-block;vertical-align: middle;
+	margin-left:8%;
+	height: 1.2rem;
+}
+.payWays >span >label{
+	font-size: 0.6rem;
+}
+.payWays >span > span.radio{
+	display: inline-block;width: 0.625rem;height: 0.625rem;
+	position: relative;vertical-align: middle;line-height: 0;
+}
+.payWays >span > span.radio > input{
+	display: inline-block;
+	position: absolute;top: 0;left: 0;
+	width: 100%;height: 100%;
+	border:none;outline: none;
+	background-color: transparent;z-index: 1;
+	opacity: 0;
+}
+
+/*图片模拟*/
+.payWays >span:nth-of-type(1) >span{
+	display: inline-block;
+	font-size: 12px;color: red;
+}
+.payWays >span > span.radio >span{
+	display: inline-block;
+	width: 100%;height: 100%;
+	background: url('../img/radio.png') no-repeat;
+	background-size: 100% 100%;
+}
+.payWays >span > span.radio >input:checked + span{
+	background: url('../img/radioCheck.png') no-repeat;
+	background-size: 100% 100%;
+}
+.payWays >span >input{
+	outline: none;border:none;
+	display: inline-block;width: 100%;height: 1rem;line-height: 1rem;
+	background-color: transparent;
+	font-size: 0.6rem;
+}
+.payWays >span{
+	display: inline-block;height: 2rem;line-height: 2rem;
+}
+
+
+/*付款按钮*/
+.submit{
+	padding: 0 0.4rem;
+}
+.submit >.goPay{
+	margin: 0 auto;
+	width: 100%;height: 2rem;line-height: 2rem;
+	background-color: #dfdfdf;
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 1rem;
+	font-size: 0.45rem;
+	color: #999999;
+	padding-left: 1rem;
+}
+.submit >.goPay>span{
+	display: inline-block;vertical-align: middle;
+}
+.submit >.goPay>.money{
+	font-size: 0.6rem;
+	color: #ff621f;
+
+}
+.submit >.goPay>.money > label:nth-of-type(1){
+	text-decoration:none;
+	color: #ff621f;
+}
+.submit >.goPay>.money > label.alipay{
+	text-decoration:line-through;
+	color: #959595;
+}
+.submit >.goPay>.money > label.alipay + .zaixian{
+	display: inline-block;
+}
+.submit >.goPay>.money > .zaixian{
+	display: none;
+}
+.submit >.goPay>.payLink{
+	float: right;
+	width: 3.6rem;height: 1.5rem;line-height: 1.5rem;
+	margin-top: 0.4rem;margin-right: 0.6rem;
+}
+.submit >.goPay>.payLink >a{
+	vertical-align: middle;
+	display: inline-block;width: 100%;height: 100%;
+}
+.submit >.goPay>.payLink >a >img{
+	width: 100%;
+}
+.submit >.cancle{
+	font-size: 0.5rem;
+	text-align: right;padding-right: 1rem;
+}

@@ -18,16 +18,16 @@
 			</section>
 			<section class="list">
 				<ul>
-					<li>
+					<li v-for="item in goodList">
 						<span class="img"></span><span class="info">
-							<p class="title">title</p><p class="note">
-								备注
+							<p class="title">{{item.title}}</p><p class="note">
+								{{item.note}}
 							</p>
 							<div class="buy">
 								<span>
-									<p>销量</p>
+									<p>销量：{{item.count}}</p>
 									<p>
-										<span>原价</span><span>折后价</span>
+										<span>原价<label class="origin">￥{{item.origin}}</label></span><span>折后价<label>￥{{item.current}}</label></span>
 									</p>	
 								</span><span class="buyLink">
 									购买

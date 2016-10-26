@@ -5,6 +5,7 @@ html,body{
 	max-width: 640px;
 	width: 100%;
 	margin: 0 auto;
+	background-color: #f5f5f5;
 }
 /*头部轮播*/
 .header ul{
@@ -56,6 +57,7 @@ html,body{
 }
 .list > ul > li{
 	height: 4rem;line-height: 0;
+	margin-bottom: 0.4rem;
 }
 
 .list > ul >li >span{
@@ -69,10 +71,13 @@ html,body{
 }
 .list > ul >li >span.info{
 	padding: 0 0.2rem;
-	width: 8.6rem;
+	width: 8.8rem;
 }
 .list > ul >li >span.info p{
 	height: 1rem;line-height: 1rem;font-size: 0.68rem;
+}
+.list > ul >li >span.info p.note{
+	color: red;
 }
 .list > ul >li >span.info > div.buy{
 	height: 2rem;
@@ -81,12 +86,23 @@ html,body{
 	display: inline-block;vertical-align: top;height: 2rem;
 }
 .list > ul >li >span.info > div.buy > span:nth-of-type(1){
-	width: 6.2rem;
+	width: 6.4rem;
 }
 .list > ul >li >span.info > div.buy > span:nth-of-type(2){
 	width: 2rem;
 	border-radius: 50%;
 	background-color: #cccccc;
+	font-size: 0.68rem;
 	color: white;text-align: center;line-height: 2rem;
+}
+.list > ul >li >span.info > div.buy >span>p>span{
+	font-size: 0.58rem;
+}
+.list > ul >li >span.info > div.buy >span>p>span >label{
+	margin:0 0.1rem;font-size: 0.68rem;
+}
+.list > ul >li >span.info > div.buy >span>p>span >label.origin{
+	text-decoration: line-through;
+	color: #c5c5c5;
 }
 
