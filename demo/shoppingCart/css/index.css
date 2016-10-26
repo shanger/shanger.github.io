@@ -1,0 +1,92 @@
+html,body{
+	font-family: "Microsoft Yahei";
+}
+.body{
+	max-width: 640px;
+	width: 100%;
+	margin: 0 auto;
+}
+/*头部轮播*/
+.header ul{
+	position: relative;
+	height: 10rem;
+}
+.header ul li{
+	position: absolute;
+	width: 60%;z-index: 1;
+	transform: translateZ(-50px);
+	-webkit-transform: translateZ(-50px);
+	-moz-transform: translateZ(-50px);
+	-ms-transform: translateZ(-50px);
+	-0-transform: translateZ(-50px);
+}
+.header ul li.transition{
+	transition:all 1s ease-in-out;
+	-webkit-transition:all 1s ease-in-out;
+	-moz-transition:all 1s ease-in-out;
+	-ms-transition:all 1s ease-in-out;
+	-o-transition:all 1s ease-in-out;
+}
+.header ul li.Li1{
+	top: 2rem;left: 10%;
+	height: 6rem;
+	background-color: blue;
+}
+.header ul li.Li3{
+	top: 2rem;left: 30%;
+	height: 6rem;
+	background-color: green;
+
+}
+.header ul li.Li2{
+	height: 8rem;z-index: 2;
+	width: 60%;
+	top: 1rem;left: 20%;
+	background-color: #f60;
+	transform: translateZ(0px);
+	-webkit-transform: translateZ(0px);
+	-moz-transform: translateZ(0px);
+	-ms-transform: translateZ(0px);
+	-0-transform: translateZ(0px);
+}
+
+/*商品列表*/
+.list > ul{
+	padding: 0 0.4rem;	
+}
+.list > ul > li{
+	height: 4rem;line-height: 0;
+}
+
+.list > ul >li >span{
+	display: inline-block;height: 4rem;
+	vertical-align: top;
+	width: 6rem;
+}
+.list > ul >li >span.img{
+	width: 6rem;
+	background-color: lime;
+}
+.list > ul >li >span.info{
+	padding: 0 0.2rem;
+	width: 8.6rem;
+}
+.list > ul >li >span.info p{
+	height: 1rem;line-height: 1rem;font-size: 0.68rem;
+}
+.list > ul >li >span.info > div.buy{
+	height: 2rem;
+}
+.list > ul >li >span.info > div.buy > span{
+	display: inline-block;vertical-align: top;height: 2rem;
+}
+.list > ul >li >span.info > div.buy > span:nth-of-type(1){
+	width: 6.2rem;
+}
+.list > ul >li >span.info > div.buy > span:nth-of-type(2){
+	width: 2rem;
+	border-radius: 50%;
+	background-color: #cccccc;
+	color: white;text-align: center;line-height: 2rem;
+}
+

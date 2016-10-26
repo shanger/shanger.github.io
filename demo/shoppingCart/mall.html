@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+	  	<meta charset="utf-8" />
+	  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	  	<script type="text/javascript" src="js/REM.js"></script>
+	  	<title>shoppingCart</title>
+	    <link rel="stylesheet" type="text/css" href="css/commion.css">
+	    <link rel="stylesheet" type="text/css" href="css/index.css">	  
+	</head>
+	<body id="index">
+		<div class="body">
+			<section class="header">
+				<ul>
+					<li v-for="item in loopImg" v-bind:class="{'Li1':item.Li1,'Li2':item.Li2,'Li3':item.Li3,'transition':item.transition}">
+				</ul>
+			</section>
+			<section class="list">
+				<ul>
+					<li>
+						<span class="img"></span><span class="info">
+							<p class="title">title</p><p class="note">
+								备注
+							</p>
+							<div class="buy">
+								<span>
+									<p>销量</p>
+									<p>
+										<span>原价</span><span>折后价</span>
+									</p>	
+								</span><span class="buyLink">
+									购买
+								</span>
+								
+							</div>
+							
+						</span>
+					</li>
+				</ul>
+			</section>
+		</div>
+		<script type="text/javascript" src="../../bower_components/vue/dist/vue.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
