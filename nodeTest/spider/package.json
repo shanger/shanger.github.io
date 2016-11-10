@@ -1,0 +1,23 @@
+{
+  "name": "spider1",
+  "version": "1.0.0",
+  "description": "第一个爬虫测试",
+  "main": "index.js",
+  "scripts": {
+    "test": "shan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no"
+  },
+  "keywords": [
+    "spider",
+    "shan"
+  ],
+  "author": "shanger",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.78.0"
+  }
+}
