@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>vue-router</title>   
+    </head>
+    <body id='app'>
+    	<div class="list-group">
+		    <a class="list-group-item" v-link="{ path: '/home'}">Home</a>
+		    <a class="list-group-item" v-link="{ path: '/about'}">About</a>
+		</div>
+		<router-view></router-view>
+		<script type="text/javascript" src="../../bower_components/vue/dist/vue.min.js"></script>
+		<script type="text/javascript" src="../../node_modules/vue-router/dist/vue-router.min.js"></script>
+		<script type="text/javascript">
+			var Home = Vue.extend({
+			    template: '<div><h1>Home</h1><p>{{msg}}</p></div>',
+			    data: function() {
+			        return {
+			            msg: 'Hello, vue router!'
+			        }
+			    }
+			});
+			
+			var About = Vue.extend({
+			    template: '<div><h1>About</h1><p>This is the tutorial about vue-router.</p></div>'
+			});
+			var router = new VueRouter();
+			router.map({
+			    '/home': { component: Home },
+			    '/about': { component: About }
+			});
+			var App = Vue.extend({})
+			router.start(App, '#app')
+		</script>
+        <!-- <script src='../../bower_components/requirejs/require.js' data-main='js/router.js'></script> -->
+    </body>
+</html>
