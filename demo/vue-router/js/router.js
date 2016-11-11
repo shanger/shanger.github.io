@@ -1,12 +1,13 @@
 require.config({
 	paths:{
 		vue:'../../../bower_components/vue/dist/vue.min',
-		vueRouter:'../../../node_modules/vue-router/dist/vue-router.min'
+		vueRouter:'../../../node_modules/vue-router/dist/vue-router0_7.min'
 	},
 	shim: {　　　
 　　}
 });
 requirejs(['vue','vueRouter'],function(Vue,VueRouter){
+	Vue.use(VueRouter);
 	var Home = Vue.extend({
 	    template: '<div><h1>Home</h1><p>{{msg}}</p></div>',
 	    data: function() {
