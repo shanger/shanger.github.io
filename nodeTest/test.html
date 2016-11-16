@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#ss{
+			width: 200px;
+			background-color: #93c5e3;
+		}
+		#ss >div:nth-child(1){
+			height: 100px;text-align: center;
+			line-height: 100px;
+		}
+		#ss >div:nth-child(1)>span{
+			display: inline-block;
+			vertical-align: middle;
+			width: 50px;height: 50px;
+			border-radius: 100%;
+			background-color: white;
+		}
+		#gg{
+			width: 200px;
+			height: 200px;
+			background-color: #f60;
+			border-top-left-radius: 100px 40px;
+			border-top-right-radius: 100px 40px;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="ss">
+		<div>
+			<span></span>
+		</div>
+		<div id="gg"></div>
+	</div>
+	
+</body>
+</html>
