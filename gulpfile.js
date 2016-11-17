@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
 htmlmin = require('gulp-htmlmin'),
 minifycss = require('gulp-minify-css'),
+less = require('gulp-less')
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 rename = require('gulp-rename'),
@@ -30,6 +31,13 @@ gulp.task('minifycss', function() {
         .pipe(minifycss())   //执行压缩
         .pipe(gulp.dest('demo/vue-router/compress'));   //输出文件夹
 });
+//编译less
+gulp.task('less', function () {
+    gulp.src('demo/vue-router/css/*.less')
+        .pipe(less())
+        .pipe(minifycss())
+        .pipe(gulp.dest('demo/vue-router/compress/'));
+});
 
 gulp.task('minifyjs', function() {
 	del(['demo/vue-router/compress/address.js']);
@@ -46,7 +54,8 @@ gulp.task('watch', function () {
     gulp.watch('demo/vue-router/address.html', ['html']);
     gulp.watch('demo/vue-router/css/*.css', ['minifycss']);
     gulp.watch('demo/vue-router/js/address.js', ['minifyjs']);
+    gulp.watch('demo/vue-router/css/*.less', ['less']);
 });
 
 
-gulp.task('default',['html','minifycss','minifyjs','watch']);
+gulp.task('default',['html','minifycss','less','minifyjs','watch']);
