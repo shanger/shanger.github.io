@@ -17,7 +17,20 @@
 				 </p>
 	    		<router-view></router-view>
 	    	</div>    		
-    	</div>    	
+    	</div>
+        <template id="news">
+            <div>                
+                <a v-link="{ name: 'detail', params: {id: '01'} }">News 01</a>
+                <div>
+                    <router-view></router-view>
+                </div>
+            </div>
+        </template>
+        <template id="newsDetail">
+            <div>
+                News Detail - {{$route.params.id}} ......
+            </div>
+        </template>   	
         <script src='../../bower_components/requirejs/require.js' data-main='compress/main.min.js'></script>
     </body>
 </html>

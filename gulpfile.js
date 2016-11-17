@@ -5,7 +5,9 @@ less = require('gulp-less')
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 rename = require('gulp-rename'),
-del = require('del');
+del = require('del'),
+postcss = require('gulp-postcss'),
+autoprefixer = require('autoprefixer');
 
 
 //压缩
@@ -25,12 +27,28 @@ gulp.task('html',function(){
     .pipe(rename('addressMin.html'))
     .pipe(gulp.dest('demo/vue-router')); 
 });
-gulp.task('minifycss', function() {
+/*gulp.task('minifycss', function() {
 	del(['demo/vue-router/compress/address.css']);
-    return gulp.src('demo/vue-router/css/*.css')      //压缩的文件        
+    return gulp.src('demo/vue-router/css/address.css')      //压缩的文件        
         .pipe(minifycss())   //执行压缩
         .pipe(gulp.dest('demo/vue-router/compress'));   //输出文件夹
+});*/
+
+//postcss初体验
+
+gulp.task('css', function() {
+    var processors = [
+        autoprefixer({browsers:['last 3 versions'],
+            cascade: false,
+            remove: false
+        })        
+    ];
+    return gulp.src('demo/vue-router/css/*.css') 
+       .pipe(postcss([require('autoprefixer')({browsers: ['last 100 versions']})], {}))
+       .pipe(minifycss())   //执行压缩
+       .pipe(gulp.dest('demo/vue-router/compress'));
 });
+
 //编译less
 gulp.task('less', function () {
     gulp.src('demo/vue-router/css/*.less')
@@ -52,10 +70,10 @@ gulp.task('minifyjs', function() {
 //监控css
 gulp.task('watch', function () {
     gulp.watch('demo/vue-router/address.html', ['html']);
-    gulp.watch('demo/vue-router/css/*.css', ['minifycss']);
     gulp.watch('demo/vue-router/js/address.js', ['minifyjs']);
     gulp.watch('demo/vue-router/css/*.less', ['less']);
+    gulp.watch('demo/vue-router/css/postcssTest.css', ['postcss']);
 });
 
 
-gulp.task('default',['html','minifycss','less','minifyjs','watch']);
+gulp.task('default',['html','css','less','minifyjs','watch']);

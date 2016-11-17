@@ -11,7 +11,7 @@ html,body{
 	margin:0 auto;
 }
 a{
-	text-decoration: none;
+	text-decoration: none;color: white;
 }
 li{
 	list-style: none;
@@ -59,3 +59,14 @@ p.nav > a{
 	background-color: #84b12a;
 }
 
+#A{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex; 
+	-webkit-transition: all; 
+	-o-transition: all; 
+	-moz-transition: all; 
+	transition: all;
+}

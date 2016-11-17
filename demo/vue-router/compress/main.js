@@ -57,9 +57,9 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 
 	})
 	Vue.use(VueRouter);
-	var Address =  Vue.extend({
-		template:'<h2 class="index">地址选择</h2>'
-	});
+	/*var Address =  Vue.extend({
+		template:'<h2 class="index">地址选择</h2><router-view></router-view>'
+	});*/
 	var Province =  Vue.extend({
 		template:'<h2 class="message">消息</h2>'
 	});
@@ -69,10 +69,22 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 	var Area =  Vue.extend({
 		template:'<h2 class="dynamic">动态</h2>'
 	});
+	var Address = Vue.extend({
+	    template: '#news'
+	})
+	var NewsDetail = Vue.extend({
+	    template: '#newsDetail'
+	})
 	var address = new VueRouter();
 	address.map({
 	    '/address': {
-		    component: Address,		   
+		    component: Address,
+		    subRoutes:{
+		    	'/detail/:id':{
+		    		name:'detail',
+		    		component:NewsDetail
+		    	}
+		    }
 		},
 		'/province': {
 	        component: Province
@@ -84,6 +96,9 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
           	component: Area
         }
 	});
+	address.redirect({
+	    '/': '/address'
+	})
 	var App = Vue.extend({});
 	address.start(App, '#app')
 });
