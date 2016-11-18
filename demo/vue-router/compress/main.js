@@ -12,17 +12,15 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 	var body = new Vue({
 		el:'#body',
 		data:{
-			provincialLevel:'',
-			cityLevel:'',
-			area:'',
+			index:{
+				age:''
+			},
 			bg:{
 				'index':true,'message':false,'friends':false,'dynamic':false
 			}
 		},
 		created:function(){
-			this.provincialLevel = provincialLevel;
-			this.cityLevel = cityLevel;
-			this.area = levl3;
+			this.index.age = (new Date()).getFullYear() - 1995;
 		},
 		methods:{
 			color1:function(){
@@ -57,48 +55,37 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 
 	})
 	Vue.use(VueRouter);
-	/*var Address =  Vue.extend({
-		template:'<h2 class="index">地址选择</h2><router-view></router-view>'
-	});*/
-	var Province =  Vue.extend({
-		template:'<h2 class="message">消息</h2>'
+
+	var skill =  Vue.extend({
+		template:'#skill'
 	});
-	var City =  Vue.extend({
-		template:'<h2 class="friends">联系人</h2>'
+	var Works =  Vue.extend({
+		template:'#works'
 	});
-	var Area =  Vue.extend({
-		template:'<h2 class="dynamic">动态</h2>'
+	var SomeWords =  Vue.extend({
+		template:'#someWords'
 	});
-	var Address = Vue.extend({
-	    template: '#news'
+	var Index = Vue.extend({
+	    template: '#index'
 	})
-	var NewsDetail = Vue.extend({
-	    template: '#newsDetail'
-	})
-	var address = new VueRouter();
-	address.map({
-	    '/address': {
-		    component: Address,
-		    subRoutes:{
-		    	'/detail/:id':{
-		    		name:'detail',
-		    		component:NewsDetail
-		    	}
-		    }
+	var about = new VueRouter();
+	about.map({
+	    '/index': {
+		    component: Index,
 		},
-		'/province': {
-	        component: Province
+		'/skill': {
+	        component: skill
 	      },
-        '/city': {
-	        component: City
+        '/works': {
+	        component: Works
         },
-        '/area': {
-          	component: Area
+        '/someWords': {
+          	component: SomeWords
         }
 	});
-	address.redirect({
-	    '/': '/address'
+	about.redirect({
+	    '/': '/index'
 	})
 	var App = Vue.extend({});
-	address.start(App, '#app')
+	about.start(App, '#app')
 });

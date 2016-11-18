@@ -13,11 +13,29 @@ html,body{
 a{
 	text-decoration: none;color: white;
 }
+
 li{
 	list-style: none;
 }
 body{
 	position: relative;
+}
+
+section > ul li{
+	padding: 0 3rem;
+	font-size: 0.68rem;
+	color: white;
+	line-height: 1.6rem;
+}
+.someWords li{
+	text-indent: 1.36rem;
+}
+.headImg{
+	height: 5rem;width: 5rem;
+	margin:1rem auto;
+	border-radius: 100%;
+	background: url('../img/header.jpg') no-repeat;
+	background-size: cover;
 }
 
 h3.title{
@@ -44,11 +62,31 @@ p.nav > a{
 #app{
 	height: 100%;
 }
+/*导航*/
+p.nav a.v-link-active{
+	color: white !important;
+}
+p.nav a:nth-of-type(1){
+	color: #12b7f5;
+
+}
+p.nav a:nth-of-type(2){
+	color: #d2888d;
+
+}
+p.nav a:nth-of-type(3){
+	color: #ed710c;
+
+}
+p.nav a:nth-of-type(4){
+	color: #84b12a;
+
+}
 #app.index{
 	background-color: #12b7f5;
 }
 #app.message{
-	background-color: #f9d34d;
+	background-color: #d2888d;
 }
 
 #app.friends{

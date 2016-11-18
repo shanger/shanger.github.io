@@ -22,9 +22,9 @@ gulp.task('html',function(){
         minifyJS:true,                      //压缩html中的js
         minifyCSS:true                      //压缩html中的css
     };
-    gulp.src('demo/vue-router/address.html')
+    gulp.src('demo/vue-router/about.html')
     .pipe(htmlmin(options))
-    .pipe(rename('addressMin.html'))
+    .pipe(rename('aboutMin.html'))
     .pipe(gulp.dest('demo/vue-router')); 
 });
 /*gulp.task('minifycss', function() {
@@ -69,10 +69,10 @@ gulp.task('minifyjs', function() {
 
 //监控css
 gulp.task('watch', function () {
-    gulp.watch('demo/vue-router/address.html', ['html']);
+    gulp.watch('demo/vue-router/about.html', ['html']);
     gulp.watch('demo/vue-router/js/address.js', ['minifyjs']);
     gulp.watch('demo/vue-router/css/*.less', ['less']);
-    gulp.watch('demo/vue-router/css/postcssTest.css', ['postcss']);
+    gulp.watch('demo/vue-router/css/*.css', ['css']);
 });
 
 
