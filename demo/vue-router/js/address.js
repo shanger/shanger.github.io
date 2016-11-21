@@ -1,7 +1,7 @@
 require.config({
 	paths:{
 		vue:'../../../bower_components/vue/dist/vue.min',
-		vueRouter:'../../../node_modules/vue-router/dist/vue-router0_7.min',
+		vueRouter:'vue-router0_7.min',
 		/*city:'city'*/
 		city:'../js/city'
 	},
