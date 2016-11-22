@@ -23,6 +23,15 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 			this.index.age = (new Date()).getFullYear() - 1995;
 		},
 		methods:{
+			transform:function(){
+				var heihei = this.$els.heihei;
+				var class = heihei.getAttribute('class');
+				if(class == 'heihei transform'){
+					heihei.setAttribute('class','heihei');
+				}else{
+					heihei.setAttribute('class','heihei transform');
+				}
+			},
 			color1:function(){
 				var This = this;
 				for(key in this.bg){

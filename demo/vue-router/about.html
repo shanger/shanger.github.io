@@ -12,6 +12,10 @@
     	<div class="body">
 	    	<div id="app" v-bind:class="{'index':bg.index,'message':bg.message,'friends':bg.friends,'dynamic':bg.dynamic}">
 	    		<h3 class="title">shanger</h3>
+                <div class="heihei" v-on:click="transform()" v-el:heihei>
+                    <span></span><span></span><span></span>
+                    <div></div>
+                </div>
 	    		<p class="nav">
 				    <a v-link="{ path: '/index' }" @click="color1()">首页</a><a v-link="{ path: '/skill' }" @click="color2()">技能</a><a v-link="{ path: '/works' }" @click="color3()">作品</a><a v-link="{ path: '/someWords' }" @click="color4()">期望</a>
 				 </p>
