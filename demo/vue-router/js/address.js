@@ -32,33 +32,14 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 					heihei.setAttribute('class','heihei transform');
 				}
 			},
-			color1:function(){
-				var This = this;
-				for(key in this.bg){
-					this.bg[key] = false;
-				}
-				this.bg.index = true
+			test:function(){
+				console.log('gg');
 			},
-			color2:function(){
-				var This = this;
-				for(key in this.bg){
-					this.bg[key] = false;
-				}
-				this.bg.message = true
+			load:function(){
+				console.log((new Date()).toString())
 			},
-			color3:function(){
-				var This = this;
-				for(key in this.bg){
-					this.bg[key] = false;
-				}
-				this.bg.friends = true
-			},
-			color4:function(){
-				var This = this;
-				for(key in this.bg){
-					this.bg[key] = false;
-				}
-				this.bg.dynamic = true
+			load1:function(){
+				console.log((new Date()).toString())
 			}
 		},
 
@@ -66,17 +47,25 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 	Vue.use(VueRouter);
 
 	var skill =  Vue.extend({
-		template:'#skill'
+		template:'#skill',
+		methods:{
+			test:function(){
+				console.log('gg');
+			}
+		}
 	});
 	var Works =  Vue.extend({
-		template:'#works'
+		template:'#works',
+
 	});
+
 	var SomeWords =  Vue.extend({
 		template:'#someWords'
 	});
+
 	var Index = Vue.extend({
 	    template: '#index'
-	})
+	});
 	var about = new VueRouter();
 	about.map({
 	    '/index': {
@@ -96,5 +85,6 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 	    '/': '/index'
 	})
 	var App = Vue.extend({});
-	about.start(App, '#app')
+	about.start(App, '#app');
+	
 });
