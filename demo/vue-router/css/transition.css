@@ -1,0 +1,46 @@
+*{
+	margin:0;padding: 0;box-sizing: border-box;
+}
+html,body{
+	font-family: "Microsoft Yahei";
+	height: 100%;
+}
+.headimgParent{
+	height: 4rem;width: 4rem;
+	margin:1rem auto;
+	animation: parent 4s linear infinite;
+	transform-origin: 50% 20rem;
+}
+
+.headImg{
+	height: 4rem;width: 4rem;
+	animation: img 4s linear infinite;
+	border-radius: 100%;
+	background: url('../img/header.jpg') no-repeat;
+	background-size: cover;
+}
+
+@keyframes parent{
+	0%{
+		transform: rotate(-45deg);
+	}
+	50%{
+		transform: rotate(45deg);
+	}
+
+	100%{
+		transform: rotate(-45deg);
+	}
+}
+
+@keyframes img{
+	0%{
+		transform: rotate(45deg);
+	}
+	50%{
+		transform: rotate(-45deg);
+	}
+	100%{
+		transform: rotate(45deg);
+	}
+}
