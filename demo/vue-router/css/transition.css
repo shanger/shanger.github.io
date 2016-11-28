@@ -6,14 +6,14 @@ html,body{
 	height: 100%;
 }
 .headimgParent{
-	height: 4rem;width: 4rem;
+	height: 6rem;width: 6rem;
 	margin:1rem auto;
 	animation: parent 4s linear infinite;
 	transform-origin: 50% 20rem;
 }
 
 .headImg{
-	height: 4rem;width: 4rem;
+	height: 6rem;width: 6rem;
 	animation: img 4s linear infinite;
 	border-radius: 100%;
 	background: url('../img/header.jpg') no-repeat;

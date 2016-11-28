@@ -1,12 +1,14 @@
 var gulp = require('gulp'),
 htmlmin = require('gulp-htmlmin'),
 minifycss = require('gulp-minify-css'),
+babel = require('gulp-babel'),
 less = require('gulp-less')
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
 rename = require('gulp-rename'),
 del = require('del'),
 postcss = require('gulp-postcss'),
+plumber = require('gulp-plumber'),
 autoprefixer = require('autoprefixer');
 
 
@@ -27,12 +29,7 @@ gulp.task('html',function(){
     .pipe(rename('aboutMin.html'))
     .pipe(gulp.dest('demo/vue-router')); 
 });
-/*gulp.task('minifycss', function() {
-	del(['demo/vue-router/compress/address.css']);
-    return gulp.src('demo/vue-router/css/address.css')      //压缩的文件        
-        .pipe(minifycss())   //执行压缩
-        .pipe(gulp.dest('demo/vue-router/compress'));   //输出文件夹
-});*/
+
 
 //postcss初体验
 
@@ -57,23 +54,30 @@ gulp.task('less', function () {
         .pipe(gulp.dest('demo/vue-router/compress/'));
 });
 
-gulp.task('minifyjs', function() {
-	del(['demo/vue-router/compress/address.js']);
-    return gulp.src('demo/vue-router/js/address.js')
-        .pipe(concat('main.js'))    //合并所有js到main.js
-        .pipe(gulp.dest('demo/vue-router/compress'))    //输出main.js到文件夹
-        .pipe(rename({suffix: '.min'}))   //rename压缩后的文件名
+gulp.task('minifyjs',function() {
+	del(['demo/vue-router/compress/*.js']);
+    return gulp.src('demo/vue-router/js/*.js')
         .pipe(uglify())    //压缩
         .pipe(gulp.dest('demo/vue-router/compress'));  //输出
 });
+// 编译并压缩js
+gulp.task('convertJS', function(){
+    del(['demo/vue-router/compress/es6.js']);
+  return gulp.src('demo/vue-router/js/es6.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('demo/vue-router/compress'));
+})
 
 //监控css
 gulp.task('watch', function () {
     gulp.watch('demo/vue-router/about.html', ['html']);
-    gulp.watch('demo/vue-router/js/address.js', ['minifyjs']);
+    gulp.watch('demo/vue-router/js/*.js', ['minifyjs']);
     gulp.watch('demo/vue-router/css/*.less', ['less']);
+    gulp.watch('demo/vue-router/js/es6.js', ['convertJS']);
     gulp.watch('demo/vue-router/css/*.css', ['css']);
 });
 
 
-gulp.task('default',['html','css','less','minifyjs','watch']);
+gulp.task('default',['html','css','less','minifyjs','convertJS','watch']);

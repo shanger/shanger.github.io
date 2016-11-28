@@ -1,9 +1,9 @@
 require.config({
 	paths:{
 		vue:'../../../bower_components/vue/dist/vue.min',
-		vueRouter:'vue-router0_7.min',
+		vueRouter:'../static/vue-router0_7.min',
 		/*city:'city'*/
-		city:'../js/city'
+		city:'city'
 	},
 	shim: {　　　
 　　}
@@ -20,7 +20,6 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 			}
 		},
 		created:function(){
-			this.index.age = (new Date()).getFullYear() - 1995;
 		},
 		methods:{
 			transform:function(){
@@ -64,7 +63,12 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 	});
 
 	var Index = Vue.extend({
-	    template: '#index'
+	    template: '#index',
+	    data:function(){
+	    	return {
+	    		age : (new Date()).getFullYear() - 1995
+	    	}
+	    }
 	});
 	var about = new VueRouter();
 	about.map({
