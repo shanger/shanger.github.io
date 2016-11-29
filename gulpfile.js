@@ -56,7 +56,7 @@ gulp.task('less', function () {
 
 gulp.task('minifyjs',['convertJS'],function() {
 	del(['demo/vue-router/compress/*.js']);
-    return gulp.src('demo/vue-router/js/*.js')
+    return gulp.src(['demo/vue-router/js/*.js','!demo/vue-router/js/es6.js'])
         .pipe(uglify())    //压缩
         .pipe(gulp.dest('demo/vue-router/compress'));  //输出
 });
@@ -66,6 +66,7 @@ gulp.task('convertJS', function(){
     .pipe(babel({
       presets: ['es2015']
     }))
+    .pipe(rename('afterBabel.js'))
     .pipe(gulp.dest('demo/vue-router/js'));
 })
 
