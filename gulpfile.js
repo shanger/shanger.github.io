@@ -54,7 +54,7 @@ gulp.task('less', function () {
         .pipe(gulp.dest('demo/vue-router/compress/'));
 });
 
-gulp.task('minifyjs',function() {
+gulp.task('minifyjs',['convertJS'],function() {
 	del(['demo/vue-router/compress/*.js']);
     return gulp.src('demo/vue-router/js/*.js')
         .pipe(uglify())    //压缩
@@ -62,12 +62,11 @@ gulp.task('minifyjs',function() {
 });
 // 编译并压缩js
 gulp.task('convertJS', function(){
-    del(['demo/vue-router/compress/es6.js']);
   return gulp.src('demo/vue-router/js/es6.js')
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('demo/vue-router/compress'));
+    .pipe(gulp.dest('demo/vue-router/js'));
 })
 
 //监控css
@@ -75,9 +74,8 @@ gulp.task('watch', function () {
     gulp.watch('demo/vue-router/about.html', ['html']);
     gulp.watch('demo/vue-router/js/*.js', ['minifyjs']);
     gulp.watch('demo/vue-router/css/*.less', ['less']);
-    gulp.watch('demo/vue-router/js/es6.js', ['convertJS']);
     gulp.watch('demo/vue-router/css/*.css', ['css']);
 });
 
 
-gulp.task('default',['html','css','less','minifyjs','convertJS','watch']);
+gulp.task('default',['html','css','less','minifyjs','watch']);
