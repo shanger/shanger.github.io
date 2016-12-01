@@ -62,14 +62,24 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 		template:'#someWords'
 	});
 
+	var indexChild = Vue.extend({
+		props: ['msg'],
+		template:'<p>{{msg}}</p>',
+
+	});
+
 	var Index = Vue.extend({
 	    template: '#index',
 	    data:function(){
 	    	return {
-	    		age : (new Date()).getFullYear() - 1995
+	    		age : (new Date()).getFullYear() - 1995,
 	    	}
+	    },
+	    components:{
+	    	'index-child':indexChild
 	    }
 	});
+	
 	var about = new VueRouter();
 	about.map({
 	    '/index': {
