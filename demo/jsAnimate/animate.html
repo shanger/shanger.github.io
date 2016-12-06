@@ -7,11 +7,15 @@
 		<title>parent</title>
 		<style type="text/css">
 			*{padding: 0;margin:0;}
+			body{
+				overflow: auto;font-size: 0;
+			}
 			#img{
+				display: inline-block;
 				background: url('img/bg.jpg') no-repeat;
 				height: 207px;width: 228px;
 				background-position: -315px 0;
-				margin:50px auto;
+				margin:800px auto 0;
 			}
 		</style>
 	</head>
@@ -19,45 +23,22 @@
 		<div id="img">
 		</div>
 		<script type="text/javascript">
-			(function(){ 
-			    var LSwiperMaker = function(o){ 
-			 
-			        var that = this;
-			        this.config = o;    //传入的参数
-			        this.startX = 0;		//初始位置
-			        this.endX = 0;
-			        this.config.bind.addEventListener('mouseenter', function(e){ return that.start(e); } ,false);
-			        this.config.bind.addEventListener('mousemove', function(e){ return that.move(e); } ,false);
-			 
-			    }
-			 
-			    LSwiperMaker.prototype.start = function(e){
-			         
-			         var point = e.touches ? e.touches[0] : e;
-			         this.startX = point.screenX - this.config.bind.offsetLeft;
-			 
-			    }
-			    LSwiperMaker.prototype.move = function(e){  
-			 
-			        var point = e.touches ? e.touches[0] : e;
-			        this.endX = point.screenX - this.config.bind.offsetLeft;
-			        if(this.endX - this.startX > 0){
-			        	this.config.bind.style.backgroundPosition = "-603px 0"
-			        }else{
-			        	this.config.bind.style.backgroundPosition ="-42px 0";
-			        }
-			        this.startX = point.screenX - this.config.bind.offsetLeft;
-			 
-			    }
-			    window.LSwiperMaker = LSwiperMaker;
-			    document.querySelector('#img').addEventListener('mousemove', function (e) { 
-			        //看需求是否要阻止默认事件
-			        // e.preventDefault();
-			    }, false);// 禁止微信touchmove冲突 
-			}())
-			var OList = new LSwiperMaker({
-			        bind:document.querySelector('#img'),  // 绑定的DOM对象
-			});
+			(function(){
+				var img = document.querySelector('#img');
+				var avheight  = document.documentElement.clientHeight;
+				/*window.addEventListener('scroll',function(){
+					if(img.getBoundingClientRect().top < avheight ){
+						console.log('gg')
+					}
+				},false);*/
+				var intersectionObserver = new IntersectionObserver(
+					function (entries) {
+				    console.log('gg');
+				});
+
+				// 开始观察
+				intersectionObserver.observe(img);
+			})()
 		</script>
 	</body>
 </html>
