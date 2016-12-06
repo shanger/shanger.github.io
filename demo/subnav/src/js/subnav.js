@@ -11,7 +11,7 @@ requirejs(['vue'],function(Vue){
 		data:{
 			li:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
 			rightLi:[
-				{text:'a',active:true},
+				{text:'a',active:false},
 				{text:'b',active:false},
 				{text:'c',active:false},
 				{text:'d',active:false},
@@ -43,6 +43,7 @@ requirejs(['vue'],function(Vue){
 			rightLiFontSize:'',
 			rightShowText:'',	//提示字
 			rightLiSpan:'',
+			rightLiActive:false,	//navbar样式
 		},
 		created:function(){
 			this.rightLiSet();
@@ -106,13 +107,26 @@ requirejs(['vue'],function(Vue){
 						this.config.backfn(this);   
 					}             
 					LSwiperMaker.prototype.end = function(e){
+						if(this.mPos.y > this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.tolerance){
+							this.dire = 'D';
+						}
+						if(this.mPos.y < this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.tolerance){
+							this.dire = 'U';
+						}
+						if(this.mPos.x > this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.tolerance){
+							this.dire = 'R';
+						}
+						if(this.mPos.x < this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.tolerance){
+							this.dire = 'L';
+						}
 						this.config.end(this);          
 					} 
 					window.LSwiperMaker = LSwiperMaker;                
 				}());
 				var OList = new LSwiperMaker({
                     bind:document.querySelector('.right'),  
-                    backfn:function(o){    //回调事件        
+                    backfn:function(o){    //回调事件    
+                    	This.rightLiActive = true;
                     	if(o.dire == 'U'||o.dire == 'D'){ 
                     		var Myindex = Math.ceil(o.mPos.y/parseInt(This.rightLiLineHeight)) -2;
                     		This.$els.showtext.style.top = o.mPos.y - parseInt(This.rightLiLineHeight) + 'px';
@@ -129,12 +143,26 @@ requirejs(['vue'],function(Vue){
                     		return false; 
                     	}     
                     },
-                    end:function(){
+                    end:function(o){
+                    	This.rightLiActive = false;
                     	This.rightShowText = '';
                     	This.$els.showtext.style.top = '0px';
+                    	This.rightLi.forEach(function(ele,index){
+                    		ele.active = false;
+                    	});
+                    	if(o.dire == 'L'){
+                    		This.$els.rightli.style.right = '6rem';
+                    		This.rightLiActive = true;
+                    	}else if(o.dire == 'R'){
+                    		This.$els.rightli.style.right = '0rem';
+                    		This.rightLiActive = false;
+                    	}
                     }
                 });
 			},
+			choose:function($index){
+				document.querySelector('.body').scrollTop = $index * document.querySelector('ul.big li').offsetHeight;
+			}
 		}
 
 	});

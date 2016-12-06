@@ -13,11 +13,16 @@
     		<ul class="big">
     			<li v-for="item in li">{{item}}</li>
     		</ul>
-    		<ul class="right" v-bind:style="{lineHeight:rightLiLineHeight,fontSize:rightLiFontSize}">
+    		<ul class="right" v-bind:style="{lineHeight:rightLiLineHeight,fontSize:rightLiFontSize}" v-bind:class="{active:rightLiActive}" v-el:rightli>
     			<li v-for="item in rightLi" >
                     <span v-bind:style="{width:rightLiSpan,height:rightLiSpan,lineHeight:rightLiSpan}" v-bind:class="{active:item.active}">{{item.text}}</span>
                 </li>
     			<span v-el:showtext v-bind:style="{fontSize:rightLiSpan}">{{rightShowText}}</span>
+                <div>
+                    <ul>
+                        <li v-for="item in rightLi" v-on:click="choose($index)">{{item.text}}</li>
+                    </ul>
+                </div>
     		</ul>
     	</div>
         <script src='../../static/js/require.js' data-main='js/subnav.js'></script>
