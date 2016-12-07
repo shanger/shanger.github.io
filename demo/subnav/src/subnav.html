@@ -10,20 +10,20 @@
     </head>
     <body id='app'>
     	<div class="body" v-el:mybody>
-    		<ul class="big">
+    		<ul class="big" v-cloak>
     			<li v-for="item in li">{{item}}</li>
     		</ul>
-    		<ul class="right" v-bind:style="{lineHeight:rightLiLineHeight,fontSize:rightLiFontSize}" v-bind:class="{active:rightLiActive}" v-el:rightli>
+    		<ul class="right" v-bind:style="{lineHeight:rightLiLineHeight,fontSize:rightLiFontSize}" v-bind:class="{active:rightLiActive,activeColor:activeColor}" v-el:rightli v-cloak>
     			<li v-for="item in rightLi" >
                     <span v-bind:style="{width:rightLiSpan,height:rightLiSpan,lineHeight:rightLiSpan}" v-bind:class="{active:item.active}">{{item.text}}</span>
                 </li>
-    			<span v-el:showtext v-bind:style="{fontSize:rightLiSpan}">{{rightShowText}}</span>
-                <div>
-                    <ul>
-                        <li v-for="item in rightLi" v-on:click="choose($index)">{{item.text}}</li>
-                    </ul>
-                </div>
+    			<span v-el:showtext v-bind:style="{fontSize:rightShowTextSize}">{{rightShowText}}</span>                
     		</ul>
+            <div class="keyboard" v-bind:class="{active:rightLiActive}" v-cloak>
+                <ul>
+                    <li v-for="item in rightLi" v-on:click="choose($index)" v-bind:style="{fontSize:rightShowTextSize}">{{item.text}}</li>
+                </ul>
+            </div>
     	</div>
         <script src='../../static/js/require.js' data-main='js/subnav.js'></script>
     </body>

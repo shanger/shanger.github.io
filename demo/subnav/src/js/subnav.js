@@ -42,8 +42,10 @@ requirejs(['vue'],function(Vue){
 			rightLiLineHeight:'',	//行高 字号适配
 			rightLiFontSize:'',
 			rightShowText:'',	//提示字
+			rightShowTextSize:'',	//提示字的字体大小
 			rightLiSpan:'',
 			rightLiActive:false,	//navbar样式
+			activeColor:false,
 		},
 		created:function(){
 			this.rightLiSet();
@@ -62,7 +64,8 @@ requirejs(['vue'],function(Vue){
 				var height = body.offsetHeight;
 				this.rightLiLineHeight = height/28 + 'px';
 				this.rightLiFontSize = height/28*0.6 + 'px';
-				this.rightLiSpan = height/28*0.8 + 'px'
+				this.rightLiSpan = height/28*0.8 + 'px';
+				this.rightShowTextSize = height/28*1.2 + 'px';
 			},
 			touches:function(){
 				var This = this;
@@ -74,7 +77,8 @@ requirejs(['vue'],function(Vue){
 						this.sPos = {};
 						this.mPos = {};
 						this.dire;
-						this.tolerance = 20;
+						this.toleranceX = 50;
+						this.toleranceY = 20;
 						this.config.bind.addEventListener('touchstart', function(e){ return that.start(e); } ,false);
 						this.config.bind.addEventListener('touchmove', function(e){ return that.move(e); } ,false);
 						this.config.bind.addEventListener('touchend', function(e){ return that.end(e); } ,false);             
@@ -92,31 +96,31 @@ requirejs(['vue'],function(Vue){
 						this.mPos.x = point.clientX;
 						this.mPos.y = point.clientY;
 
-						if(this.mPos.y > this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.tolerance){
+						if(this.mPos.y > this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.toleranceY){
 							this.dire = 'D';
 						}
-						if(this.mPos.y < this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.tolerance){
+						if(this.mPos.y < this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.toleranceY){
 							this.dire = 'U';
 						}
-						if(this.mPos.x > this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.tolerance){
+						if(this.mPos.x > this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.toleranceX){
 							this.dire = 'R';
 						}
-						if(this.mPos.x < this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.tolerance){
+						if(this.mPos.x < this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.toleranceX){
 							this.dire = 'L';
 						}
 						this.config.backfn(this);   
 					}             
 					LSwiperMaker.prototype.end = function(e){
-						if(this.mPos.y > this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.tolerance){
+						if(this.mPos.y > this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.toleranceY){
 							this.dire = 'D';
 						}
-						if(this.mPos.y < this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.tolerance){
+						if(this.mPos.y < this.sPos.y && Math.abs(this.mPos.x - this.sPos.x) < this.toleranceY){
 							this.dire = 'U';
 						}
-						if(this.mPos.x > this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.tolerance){
+						if(this.mPos.x > this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.toleranceX){
 							this.dire = 'R';
 						}
-						if(this.mPos.x < this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.tolerance){
+						if(this.mPos.x < this.sPos.x && Math.abs(this.mPos.y - this.sPos.y) < this.toleranceX){
 							this.dire = 'L';
 						}
 						this.config.end(this);          
@@ -125,8 +129,8 @@ requirejs(['vue'],function(Vue){
 				}());
 				var OList = new LSwiperMaker({
                     bind:document.querySelector('.right'),  
-                    backfn:function(o){    //回调事件    
-                    	This.rightLiActive = true;
+                    backfn:function(o){    //回调事件  
+                    	This.activeColor = true;
                     	if(o.dire == 'U'||o.dire == 'D'){ 
                     		var Myindex = Math.ceil(o.mPos.y/parseInt(This.rightLiLineHeight)) -2;
                     		This.$els.showtext.style.top = o.mPos.y - parseInt(This.rightLiLineHeight) + 'px';
@@ -144,18 +148,18 @@ requirejs(['vue'],function(Vue){
                     	}     
                     },
                     end:function(o){
-                    	This.rightLiActive = false;
                     	This.rightShowText = '';
                     	This.$els.showtext.style.top = '0px';
                     	This.rightLi.forEach(function(ele,index){
                     		ele.active = false;
                     	});
                     	if(o.dire == 'L'){
-                    		This.$els.rightli.style.right = '6rem';
                     		This.rightLiActive = true;
                     	}else if(o.dire == 'R'){
-                    		This.$els.rightli.style.right = '0rem';
                     		This.rightLiActive = false;
+                    		This.activeColor = false;
+                    	}else{
+                    		This.activeColor = false;
                     	}
                     }
                 });

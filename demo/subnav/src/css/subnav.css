@@ -14,9 +14,15 @@ li{
 	height: 100%;
 	width: 100%;
 	max-width: 640px;
+	overflow-x: hidden;
 	overflow-y: scroll;
 	position: relative;
 }
+
+[v-cloak] {
+  display: none;
+}
+
 .body >ul.big li{
 	height: 2rem;line-height: 2rem;
 	padding-left: 0.2rem;
@@ -27,13 +33,19 @@ li{
 	position: fixed;
 	right: 0;top: 0;
 	height: 100%;
-	width: 1rem;
+	width: 1.5rem;
 	padding-top: 4%;
 	font-weight: normal;
 	background-color: transparent;
 	transition: right .3s linear;
 }
+/*滑出菜单*/
 .body >ul.right.active{
+	background-color: rgba(0,0,0,.1);
+	right: 6rem;
+}
+/*背景色*/
+.body >ul.right.activeColor{
 	background-color: rgba(0,0,0,.1);
 }
 .body >ul.right li{
@@ -60,26 +72,24 @@ li{
 	width: 2rem;
 }
 /*按钮导航*/
-.body >ul.right > div{
-	position: absolute;left: 1rem;
+.body >div.keyboard{
+	position: fixed;right: -6rem;
 	background-color: white;
 	height: 100%;width: 6rem;
 	top: 0;
+	transition: right .3s linear;
 }
-.body >ul.right ul{
+.body >div.keyboard.active{
+	right: 0rem;
+}
+.body >div.keyboard ul{
 	width: 6rem;
 }
-.body >ul.right ul > li{
+.body >div.keyboard ul > li{
 	display: inline-block;width: 2rem;height: 2rem;
 	line-height: 2rem;
 	text-align: center;
-	border: 0.02rem solid #c1c1c1;
+	box-shadow: 0 0 0rem 0.05rem rgba(0,0,0,.1) inset;
 	border-left: none;
 	border-bottom: none;
-}
-.body >ul.right ul > li:nth-of-type(3n+1){
-	border-left: 0.02rem solid #c1c1c1;
-}
-.body >ul.right ul > li:nth-of-type(25),.body >ul.right ul > li:nth-of-type(26),.body >ul.right ul > li:nth-of-type(27){
-	border-bottom: 0.02rem solid #c1c1c1;
 }
