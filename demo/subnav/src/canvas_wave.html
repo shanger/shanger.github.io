@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>侧边导航</title>
+        <style type="text/css">
+            #canvas{
+                display: block;
+                margin: 50px auto;
+            }
+            #test{
+                width: 400px;height: 400px;
+                margin: 0 auto;
+                position: relative;
+            }
+            #test:hover:after{
+                content: '';
+                display: inline-block;
+                width: 400px;height: 400px;
+                background-color: black;
+                position: absolute;top: 0;left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div id="test"></div>
+        <script type="text/javascript">
+            (function(){ 
+                var canvasWave = function(o){              
+                    var that = this;
+                    this.config = o; 
+                    this.width = this.config.bind.offsetWidth;
+                    this.height = this.config.bind.offsetHeight;
+                    this.step  = this.config.step;
+                    this.range = this.config.range;
+                    this.speed = this.config.speed;
+                    this.goAnimateion = function(){
+                        var canvas = document.querySelector('#canvas');
+                        var ctx = canvas.getContext('2d');
+                        var direct = 0;
+                        var step = that.step;
+                        var width = that.width;
+                        var height = that.height;
+                        var range = that.range;
+                        var speed = that.speed;
+                        var R = width/2;
+                        function init(){
+                            ctx.clearRect(0,0,width,height);
+                            ctx.fillStyle="#87CEEB";
+                            //背景
+                            ctx.beginPath();
+                            ctx.fillRect(0,0,width,height);
+                            ctx.closePath();
+                            ctx.fill();
+                            //圆背景
+                            ctx.fillStyle="#ff4081";
+                            ctx.beginPath();
+                            ctx.arc(width/2,height/2,R,0,Math.PI*2,false);
+                            ctx.closePath();
+                            ctx.fill();
+
+                            //晃动幅度
+                            step += speed;  
+                            //转化为弧度  
+                            var stepAngle = step*Math.PI/180; 
+                            //左右两边的不同步
+                            var deltaHeight = Math.sin(stepAngle)*40; 
+                            var deltaHeightRight = Math.cos(stepAngle)*40;  
+                            var y = R + deltaHeight;
+
+                            //三角函数计算x值 x^2 + y^2 = r^2
+                            var expression = Math.pow(R,2) - Math.pow((R-y),2);
+                            var x = R - Math.sqrt(expression); 
+
+                            var rightY = R + deltaHeightRight;  
+                            var expressionRight = Math.pow(R,2) - Math.pow((R-rightY),2);  
+                            //取右侧的X坐标（同一个y值会有两个x坐标）  
+                            var rightX = 400 - (R - Math.sqrt(expressionRight));                 
+
+                            //划线
+                            ctx.lineWidth = 2;
+                            ctx.fillStyle="#388b6a";
+                            ctx.beginPath();
+                            ctx.moveTo(x,y);
+                            ctx.bezierCurveTo(100, y-range, 100, rightY-range, rightX,rightY);
+                            //ctx.lineTo(rightX, rightY);
+                            //ctx.fill();
+
+                            //计算所需的弧度
+                            var distance = Math.sqrt( Math.pow((width-x),2) + Math.pow((R-y),2) );
+                            var angle = Math.asin(distance/width)*2;
+                            //右侧半圆
+                            var distanceRight = Math.sqrt( Math.pow((width-rightX),2) + Math.pow((R-rightY),2) );
+                            var angleRight = Math.asin(distanceRight/width)*2;
+                            //console.log(angle);
+                            //ctx.beginPath();
+                            if(y < R){
+                                angle = 2*Math.PI - angle;
+                            }
+                            if(rightY < R){
+                                angleRight = -angleRight;
+                            }
+                            ctx.arc(width/2,height/2,R,angleRight,angle,false);
+                            ctx.fill();
+
+                           
+                            window.requestAnimationFrame(init);
+                        }
+
+                        init();
+                    }();        
+                }             
+                 
+                window.canvasWave = canvasWave;                
+            }());
+            var Mycanvas = new canvasWave({
+                bind:document.querySelector('#canvas'),
+                step:0,
+                speed:3,    //速度
+                range: 30,    //波动幅度  
+                
+            });           
+            
+            
+        </script>
+    </body>
+</html>
