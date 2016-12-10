@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>svg</title>
+        <style type="text/css">
+        	#drawing{
+        		margin: 50px auto;
+        		width: 400px;
+        	}
+        </style>
+    </head>
+    <body id='app'>
+    	<div id="drawing"></div>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
+        <script>
+        	var draw = SVG('drawing').size(400, 400);
+        	var rect = draw.rect(400, 400).attr({ fill: 'black' });
+        	//glasses
+			var circle = draw.circle(400).attr({ fill: '#f06' });
+
+			var glassesL= draw.circle(160).move(30,40);
+			var glassesLInner = draw.circle(140).move(40,50).attr({ fill: '#f06' });
+			var eyeL = draw.ellipse(120, 40).move(50,80).attr({ fill: '#f60' });
+
+			var glassesR = draw.circle(160).move(210,40);
+			var glassesRInner = draw.circle(140).move(220,50).attr({ fill: '#f06' });
+			var eyeR = draw.ellipse(120, 40).move(230,80).attr({ fill: '#f60' });
+
+			var line = draw.line(190, 120, 220, 120).stroke({ width: 10 });
+			//嘴
+			var mouth = draw.ellipse(120, 40).move(130,210).attr({ fill: '#E9967A' });//mouth
+			var tongue = draw.ellipse(30, 26).move(180,220).attr({ fill: '#EE3B3B' });	//tongue
+			//cigarette
+			var cigarette = draw.polygon('0,360 30,400 200,240 180,220').fill('white');	//cigarette
+			var yantou = draw.circle(50).move(-5,351).attr({ fill: '#fff' });
+
+			//var path = draw.curveto('C', 0,100,60,280,30,350);
+			var path1 =  draw.path('M 10 50 C -20 75 40 275 10 350 C  70 275  0 75 10 50').attr({ fill: 'white' });
+			var path1 =  draw.path('M 40 150 C 0 175 80 225 40 250 C  80 225 -10 175 40 150').attr({ fill: 'white' });
+			var path1 =  draw.path('M 0 150 C -40 175 40 225 0 250 C  40 225 -50 175 0 150').attr({ fill: 'white' });
+        </script>
+    </body>
+</html>
