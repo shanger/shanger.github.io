@@ -45,58 +45,61 @@
 	    		<p class="below">因为它会确保条件块在切换当中合适地销毁与重建条件块内的事件监听器和子组件。</p>
 	    	</div>
 	    	<div>
-	    		<p class="loop">因为它会确保条件块在切换当中合适地销毁。</p>
+	    		<p class="loop">来啦来啦来啦来啦来啦来啦</p>
 	    	</div>
 	    	
 	    </div>
     <script>
-    	var loop = document.querySelector('.loop');
-    	var top = document.querySelector('.container > div:nth-of-type(2)');
-	   	function scrollLoop(node){
-	   		var width = node.offsetWidth;
-			node.style.width =  width + 'px';
-			node.style.right = -width + 'px';
-			var timer = null;
-			var speed = 1;
-			timer = setInterval(function(){
-				var CLeft = node.offsetLeft;
-				if(CLeft <= -width){
-					//新内容滚动成功之后 重置位置 清除定时器
-					node.style.right = -width + 'px';
-					clearInterval(timer);
-					document.querySelector('.container > div:nth-of-type(2)').style.display='none';
-					scrollBelow(below);
-				}else{
-					var right = parseInt(node.style.right);
-					node.style.right = right + speed +'px';
-				}
-				
-			},10);
-	   	}
-
-	   	var below = document.querySelector('.below');
-	   	function scrollBelow(node){
-	   		var width = node.offsetWidth;
-			node.style.width =  width + 'px';
-			node.style.right = -width + 'px';
-			var timer = null;
-			var speed = 1;
-			timer = setInterval(function(){
-				var CLeft = node.offsetLeft;
-				if(CLeft <= -width){					
-					node.style.right = -width + 'px';	//滚动成功之后 重置位置
-					//如果有新内容 开启滚动新内容
-					document.querySelector('.container > div:nth-of-type(2)').style.display='block';
-					scrollLoop(loop);
-					clearInterval(timer);			
-				}else{
-					var right = parseInt(node.style.right);
-					node.style.right = right + speed +'px';
-				}
-				
-			},10);
-	   	}
-		scrollBelow(below);
+		var tTop = document.querySelector('.loop');
+    	var tBelow = document.querySelector('.below');
+    	marquee(tTop,tBelow)
+    	function marquee(tTop,tBelow){
+    		var That = this;
+    		var top = tTop;
+    		var below = tBelow;
+    		scrollBelow(below);
+    		function scrollBelow(node){
+    			var width = node.offsetWidth;
+				node.style.width =  width + 'px';
+				node.style.right = -width + 'px';
+				var timer = null;
+				var speed = 1;
+				timer = setInterval(function(){
+					var CLeft = node.offsetLeft;
+					if(CLeft <= -width){					
+						node.style.right = -width + 'px';	//滚动成功之后 重置位置
+						//如果有新内容 开启滚动新内容
+						document.querySelector('.container > div:nth-of-type(2)').style.display='block';
+						scrollLoop(top);
+						clearInterval(timer);			
+					}else{
+						var right = parseInt(node.style.right);
+						node.style.right = right + speed +'px';
+					}					
+				},10);
+    		}
+    		function scrollLoop(node){
+    			var width = node.offsetWidth;
+				node.style.width =  width + 'px';
+				node.style.right = -width + 'px';
+				var timer = null;
+				var speed = 1;
+				timer = setInterval(function(){
+					var CLeft = node.offsetLeft;
+					if(CLeft <= -width){
+						//新内容滚动成功之后 重置位置 清除定时器
+						node.style.right = -width + 'px';
+						clearInterval(timer);
+						document.querySelector('.container > div:nth-of-type(2)').style.display='none';
+						scrollBelow(below);
+					}else{
+						var right = parseInt(node.style.right);
+						node.style.right = right + speed +'px';
+					}
+					
+				},10);
+	    	}
+    	}
 		
 
 	</script>
