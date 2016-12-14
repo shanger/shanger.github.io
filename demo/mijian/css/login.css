@@ -1,0 +1,161 @@
+*{
+	margin:0;padding: 0;box-sizing: border-box;
+}
+html,body{
+	font-family: "Microsoft Yahei";
+	height: 100%;
+	background-color: #f8f8f8;
+}
+.body{
+	max-width: 640px;
+	margin:0 auto;
+	height: 100%;
+	position: relative;
+	font-size: 0;
+	background: url('../img/bg.jpg') no-repeat;
+	background-size: 100% auto;
+	overflow:hidden;
+}
+.body > form{
+	margin-top: 10.575rem;
+	width: 70%;
+	text-align: center;
+	margin-left:15%;
+}
+.body > form > div{	
+	padding:0 0.45rem;
+	height: 1.9rem;line-height: 1.9rem;
+	background-color: rgba(255,255,255,.6);	
+}
+.body > form > div:nth-of-type(1){
+	border-radius: 5px 5px 0 0;
+	position: relative;
+}
+.body > form > div:nth-of-type(1):after{
+	display: inline-block;
+	content: '';
+	width: 90%;
+	height: 1px;
+	background-color: #ae9ea2;
+	position: absolute;
+	bottom: 0;left: 5%;
+}
+.body > form > div:nth-of-type(2){
+	border-radius: 0 0 5px 5px;
+}
+.body > form > div >span{
+	display: inline-block;height: 0.75rem;
+	vertical-align: middle;
+}
+.body > form > div >span:nth-of-type(1){
+	width: 0.8rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body > form > div >span:nth-of-type(2){
+	width: 8.65rem;
+	margin-left:0.8rem;
+}
+.body > form > div:nth-of-type(1) >span:nth-of-type(1){
+	background-image: url('../img/zhanghao.png');
+	
+}
+.body > form > div:nth-of-type(2) >span:nth-of-type(1){
+	background-image: url('../img/mima.png');
+}
+.body > form > div >span >input{
+	text-align: left;
+	outline: none;
+	padding-left: 0.3rem;
+	display: inline-block;vertical-align: top;
+	background-color: transparent;
+	border:none;
+	height: 0.75rem;width: 100%;
+	font-size: 0.6rem;
+	font-family: "Microsoft Yahei";
+}
+/*忘记密码*/
+.findPsw{
+	margin-top: 0.25rem;
+	height: 0.5rem;line-height: 0.5rem;
+	text-align: left;
+}
+.findPsw>a{
+	color: white;
+	text-decoration: none;
+	font-size: 0.4rem;
+}
+/*登录*/
+.body > form > input{
+	text-indent: -1000px;
+	display: inline-block;
+	background-color: transparent;
+	border:none;outline: none;
+	margin: 0.75rem auto;
+	width: 9.675rem;
+	height: 1.925rem;
+	background-image: url('../img/submit.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+/*注册*/
+
+.body > section{
+	margin-top:1rem; 
+	text-align: center;
+	width: 100%;
+}
+.body > section >p{
+	height: 0.8rem;line-height: 0.8rem;
+	font-size: 0.6rem;text-align: center;
+	color: white;
+}
+.body > section >p.title{
+	display: inline-block;
+	position: relative;
+	
+}
+.body > section >p.title:before{
+	display: inline-block;
+	content: '';
+	width: 4.25rem;
+	height: 1px;
+	background-color: rgba(255,255,255,.6);
+	position: absolute;
+	top: 0.4rem;left: -4.5rem;
+}
+.body > section >p.title:after{
+	display: inline-block;
+	content: '';
+	width: 4.25rem;
+	height: 1px;
+	background-color: rgba(255,255,255,.6);
+	position: absolute;
+	top: 0.4rem;right: -4.5rem;
+}
+.body > section >div{
+	height: 1.15rem;
+	text-align: center;
+	margin-top:0.2rem; 
+}
+.body > section >div > a{
+	vertical-align: top;
+	display: inline-block;height: 1.15rem;
+	width: 3.025rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.body > section >div > a:nth-of-type(1){
+	background-image: url('../img/male.png');
+}
+.body > section >div > a:nth-of-type(2){
+	background-image: url('../img/female.png');
+	margin-left: 3.95rem;
+}
+
+.body > section >p:nth-of-type(2){
+	margin-top:0.2rem; 
+}
