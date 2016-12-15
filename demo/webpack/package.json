@@ -1,0 +1,20 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "webpack test",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --port 8089  --inline"
+  },
+  "keywords": [
+    "webpack",
+    "vue"
+  ],
+  "author": "shanger",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.24.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
