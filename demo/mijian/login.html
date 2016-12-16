@@ -18,20 +18,25 @@
 				</div>
 				<div>
 					<span></span><span>
-						<input type="password" name="zhanghu">
+						<input type="password" name="zhanghu" placeholder="密码">
 					</span>
 				</div>
 				<p class="findPsw">
 					<a href="javascript:void(0)">忘记密码？</a>
 				</p>
-				<input type="submit" name="">
+				<input type="submit" name="" class="button">
 			</form>
 			<section>
-				<p class="title">新用户注册</p>
-				<div>
-					<a href="javascript:void(0)"></a><a href="javascript:void(0)"></a>
-				</div>
-				<p>我已阅读并同意会员注册协议</p>
+				<input type="button" name="" class="button registBtn" >
+			</section>
+			<section class="regist">
+				<section>
+					<p class="title">请选择您的性别</p>
+					<div>
+						<a href="javascript:void(0)"></a><a href="javascript:void(0)"></a>
+					</div>
+					<p>我已阅读并同意会员注册协议</p>
+				</section>				
 			</section>
 			
     	</div>
@@ -45,6 +50,19 @@
     				}
     			})
     		}
+    		var registBtn = document.querySelector('input.registBtn');
+    		var regist = document.querySelector('section.regist');
+    		registBtn.addEventListener('click',function(ev){
+    			ev.stopPropagation();
+    			regist.setAttribute('class','regist show');
+    		},false);
+    		//关掉
+    		regist.addEventListener('click',function(ev){
+    			ev.stopPropagation();
+    			if(ev.target.getAttribute('class') == 'regist show'){
+    				regist.setAttribute('class','regist');
+    			}
+    		},false);
     	</script>
     	
     </body>
