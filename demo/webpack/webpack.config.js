@@ -1,17 +1,8 @@
-var webpack = require('webpack');
 var path = require('path');
-var HtmlwebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-//路径
-
-var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH,'app');
-var BUILD_PATH = path.resolve(ROOT_PATH,'bulid');	//生成文件路径
-
+// NodeJS中的Path对象，用于处理目录的对象，提高开发效率。
+// 模块导入
 module.exports = {
-	
-	// 入口文件地址，不需要写完，会自动查找
+    // 入口文件地址，不需要写完，会自动查找
     entry: './src/main',
     // 输出
     output: {
@@ -48,11 +39,10 @@ module.exports = {
             { test: /\.(html|tpl)$/, loader: 'html-loader' },
         ]
     },
-    // .vue的配置。需要单独出来配置
+    // .vue的配置。需要单独出来配置，其实没什么必要--因为我删了也没保错，不过这里就留这把，因为官网文档里是可以有单独的配置的。
     vue: {
         loaders: {
             css: 'style!css!autoprefixer',
-            html:'html-loader'
         }
     },
     // 转化成es5的语法
@@ -60,12 +50,15 @@ module.exports = {
         presets: ['es2015'],
         plugins: ['transform-runtime']
     },
+    resolve: {
+        // require时省略的扩展名，如：require('module') 不需要module.js
+        extensions: ['', '.js', '.vue'],
+        // 别名，可以直接使用别名来代表设定的路径以及其他
+        alias: {
+            filter: path.join(__dirname, './src/filters'),
+            components: path.join(__dirname, './src/components')
+        }
+    },
     // 开启source-map，webpack有多种source-map，在官网文档可以查到
-    devtool: 'eval-source-map',
-	    devServer: {
-	    historyApiFallback: true,
-	    hot: false,
-	    inline: true,
-	    grogress: true,
-	}
-}
+    devtool: 'eval-source-map'
+};
