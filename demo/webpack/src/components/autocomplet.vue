@@ -65,7 +65,7 @@
 </template>
 <style >
 	.autoComp,.autoComp *{
-		margin:0;padding: 0;box-sizing: border-box;
+		margin:0;padding: 0;
 		font-family: "Microsoft Yahei"
 	}
 
@@ -77,11 +77,12 @@
 	}
 	/*标签栏*/
 	.spanList{
-		display: inline-block;line-height: 40px;
+		display: inline-block;line-height: 42px;
 		vertical-align: top;
 	}
 	.spanList span{
-		display: inline-block;height: 30px;vertical-align: middle;
+		display: inline-block;height: 30px;vertical-align: top;
+		margin-top: 6px;
 		line-height: 30px;
 		padding: 0 6px;
 		background-color: rgba(22,46,162,.6);
@@ -101,7 +102,8 @@
 	}
 	.inputBox{
 		display: inline-block;width: 100px;height: 30px;
-		vertical-align: middle;
+		vertical-align: top;
+		margin-top: 6px;
 		border:none;outline: none;
 		padding-left: 4px;
 		font-size: 20px;
