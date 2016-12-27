@@ -6,6 +6,7 @@ import Vue from "../node_modules/vue/dist/vue.min.js";//其实不用写完，会
 //import MyApp from './components/test.vue';
 import MyApp from './components/radio.vue';
 import picker from './components/citypicker.vue';
+import autoComp from './components/autoComplet.vue';
 
 Vue.config.debug = true;//开启错误提示
 
@@ -13,6 +14,7 @@ new Vue(MyApp);
 
 new Vue(picker);
 
+new Vue(autoComp);
 /*new Vue({   
     el: '#body',  
     components: { app }  
