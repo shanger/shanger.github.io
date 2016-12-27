@@ -91,6 +91,7 @@
 		margin-left: 4px;
 		font-size: 16px;
 		position: relative;
+		color: white;
 	}
 	.spanList span input{
 		display: inline-block;
