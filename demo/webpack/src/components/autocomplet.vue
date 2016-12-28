@@ -12,8 +12,9 @@
         },
         methods:{
         	inputKeyup (){
-        		document.querySelector('.autoComp ul').style.display = 'block';
-        		document.querySelector('.autoComp ul').style.top = document.querySelector('.autoComp').offsetHeight + 'px';
+        		var that = this;
+        		this.$refs.valul.style.display = 'block';
+        		
         		this.filterVal = [];
         		this.changeUl();
         	},
@@ -23,43 +24,31 @@
 	 			var reg = new RegExp(this.inputVal,'g');
 	 			this.compValue.forEach((ele) =>{ 				
 	 				if(reg.test(ele.title)){
-	 					that.filterVal.push({title:ele.title,id:ele.id})
-	 				}
-	 				
+	 					that.filterVal.push({title:ele.title,id:ele.id});
+	 				}	 				
 	 			});
 	 			//console.log(Object.prototype.toString.call(that.filterVal))
 	 		},
-	 		select (id){
+	 		select (index){
 	 			var that = this;
-	 			this.filterVal.forEach((ele,index) =>{ 
-	 				if(ele.id == id){
-	 					var Ttitle = that.filterVal[index].title;
-	 					var Tid = that.filterVal[index].id;
-	 					that.selectValue.push({title:Ttitle,id:Tid});
-	 					document.querySelector('.autoComp ul').style.top = document.querySelector('.autoComp').offsetHeight + 'px';
-	 				}	 				
-	 			});	 			
-	 			
+	 			var Ttitle = that.filterVal[index].title;
+	 			var Tid = that.filterVal[index].id;
+	 			this.selectValue.push({title:Ttitle,id:Tid});		 			
 	 		},
-	 		remove (id){
+	 		remove (index){
 	 			var that = this;
-	 			this.selectValue.forEach((ele,index) =>{ 
-	 				if(ele.id == id){
-	 					that.selectValue.splice(index,1);
-	 					document.querySelector('.autoComp ul').style.top = document.querySelector('.autoComp').offsetHeight + 'px';
-	 				}	 				
-	 			});
-	 		}
+	 			this.selectValue.splice(index,1);
+	 		},
 
         },
     }
 </script>
 <template>
     <div class="autoComp">
-		<div class="spanList" v-el:parent>
-			<span v-for="item in selectValue" v-bind:data_id="item.id">{{item.title}}<input type='button' v-on:click="remove(item.id)"/></span>
-		</div><input type="text" name="" class="inputBox" v-on:keyup="inputKeyup()" v-model="inputVal"><ul v-el:valul>
-			<li v-for="item in filterVal" v-on:click="select(item.id)" v-bind:data_index="item.id">{{item.title}}</li>
+		<div class="spanList" ref="parent">
+			<span v-for="(item,index) in selectValue" v-bind:data_id="item.id">{{item.title}}<input type='button' v-on:click="remove(index)"/></span>
+		</div><input type="text" name="" class="inputBox" v-on:keyup="inputKeyup()" v-model="inputVal"><ul ref="valul">
+			<li v-for="(item,index) in filterVal" v-on:click="select(index)" v-bind:data_index="item.id">{{item.title}}</li>
 		</ul>
 	</div>
 </template>
@@ -112,10 +101,8 @@
 		background-color: rgba(22,46,162,.2);
 	}
 	.autoComp ul{
-		position: absolute;top: 39px;left: -1px;
 		width: 400px;
-		border:1px solid #162EA2;
-		border-top: none;
+		border-top: 1px solid #162EA2;
 		display: none;
 		max-height: 240px;
 		overflow-y: auto;
