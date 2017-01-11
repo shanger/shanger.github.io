@@ -11,7 +11,11 @@
     <body id='app'>
     	<div class="body" v-el:mybody>
     		<ul class="big" v-cloak>
-    			<li v-for="item in li">{{item}}</li>
+    			<li v-for="item in li"><p>{{item.char}}</p>
+                    <ul >
+                        <li v-for="ele in item.list">{{ele}}</li>
+                    </ul>
+                </li>
     		</ul>
     		<ul class="right" v-bind:style="{lineHeight:rightLiLineHeight,fontSize:rightLiFontSize}" v-bind:class="{active:rightLiActive,activeColor:activeColor}" v-el:rightli v-cloak>
     			<li v-for="item in rightLi" >

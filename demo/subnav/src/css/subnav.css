@@ -24,9 +24,26 @@ li{
 }
 
 .body >ul.big li{
-	height: 2rem;line-height: 2rem;
-	padding-left: 0.2rem;
+	color: white;
+	line-height: 2rem;	
 	border-bottom: 1px solid #c9c9c9;
+}
+.body >ul.big li ul{
+	width: 100%;
+}
+.body >ul.big li ul li{
+	height: 1.8rem;
+	padding-left: 0.6rem;
+	font-size: 0.6rem;
+	line-height: 1.8rem;
+	background-color: rgba(222, 98, 98,.6);
+}
+.body >ul.big li ul li:last-child{
+	border:none;
+}
+.body >ul.big li p{
+	padding-left: 0.2rem;
+	background-color: rgb(222, 98, 98);
 }
 /*右侧导航*/
 .body >ul.right{
@@ -46,10 +63,11 @@ li{
 }
 /*背景色*/
 .body >ul.right.activeColor{
-	background-color: rgba(0,0,0,.1);
+	background-color: rgba(222, 98, 98,.4);
 }
 .body >ul.right li{
 	text-align: center;
+	color: black;
 
 }
 .body >ul.right li >span{
@@ -77,6 +95,7 @@ li{
 	background-color: white;
 	height: 100%;width: 6rem;
 	top: 0;
+	color: white;
 	transition: right .3s linear;
 }
 .body >div.keyboard.active{
@@ -89,7 +108,8 @@ li{
 	display: inline-block;width: 2rem;height: 2rem;
 	line-height: 2rem;
 	text-align: center;
-	box-shadow: 0 0 0rem 0.05rem rgba(0,0,0,.1) inset;
+	box-shadow: 0 0 0rem 0.05rem rgba(222, 98, 98,.1) inset;
 	border-left: none;
 	border-bottom: none;
+	background-color: rgba(222, 98, 98,.6);
 }
