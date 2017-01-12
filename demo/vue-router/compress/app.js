@@ -1,0 +1,1 @@
+(function(){"use strict";var e=function(){return new Vue({template:'<div id="app">You have been here for {{ counter }} seconds.</div>',data:{counter:0},created:function(){var e=this;setInterval(function(){e.counter+=1},1e3)}})};"undefined"!=typeof module&&module.exports?module.exports=e:this.app=e()}).call(this);

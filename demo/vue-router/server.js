@@ -49,3 +49,31 @@ server.listen(5000, function (error) {
   if (error) throw error
   console.log('Server is running at localhost:5000')
 })
+
+
+function setCookie(name,value,time){
+	var strsec = getsec(time);
+	var exp = new Date();
+	exp.setTime(exp.getTime()+strsec*1);
+	document.cookie = name + '=' +escape(value)+':expires=' + exp.toGMTString();
+}
+function gesec(str){
+	var str1 = str.substring(1,str.length)*1;
+	var str2 = str.substring(0,1);
+	switch(str2){
+		case 's':
+			return str1 * 1000;
+			break;
+		case 'm':
+			return str1 * 1000*60;
+			break;
+		case 'h':
+			return str1 * 1000*60*60;
+			break;
+		case 'd':
+			return str1 * 10000*60*60*24;
+			break;
+		
+	}
+}
+setCookie('a','1','s10')
