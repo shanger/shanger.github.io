@@ -1,0 +1,12 @@
+/* pages/skill/skill.wxss */
+.container{
+  background-color: #d2888d;
+  min-height: 100%;
+  color: #fff;
+}
+
+.infoLi{
+    display: block;
+    text-align: left;
+    font-size: 32rpx;
+}

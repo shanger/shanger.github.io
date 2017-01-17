@@ -1,0 +1,6 @@
+/* pages/works/works.wxss */
+.container{
+  background-color: #ed710c;
+  min-height: 100%;
+  color: #fff;
+}

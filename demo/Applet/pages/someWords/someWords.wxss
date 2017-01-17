@@ -1,0 +1,9 @@
+/* pages/someWords/someWords.wxss */
+.container{
+  background-color: #84b12a;
+  min-height: 100%;
+  color: #fff;
+}
+.containe text{
+    display: flex;
+}

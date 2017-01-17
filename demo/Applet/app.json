@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/skill/skill",
+    "pages/works/works",
+    "pages/someWords/someWords",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "shanger",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color":"#ddd",
+    "selectedColor": "#ff",
+    "borderStyle": "white",
+    "backgroundColor": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "color":"#12b7f5",
+        "selectedColor":"#000",
+        "backgroundColor":"#fff"
+      },
+       {
+        "pagePath": "pages/skill/skill",
+        "text": "技术",
+        "color":"#d2888d",
+        "selectedColor":"#000",
+        "backgroundColor":"#fff"
+      },
+       {
+        "pagePath": "pages/works/works",
+        "text":"作品",
+        "color":"#ed710c",
+        "selectedColor":"#000",
+        "backgroundColor":"#fff"
+      },
+       {
+        "pagePath": "pages/someWords/someWords",
+        "text": "期望",
+        "color":"#84b12a",
+        "selectedColor":"#000",
+        "backgroundColor":"#fff"
+      }
+    ],
+    "position": "bottom"  
+  }
+}

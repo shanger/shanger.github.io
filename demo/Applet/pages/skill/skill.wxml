@@ -1,0 +1,7 @@
+<!--pages/skill/skill.wxml-->
+<view class="container">
+    <view wx:for="{{skills}}" wx:for-item="itemName" class="infoLi" wx:key="title">
+        {{itemName.title}}
+    </view>
+</view>
+

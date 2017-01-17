@@ -1,0 +1,6 @@
+<!--pages/works/works.wxml-->
+<view class="container">
+    <view wx:for="{{list}}" wx:for-item="itemName" class="infoLi" wx:key="title">
+        {{itemName.title}}:{{itemName.src}}
+    </view>
+</view>
