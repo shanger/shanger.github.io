@@ -35,6 +35,16 @@
 			width: 200px;
 			font-size: 20px;
 		}
+		.aa > div:nth-of-type(1){
+			color: #f60;
+		}
+		.aa > div:nth-child(1){
+			color: #f60;
+		}
+		ul li{
+			display: inline-block;
+
+		}
 	</style>
 </head>
 <body>
@@ -48,6 +58,26 @@
 	<p>当 前密 码</p>
 	<p>新　密　码</p>
 	<p>确定新密码</p>
-	
+	<ul>
+		<li class="aa">
+			<p>ddd</p>
+			<div>sss</div>
+		</li>
+
+
+		<li class="aa bb">
+			<p>ddd</p>
+			<div>sss</div>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		var bb = document.querySelector('.bb');
+		bb.addEventListener('click',function(){
+			setTimeout(function(){
+				console.log('gg')
+			},2000);
+			alert('gg')
+		},false);
+	</script>
 </body>
 </html>

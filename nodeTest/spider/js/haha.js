@@ -2,8 +2,7 @@ var http = require('http'); //http 网络
 var fs = require('fs');	//流
 var cheerio = require('cheerio'); //html 解析
 var request = require('request');
-var i = 0;
-var querySearch = 1;
+var querySearch = 1;	//page id
 var url = "http://www.haha.mx/topic/1/new/";
 var imgUrls = [];	//待下载图片地址
 
@@ -78,3 +77,4 @@ function start(){
 }
 
 start();
+
