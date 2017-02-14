@@ -1,0 +1,28 @@
+.line{
+	height: 100px;width: 100%;
+	background-color: #000;
+	overflow: hidden;
+}
+.line div{
+	margin:49px auto;
+	width: 800px;height: 1px;
+	background: -webkit-linear-gradient(left,#fff,#f5f5f5,#fff);
+	box-shadow: 0 0 1px #fff;
+	position: relative;
+}
+.line div:after{
+	content: '';
+	width: 50px;height: 0px;
+	display: inline-block;
+	position: absolute;
+	left: 0;top: 0;
+	box-shadow: 0 0 2px 1px #fff;
+}
+.line div:before{
+	content: '';
+	width: 50px;height: 0px;
+	display: inline-block;
+	position: absolute;
+	right: 0;top: 0;
+	box-shadow: 0 0 2px 1px #fff;
+}
