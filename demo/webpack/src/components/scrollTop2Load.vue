@@ -53,16 +53,13 @@
 	                    var scrollY = window.scrollY;
 	                    var screenH = document.documentElement.clientHeight||document.body.clientHeight;
 	                    var offsetHeight = document.querySelector('.scroll2Load').offsetHeight;
-	                    //屏幕高度+滚动高度 >= body高度 、做多划200px 、如果内容不充满屏幕不让滑动
-	                    if(scrollY+screenH >= offsetHeight && this.sPos.y- this.mPos.y < 200 && offsetHeight > screenH){
+	                    //屏幕高度+滚动高度 >= body高度 、做多划200px 、滑动加载的触发点、如果内容不充满屏幕不让滑动
+	                    if(scrollY+screenH >= offsetHeight && this.sPos.y- this.mPos.y < 200 &&this.sPos.y- this.mPos.y > 100 && offsetHeight > screenH){
 	                        document.querySelector('.list').style.marginBottom = this.sPos.y- this.mPos.y +'px';
 	                        document.querySelector('.uploading').style.lineHeight = this.sPos.y- this.mPos.y +'px';
 	                    }           
 	                }             
-	                LSwiperMaker.prototype.end = function(e){
-	                    document.querySelector('.list').style.marginBottom = 0;
-	                    document.querySelector('.uploading').style.lineHeight = '2rem';
-	                    document.querySelectorAll('.uploading')[1].style.lineHeight = '2rem';
+	                LSwiperMaker.prototype.end = function(e){	                    
 	                    if(this.config.dire_h){
 	                        if(!this.control){
 	                            this.dire = null;
@@ -80,11 +77,9 @@
 	                                this.dire = 'L';
 	                            }
 	                        }
-	                    }
-	             
+	                    }	             
 	                    this.control = false;
-	                    this.config.backfn(this);
-	             
+	                    this.config.backfn(this);	             
 	                } 
 	                window.LSwiperMaker = LSwiperMaker;
 	            }())
@@ -102,6 +97,12 @@
 	                            var offsetHeight = document.querySelector('.scroll2Load').offsetHeight;
 	                            if(scrollY+screenH >= offsetHeight && This.List.length>This.paseSize-1&&!This.nomore){
 	                                console.log('gg')
+	                                //加载结束
+	                                function(){
+	                                	document.querySelector('.list').style.marginBottom = 0;
+					                    document.querySelector('.uploading').style.lineHeight = '2rem';
+					                    document.querySelectorAll('.uploading')[1].style.lineHeight = '2rem';
+	                                }()
 	                            }
 	                        }else if(o.dire == 'D'){
 	                            return false;
