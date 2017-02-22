@@ -1,0 +1,24 @@
+*{
+	margin:0;padding: 0;box-sizing: border-box;
+}
+html,body{
+	font-family: "Microsoft Yahei";
+	background-color: #fff;
+}
+.body{
+	max-width: 1242px;
+	margin:0 auto;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;color: white;
+	outline: none;
+}
+[v-cloak] { display: none !important;} 
+input{
+	outline: none;border:none;
+	font-family: "Microsoft Yahei";
+	background-color: transparent;
+}

@@ -1,0 +1,86 @@
+html,body,.body{
+	min-height: 20rem;height: 100%;
+}
+body{
+	position: relative;
+}
+h2{
+	padding-top: 2.65378421900161rem;
+	padding-left: 3.2721417069243155rem;
+	font-size: 1.3655394524959743rem;
+	color: #ff1919;
+	font-weight: 600;
+}
+h3{
+	padding-left: 7.446054750402577rem;
+	padding-bottom: 2.847020933977456rem;
+	font-size: 0.7987117552334944rem;
+	color: #ff1919;
+	font-weight: normal;
+}
+.form{
+	width: 12.006441223832528rem;
+	margin:0 auto;
+}
+
+.form input{
+	display: inline-block;
+	width: 100%;
+	padding-left: 0.3864734299516908rem;
+	line-height: 1.700483091787439rem;
+	font-size: 0.644122383252818rem;
+	height: 1.700483091787439rem;
+	background-color: #eaeaea;
+}
+.form input:nth-of-type(1){
+	margin-bottom: 1.4170692431561998rem;
+}
+.form input::-webkit-input-placeholder { 
+    color: #717171;
+}
+.form input:-moz-placeholder { 
+    color: #717171;
+}
+.form input::-moz-placeholder { 
+    color: #717171;
+}
+.form input:-ms-input-placeholder { 
+    color: #717171;
+}
+.form input[type="button"]{
+	margin-top: 1.4170692431561998rem;
+	display: inline-block;
+	width: 100%;
+	line-height: 1.700483091787439rem;
+	font-size: 0.644122383252818rem;
+	height: 1.700483091787439rem;
+	background-color: #d82d2d;
+	color: #fff;
+	border-radius: 4px;
+}
+
+/*其他登录 */
+.form p{
+	margin-top: 1.0305958132045088rem;
+}
+.form p a{
+	display: inline-block;vertical-align: top;
+	color: #767676;
+	font-size: 0.5152979066022544rem;
+}
+.form p a:nth-of-type(2){
+	float: right;
+}
+.form p a:nth-of-type(2):after{
+	display: inline-block;
+	content: '';
+	clear: both;
+}
+.regist{
+	position: absolute;bottom: 0.9rem;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	color: #767676;
+	font-size: 0.5152979066022544rem;
+}

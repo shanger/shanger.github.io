@@ -1,0 +1,110 @@
+header{
+	width: 100%;
+	height: 2.2028985507246377rem;
+	line-height: 2.2028985507246377rem;
+	background-color: #d82d2d;
+	position: relative;
+	text-align: center;
+	font-size: 0.7987117552334944;
+	color: #fff;
+}
+header span{
+	display: inline-block;
+	width: 1.8808373590982286rem;
+	height: 0.7729468599033816rem;
+	background: url('../img/BACK.png') no-repeat;
+	background-size: auto 100%;
+	background-position: center; 
+	position: absolute; left:0;
+	top: 0.7150000000000001rem;
+}
+header span:after{
+	display: inline-block;
+	content: '';
+	clear: both;
+}
+
+.form{
+	width: 12.006441223832528rem;
+	margin:1.932367149758454rem auto 0;
+}
+.form div p{
+	line-height: 1rem;height: 1rem;
+	font-size: 0.6rem;
+}
+.form div p.focus{
+	color: #2cabf3;
+}
+.form div p.error{
+	color: #e41117;
+}
+
+.form input{
+	display: inline-block;
+	width: 100%;
+	padding-left: 0.3864734299516908rem;
+	line-height: 1.700483091787439rem;
+	font-size: 0.644122383252818rem;
+	height: 1.700483091787439rem;
+	background-color: #eaeaea;
+	/*margin-bottom: 1.0305958132045088rem;*/
+}
+.form input:nth-of-type(4){
+	margin-bottom:0;
+}
+.form input::-webkit-input-placeholder { 
+    color: #717171;
+}
+.form input:-moz-placeholder { 
+    color: #717171;
+}
+.form input::-moz-placeholder { 
+    color: #717171;
+}
+.form input:-ms-input-placeholder { 
+    color: #717171;
+}
+section.form input[type="button"]{
+	margin-bottom: 0.5rem;
+	display: inline-block;
+	width: 100%;
+	line-height: 1.700483091787439rem;
+	font-size: 0.644122383252818rem;
+	height: 1.700483091787439rem;
+	background-color: #d82d2d;
+	color: #fff;
+	border-radius: 4px;
+}
+
+/*其他登录 */
+section.form div.checkbox{
+	font-size: 0.5281803542673108rem;
+	height: 1rem;line-height: 1rem;
+	color: #767676;
+}
+section.form div.checkbox > div.check{
+	display: inline-block;vertical-align: top;
+	margin-top: 0.22rem;
+	width: 0.5539452495974235rem;
+	height: 0.5539452495974235rem;
+	
+	margin-right: 0.5rem;
+	position: relative;line-height: 0;
+}
+section.form div.checkbox > div.check input{
+	position: absolute;top: 0;left: 0;
+	display: inline-block;width: 100%;height: 100%;
+	opacity: 0;
+}
+section.form div.checkbox > div.check span{
+	display: inline-block;width: 100%;height: 100%;
+	border-radius: 100%;
+	background: url('../img/uncheck.png') no-repeat;
+	background-size: cover;
+}
+section.form div.checkbox > div.check input:checked + span{
+	background-image:  url('../img/check.png');
+}
+section.form div.checkbox label{
+	color: #57cffc;
+}
