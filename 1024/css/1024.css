@@ -12,7 +12,9 @@ body{
 	position: relative;
 }
 
-
+[v-cloak]{
+	display: none;
+}
 
 /*内容区*/
 body > div{

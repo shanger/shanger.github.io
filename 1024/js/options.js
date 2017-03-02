@@ -26,6 +26,7 @@ var pannel = new Vue({
         keybord:[1,1,1,1,1,1,1,1,1]
     },
     created:function(){
+        document.querySelector('.loading').style.display='none'
 
         /*this.score = localStorage.getItem('record')?localStorage.getItem('record'):0;*/
         this.li.height = document.querySelector('div section:nth-of-type(2) ul > li').offsetWidth +'px';
@@ -72,13 +73,13 @@ var pannel = new Vue({
                            for(var x = 1;x < 4;x++){
                                 if( i-4*x >= 0 && Number(this.panel[i].value) ==  Number(this.panel[i-4*x].value)){
                                     if(x > 2 && Number(this.panel[i-8].value) == 0){    //跨非空元素不能相加
-                                        This.add(i,i-4*x); //相邻的元素计算后推出
+                                        This.add(i,i-4*x); //相邻的元素计算后退出
                                         break;
                                     }else if(x > 1 && Number(this.panel[i-4].value) == 0 && Number(this.panel[i-8].value) == 0){    //跨非空元素不能相加
-                                        This.add(i,i-4*x); //相邻的元素计算后推出
+                                        This.add(i,i-4*x); //相邻的元素计算后退出
                                         break; 
                                     }else if(x == 1){
-                                        This.add(i,i-4*x); //相邻的元素计算后推出
+                                        This.add(i,i-4*x); //相邻的元素计算后退出
                                         break;
                                     }                                     
                                 }                                
@@ -106,13 +107,13 @@ var pannel = new Vue({
                             for(var x = 1;x < 4;x++){
                                 if(i+4*x < 16 && Number(this.panel[i].value) ==  Number(this.panel[i+4*x].value)){
                                     if(x > 2 && Number(this.panel[i+8].value) == 0&& Number(this.panel[i+4].value) == 0){    //跨非空元素不能相加
-                                        This.add(i,i+4*x); //相邻的元素计算后推出
+                                        This.add(i,i+4*x); //相邻的元素计算后退出
                                         break;
                                     }else if(x > 1  && Number(this.panel[i+4].value) == 0){    //跨非空元素不能相加
-                                        This.add(i,i+4*x); //相邻的元素计算后推出
+                                        This.add(i,i+4*x); //相邻的元素计算后退出
                                         break; 
                                     }else if(x == 1){
-                                        This.add(i,i+4*x); //相邻的元素计算后推出
+                                        This.add(i,i+4*x); //相邻的元素计算后退出
                                         break;
                                     }                                  
                                 }                                
@@ -134,19 +135,19 @@ var pannel = new Vue({
                     break;
                 case 'L':
                     //计算
-                    for(var l = 3;l > 0;l--){ //从第四列依次和前三列相加 一次相加之后推出循环不再相加
+                    for(var l = 3;l > 0;l--){ //从第四列依次和前三列相加 一次相加之后退出循环不再相加
                         for(var i = l;i <= l+12; i=i+4){
                             if( Number(This.panel[i].value) != 0){
                                 for(var x = i;x > i-l;x--){
                                     if(Number(This.panel[i].value) ==  Number(This.panel[x-1].value)){
                                         if(i-x > 2 && Number(this.panel[i-1].value) == 0 && Number(this.panel[i-2].value) == 0){    //跨非空元素不能相加
-                                            This.add(i,x-1); //相邻的元素计算后推出
+                                            This.add(i,x-1); //相邻的元素计算后退出
                                             break;
                                         }else if(i-x > 1 && Number(this.panel[i-1].value) ){    //跨非空元素不能相加
-                                            This.add(i,x-1); //相邻的元素计算后推出
+                                            This.add(i,x-1); //相邻的元素计算后退出
                                             break; 
                                         }else if(i-x <= 1){
-                                            This.add(i,x-1); //相邻的元素计算后推出
+                                            This.add(i,x-1); //相邻的元素计算后退出
                                             break;
                                         }
                                     }
@@ -178,13 +179,13 @@ var pannel = new Vue({
                                 for(var x = i;x < i + (3-r) ;x++){  //每一行的比较相同则 计算，是不同列 所以比较后都要退出换i值
                                     if(Number(this.panel[i].value) ==  Number(this.panel[x+1].value)){
                                         if(x-i+1 > 2 && Number(this.panel[i+1].value) == 0 && Number(this.panel[i+2].value) == 0){    //跨非空元素不能相加
-                                            This.add(i,x+1); //相邻的元素计算后推出
+                                            This.add(i,x+1); //相邻的元素计算后退出
                                             break;
                                         }else if(x-i+1 > 1 && Number(this.panel[i+1].value) == 0){    //跨非空元素不能相加
-                                            This.add(i,x+1); //相邻的元素计算后推出
+                                            This.add(i,x+1); //相邻的元素计算后退出
                                             break; 
                                         }else if(x-i+1 <= 1){
-                                            This.add(i,x+1); //相邻的元素计算后推出
+                                            This.add(i,x+1); //相邻的元素计算后退出
                                             break;
                                         }
                                         

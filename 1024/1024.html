@@ -7,18 +7,26 @@
 		<title>1024</title>
 		<link rel="stylesheet" type="text/css" href="css/1024.css">
 		<link rel="stylesheet" type="text/css" href="css/keybord.css">
+		<link rel="stylesheet" type="text/css" href="css/loading7.css">
 	</head>
 	<body id="panel" v-on:keyup="keyup($event)">
-		<ul>
+		<div class="loading">
+			<ul class="loading7">
+				<li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li>				
+			</ul>
+			<p>讲真，我已经上了cdn了……</p>
+		</div>
+		
+		<ul class="options">
 			<li v-for="item in keybord" v-on:click="pcmove($index)"></li>
 		</ul>
 		<div>
-			<section>
+			<section v-cloak>
 				<div><p>得分：</p><p>{{score}}</p></div><div><p>历史记录：</p><p>{{record}}</p></div>
 			</section>
 			<section v-on:touchstart="touchstart($event)" v-on:touchmove="touchmove($event)" v-on:touchend="touchend($event)">
 				<ul>
-					<li v-for="item in panel" v-bind:style="{height:li.height,marginTop:li.marginTop,lineHeight:li.height}" v-bind:class="item.class">{{item.value}}</li>
+					<li v-for="item in panel" v-bind:style="{height:li.height,marginTop:li.marginTop,lineHeight:li.height}" v-bind:class="item.class" >{{item.value}}</li>
 				</ul>
 			</section>
 		</div>
@@ -29,7 +37,7 @@
 			</section>
 			
 		</div>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+		<script type="text/javascript" src="http://odqxl7d3r.bkt.clouddn.com/vue.min.js"></script>
 		
 		<!--<script type="text/javascript" src="js/vue.min.js"></script>-->
 		<script type="text/javascript" src="js/options.js"></script>
