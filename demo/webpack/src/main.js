@@ -7,6 +7,7 @@ import Vue from "../node_modules/vue/dist/vue.min.js";//其实不用写完，会
 // import picker from './components/citypicker.vue';
 // import autoComp from './components/autoComplet.vue';
 import scrollTop2Load from './components/scrollTop2Load.vue';
+//import animateNav from './components/animateNav.vue';
 
 Vue.config.debug = true;//开启错误提示
 
@@ -20,3 +21,14 @@ new Vue(scrollTop2Load);
     el: '#body',  
     components: { app }  
 }) */ 
+var app = new Vue({
+	el:'#body',
+	// data:{		
+	// 	aa:'ggg'
+	// }
+	data(){
+		return {
+			aa:'ggg'
+		}
+	}
+})

@@ -7,7 +7,7 @@
             	pageIndex:1,
 		        paseSize:10,
 				List:[
-					{id:1},{id:2},{id:3},{id:4},{id:5},{id:6},{id:7},{id:8},{id:9},{id:10},{id:11},{id:12},{id:13},
+					{id:1},{id:2},{id:3},{id:4},{id:5},{id:6},{id:7},{id:8},{id:9},{id:10},{id:11},{id:12},{id:13},{id:14},{id:15},{id:16},{id:17},
 				],
 				//提示框
 				tips:{
@@ -96,13 +96,20 @@
 	                            var screenH = document.documentElement.clientHeight||document.body.clientHeight;
 	                            var offsetHeight = document.querySelector('.scroll2Load').offsetHeight;
 	                            if(scrollY+screenH >= offsetHeight && This.List.length>This.paseSize-1&&!This.nomore){
-	                                console.log('gg')
 	                                //加载结束
-	                                function(){
-	                                	document.querySelector('.list').style.marginBottom = 0;
-					                    document.querySelector('.uploading').style.lineHeight = '2rem';
-					                    document.querySelectorAll('.uploading')[1].style.lineHeight = '2rem';
-	                                }()
+	                                function timeout(ms) {
+									  return new Promise((resolve, reject) => {
+									    setTimeout(resolve, ms, 'done');
+									  });
+									}
+									timeout(2000).then((value) => {
+										(function(){
+											document.querySelector('.list').style.marginBottom = 0;
+											document.querySelector('.uploading').style.lineHeight = '2rem';
+											document.querySelectorAll('.uploading')[1].style.lineHeight = '2rem';
+										})()
+									});
+	                                
 	                            }
 	                        }else if(o.dire == 'D'){
 	                            return false;
