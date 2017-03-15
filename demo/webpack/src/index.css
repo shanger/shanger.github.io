@@ -1,0 +1,152 @@
+*{
+	margin:0;padding: 0;box-sizing: border-box;
+}
+html,body{
+	font-family: "Microsoft Yahei";
+	height: 100%;
+}
+.body{
+	max-width: 640px;
+	height: 100%;
+	margin:0 auto;
+}
+a{
+	text-decoration: none;color: white;
+}
+
+li{
+	list-style: none;
+}
+body{
+	position: relative;
+}
+
+section > ul li{
+	padding: 0 3rem;
+	font-size: 0.68rem;
+	color: white;
+	line-height: 1.6rem;
+}
+.someWords li{
+	text-indent: 1.36rem;
+}
+.headImg{
+	height: 5rem;width: 5rem;
+	margin:1rem auto;
+	border-radius: 100%;
+	background: url('../img/header.jpg') no-repeat;
+	background-size: cover;
+}
+
+h3.title{
+	height: 1.6rem;position: relative;z-index: 400;
+	text-align: center;line-height: 1.6rem;
+	font-size: 0.8rem;color: white;
+}
+p.nav{
+	position: absolute;bottom: 0;left: 0;z-index: 100;
+	width: 100%;
+	height: 2rem;line-height: 2rem;
+}
+h2{
+	text-align: center;
+	color: white;
+}
+p.nav > a{
+	display: inline-block;
+	width: 25%;height: 2rem;vertical-align: top;
+	text-align: center;line-height: 2rem;
+	font-size: 0.68rem;
+	color: white;
+}
+#app{
+	height: 100%;
+}
+/*导航*/
+p.nav a.router-link-active{
+	color: white !important;
+}
+p.nav a:nth-of-type(1){
+	color: #12b7f5;
+}
+p.nav a:nth-of-type(2){
+	color: #d2888d;
+
+}
+p.nav a:nth-of-type(3){
+	color: #ed710c;
+
+}
+p.nav a:nth-of-type(4){
+	color: #84b12a;
+
+}
+
+
+#app {position: relative;}
+#app > section{
+	height: 100%;position: absolute;top: 0;left: 0;width: 100%;
+	padding-top: 4rem;
+}
+#app > section.index{
+	background-color: #12b7f5;
+}
+#app > section.skill{
+	background-color: #d2888d;
+}
+
+#app > section.works{
+	background-color: #ed710c;
+}
+
+#app > section.someWords{
+	background-color: #84b12a;
+}
+
+.heihei{
+	height: 1.6rem;width: 2rem;
+	line-height: 0;position: relative;
+}
+.heihei >span{
+	position: relative;z-index: 2;
+	display: inline-block;
+	height: 0.2rem;
+	width: 1.4rem;
+	margin-top: 0.3rem;
+	transition: opacity 0.5s linear,transform 0.5s linear;
+	background-color: #87DAFF;
+	border-radius: 0.2rem;
+	margin-left: 0.3rem;
+}
+.heihei.transform >span{
+	margin-left: 0.1rem;
+}
+.heihei.transform >span:nth-of-type(1){
+	transform-origin: 100% 50%;
+	transform: rotate(-45deg);
+}
+.heihei.transform >span:nth-of-type(2){
+	opacity: 0;
+}
+.heihei.transform >span:nth-of-type(3){
+	transform-origin: 100% 50%;
+	transform: rotate(45deg);
+}
+.heihei> div{
+
+	position: fixed;left: 0;top:0;height: 100%;width: 0%;
+	background-color: black;
+	z-index: 1;
+	opacity: 0;
+	transition: width 0.5s linear,opacity 0.5s ease-in;
+	font-size: 0;
+}
+.heihei.transform> div{
+	line-height: 2rem;
+	width: 2rem;
+	opacity: 1;
+	color: #fff;
+	padding:8rem 0.5rem 0;
+	font-size: 1rem;
+	white-space: normal;
+}
