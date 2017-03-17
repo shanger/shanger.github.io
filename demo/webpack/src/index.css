@@ -4,9 +4,10 @@
 html,body{
 	font-family: "Microsoft Yahei";
 	height: 100%;
+	min-height: 15rem;
 }
 .body{
-	max-width: 640px;
+	/*max-width: 640px;*/
 	height: 100%;
 	margin:0 auto;
 }
@@ -22,17 +23,21 @@ body{
 }
 
 section > ul li{
-	padding: 0 3rem;
-	font-size: 0.68rem;
+	padding: 0 2rem;
+	font-size: 0.5rem;
 	color: white;
-	line-height: 1.6rem;
+	line-height: 0.8rem;
+}
+
+section.works > ul,section.skill > ul,section.someWords > ul{
+	margin-top: 0.6rem;
 }
 .someWords li{
-	text-indent: 1.36rem;
+	text-indent: 0.8rem;
 }
 .headImg{
 	height: 5rem;width: 5rem;
-	margin:1rem auto;
+	margin:1rem auto 0.5rem;
 	border-radius: 100%;
 	background: url('../img/header.jpg') no-repeat;
 	background-size: cover;
@@ -46,7 +51,7 @@ h3.title{
 p.nav{
 	position: absolute;bottom: 0;left: 0;z-index: 100;
 	width: 100%;
-	height: 2rem;line-height: 2rem;
+	height: 1.5rem;line-height: 1.5rem;
 }
 h2{
 	text-align: center;
@@ -54,9 +59,9 @@ h2{
 }
 p.nav > a{
 	display: inline-block;
-	width: 25%;height: 2rem;vertical-align: top;
-	text-align: center;line-height: 2rem;
-	font-size: 0.68rem;
+	width: 25%;height: 1.5rem;vertical-align: top;
+	text-align: center;line-height: 1.5rem;
+	font-size: 0.5rem;
 	color: white;
 }
 #app{
@@ -85,8 +90,9 @@ p.nav a:nth-of-type(4){
 
 #app {position: relative;}
 #app > section{
+	z-index: 10;
 	height: 100%;position: absolute;top: 0;left: 0;width: 100%;
-	padding-top: 4rem;
+	padding-top: 2rem;
 }
 #app > section.index{
 	background-color: #12b7f5;
@@ -98,25 +104,29 @@ p.nav a:nth-of-type(4){
 #app > section.works{
 	background-color: #ed710c;
 }
+#app > section.works li,#app > section.skill li{
+	text-align: center;
+}
 
 #app > section.someWords{
 	background-color: #84b12a;
 }
-
+/*左侧*/
 .heihei{
-	height: 1.6rem;width: 2rem;
+	height: 1rem;width: 1rem;
 	line-height: 0;position: relative;
+	z-index: 20;
 }
 .heihei >span{
 	position: relative;z-index: 2;
 	display: inline-block;
 	height: 0.2rem;
-	width: 1.4rem;
-	margin-top: 0.3rem;
+	width: 0.8rem;
+	margin-top: 0.1rem;
 	transition: opacity 0.5s linear,transform 0.5s linear;
 	background-color: #87DAFF;
 	border-radius: 0.2rem;
-	margin-left: 0.3rem;
+	margin-left: 0.1rem;
 }
 .heihei.transform >span{
 	margin-left: 0.1rem;
@@ -142,11 +152,14 @@ p.nav a:nth-of-type(4){
 	font-size: 0;
 }
 .heihei.transform> div{
-	line-height: 2rem;
-	width: 2rem;
+	line-height: 1.4rem;
+	width: 1.3rem;
+	text-align: center;
 	opacity: 1;
 	color: #fff;
-	padding:8rem 0.5rem 0;
-	font-size: 1rem;
+	padding:6rem 0.2rem 0;
+	@include font-dpr(12px);
+	/*font-size: 0.5rem;*/
 	white-space: normal;
 }
+

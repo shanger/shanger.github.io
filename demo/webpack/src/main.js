@@ -38,6 +38,9 @@
 import Vue from "../node_modules/.2.1.6@vue/dist/vue.min.js";
 import VueRouter from "../node_modules/.2.3.0@vue-router/dist/vue-router.min.js"
 
+require("./index.css");
+require("./index.scss");
+
 Vue.use(VueRouter);
 const skill =  ({
 	template:'#skill',
@@ -75,6 +78,9 @@ const Index = ({
 });
 
 const routes = [
+	{
+		path:'/',redirect: '/index',
+	},
 	{
 		path:'/index',component: Index,
 	},

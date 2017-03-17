@@ -1,4 +1,5 @@
 var path = require('path');
+
 // NodeJS中的Path对象，用于处理目录的对象，提高开发效率。
 // 模块导入
 module.exports = {
@@ -32,7 +33,7 @@ module.exports = {
             { test: /\.css$/, loader: 'style!css!autoprefixer'},
         //.scss 文件想要编译，scss就需要这些东西！来编译处理
         //install css-loader style-loader sass-loader node-sass --save-dev
-            { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
+            { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader'},
         // 图片转化，小于8K自动转化为base64的编码
             { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192'},
         //html模板编译？
