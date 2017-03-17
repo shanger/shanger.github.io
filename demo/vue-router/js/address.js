@@ -17,7 +17,8 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 			},
 			bg:{
 				'index':true,'message':false,'friends':false,'dynamic':false
-			}
+			},
+			text:'hi',
 		},
 		created:function(){
 		},
@@ -42,7 +43,9 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 			}
 		},
 
-	})
+	});
+	
+
 	Vue.use(VueRouter);
 
 	var skill =  Vue.extend({
@@ -100,5 +103,6 @@ requirejs(['vue','vueRouter','city'],function(Vue,VueRouter,city){
 	})
 	var App = Vue.extend({});
 	about.start(App, '#app');
+	
 	
 });

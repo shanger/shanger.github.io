@@ -6,7 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>shan</title>
         <link rel="stylesheet" type="text/css" href="compress/transition.css">
-        
+        <style type="text/css">
+            
+            ul li:nth-child(1){
+                color: #000;
+            }
+            ul li.ll{
+                color: #f60;
+            }
+        </style>
     </head>
     <body id='body'>
     	<div class="body">
@@ -15,5 +23,58 @@
 	    	</div>
     		
     	</div>
+        <div id="you">
+            <ul id="filter">
+                <li v-for="n in newarr">{{n}}</li>
+                <my-test></my-test>
+                <the-global message="yes"></the-global>
+            </ul>
+            <my-test></my-test>
+            <the-global message="yes!"></the-global>
+            <app></app>
+        </div>
+        <ul>
+            <li class="ll">g</li>
+        </ul>
+        
+        <script type="text/javascript" src="../../bower_components/vue/dist/vue.min.js"></script>
+        <script type="text/javascript">
+            var test = {
+                template:'<div>局部注册的组件</div>'
+            };
+            var app = Vue.extend({
+                data:function(){
+                    return {
+                        from:'extend'
+                    }
+                },
+                template:'<div>{{from}}来的</div>'
+            });
+            Vue.component('app',app);
+
+            Vue.component('the-global',{
+                props:['message'],
+                template:'<div>这个是全局注册的组件{{message}}</div>'
+            })
+            var you = new Vue({
+                el:'#you',
+            })
+        
+            var test = new Vue({
+                data:{
+                        arr:[1,2,1,6]
+                },
+                computed:{
+                    newarr:function(){
+                        return this.arr.filter(function(x){
+                            return x*2
+                        })
+                    }
+                },
+                components:{
+                    'my-test':test
+                }
+            }).$mount('#filter')
+        </script>
     </body>
 </html>
