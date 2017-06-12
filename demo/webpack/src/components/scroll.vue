@@ -41,25 +41,26 @@ export default {
   },
   mounted () {
     var self = this;
-    var demo = document.querySelector('#demo')
-    var demo1 = document.querySelector('#demo1')
-    var demo2 = document.querySelector('#demo2')
-    var top1 = 0,top2 = 200;
+    var demo = this.$refs.demo
+    var demo1 = this.$refs.demo1
+    var demo2 = this.$refs.demo2
+    var top1 = demo1.offsetTop,top2 = demo2.offsetTop;
+    var currentViewHeight = demo.offsetHeight;
     setInterval(function(){
-      if(top1 < 200){
+      if(top1 < currentViewHeight){
         demo1.style.top = - top1++ + 'px';
       }else{
-        demo1.style.top = '200px';
-        top1 = -200;
+        demo1.style.top = currentViewHeight + 'px';
+        top1 = -currentViewHeight;
         self.demo1.forEach(function(ele){
           ele.title = parseInt(ele.title) + 1
         })
       }
-      if(top2 > -200){
+      if(top2 > -currentViewHeight){
         demo2.style.top =   top2-- + 'px'
       }else{
-        demo2.style.top = '200px';
-        top2 = 200;
+        demo2.style.top = currentViewHeight + 'px';
+        top2 = currentViewHeight;
         self.demo2.forEach(function(ele){
           ele.title = parseInt(ele.title) - 1
         })
