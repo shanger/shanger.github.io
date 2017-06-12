@@ -1,0 +1,8 @@
+### Others
+
+node_modules
+
+bower_commponents
+
+demo/**/node_modules
+
