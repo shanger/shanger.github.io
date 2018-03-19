@@ -51,7 +51,7 @@ document.querySelector('input').addEventListener('click', function () {
 					img.setAttribute('class', ''); //img动画结束
 				}, 300);
 			}
-		}, 8);
+		}, 3);
 	}
 }, false);
 
